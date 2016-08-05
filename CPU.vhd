@@ -25,4 +25,10 @@ begin
 		adr_out => adr_out
 	);
 	
+	ID_BLOCK: entity work.ID_BLOCK
+	port map(
+		test => clk
+	);
+	
+	
 end architecture;

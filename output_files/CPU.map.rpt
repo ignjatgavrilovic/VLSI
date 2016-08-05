@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Fri Aug 05 23:14:28 2016
+Fri Aug 05 23:49:27 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -41,15 +41,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Aug 05 23:14:28 2016           ;
+; Analysis & Synthesis Status        ; Successful - Fri Aug 05 23:49:27 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 160                                             ;
+; Total logic elements               ; 128                                             ;
 ;     Total combinational functions  ; 32                                              ;
-;     Dedicated logic registers      ; 160                                             ;
-; Total registers                    ; 160                                             ;
+;     Dedicated logic registers      ; 128                                             ;
+; Total registers                    ; 128                                             ;
 ; Total pins                         ; 98                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -161,6 +161,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
 ; CPU.vhd                          ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd      ;         ;
 ; IF_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd ;         ;
+; ID_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd ;         ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
 
 
@@ -169,7 +170,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 160   ;
+; Estimated Total logic elements              ; 128   ;
 ;                                             ;       ;
 ; Total combinational functions               ; 32    ;
 ; Logic element usage by number of LUT inputs ;       ;
@@ -181,16 +182,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- normal mode                          ; 2     ;
 ;     -- arithmetic mode                      ; 30    ;
 ;                                             ;       ;
-; Total registers                             ; 160   ;
-;     -- Dedicated logic registers            ; 160   ;
+; Total registers                             ; 128   ;
+;     -- Dedicated logic registers            ; 128   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 98    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 160   ;
-; Total fan-out                               ; 447   ;
-; Average fan-out                             ; 1.54  ;
+; Maximum fan-out                             ; 128   ;
+; Total fan-out                               ; 383   ;
+; Average fan-out                             ; 1.48  ;
 +---------------------------------------------+-------+
 
 
@@ -199,8 +200,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
-; |CPU                       ; 32 (0)            ; 160 (0)      ; 0           ; 0            ; 0       ; 0         ; 98   ; 0            ; |CPU                   ; work         ;
-;    |IF_BLOCK:IF_BLOCK|     ; 32 (32)           ; 160 (160)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IF_BLOCK:IF_BLOCK ; work         ;
+; |CPU                       ; 32 (0)            ; 128 (0)      ; 0           ; 0            ; 0       ; 0         ; 98   ; 0            ; |CPU                   ; work         ;
+;    |IF_BLOCK:IF_BLOCK|     ; 32 (32)           ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IF_BLOCK:IF_BLOCK ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -210,7 +211,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 160   ;
+; Total registers                              ; 128   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -235,7 +236,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Aug 05 23:14:25 2016
+    Info: Processing started: Fri Aug 05 23:49:24 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VLSI_Projekat -c CPU
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
@@ -247,19 +248,25 @@ Info (12021): Found 2 design units, including 1 entities, in source file if_bloc
 Info (12021): Found 2 design units, including 1 entities, in source file instr_cache.vhd
     Info (12022): Found design unit 1: INSTR_CACHE-RTL
     Info (12023): Found entity 1: INSTR_CACHE
+Info (12021): Found 2 design units, including 1 entities, in source file id_block.vhd
+    Info (12022): Found design unit 1: ID_BLOCK-rtl
+    Info (12023): Found entity 1: ID_BLOCK
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
 Info (12128): Elaborating entity "IF_BLOCK" for hierarchy "IF_BLOCK:IF_BLOCK"
+Warning (10036): Verilog HDL or VHDL warning at IF_BLOCK.vhd(19): object "ir" assigned a value but never read
+Info (12128): Elaborating entity "ID_BLOCK" for hierarchy "ID_BLOCK:ID_BLOCK"
+Warning (12158): Entity "ID_BLOCK" contains only dangling pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "reset"
-Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 226 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 34 input pins
     Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 160 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 524 megabytes
-    Info: Processing ended: Fri Aug 05 23:14:28 2016
+    Info (21061): Implemented 128 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 533 megabytes
+    Info: Processing ended: Fri Aug 05 23:49:27 2016
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
