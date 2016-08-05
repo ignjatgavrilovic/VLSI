@@ -8,8 +8,8 @@ entity INSTR_CACHE is
 	
 	port (
 		reset : in std_logic;
-		pc : out std_logic_vector(31 downto 0);
-		adr_in : in std_logic_vector(31 downto 0)
+		adr_in : in std_logic_vector(31 downto 0);
+		ir_out : out std_logic_vector(31 downto 0)
 	);
 	
 end INSTR_CACHE;
@@ -45,7 +45,7 @@ begin
 	end process;
 	
 	process (adr_in) is begin 
-		pc <= cache(to_integer(unsigned(adr_in)));
+		ir_out <= cache(to_integer(unsigned(adr_in)));
 		
 	end process;
 	

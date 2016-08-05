@@ -18,6 +18,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Loading entity IF_BLOCK
 
+} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CPU_vhd_tst
+-- Compiling architecture CPU_arch of CPU_vhd_tst
+
 } {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -26,13 +34,5 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Compiling entity IF_BLOCK
 -- Compiling architecture rtl of IF_BLOCK
-
-} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity CPU_vhd_tst
--- Compiling architecture CPU_arch of CPU_vhd_tst
 
 } {} {}}

@@ -2,35 +2,35 @@ m255
 K3
 13
 cModel Technology
-Z0 dE:\Ignjat backup\Fax\4. Godina\VLSI\Projekat\simulation\modelsim
+Z0 dC:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim
 Ecpu
-Z1 w1470417501
+Z1 w1470427824
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z4 dE:\Ignjat backup\Fax\4. Godina\VLSI\Projekat\simulation\modelsim
-Z5 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd
-Z6 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd
+Z4 dC:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim
+Z5 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd
+Z6 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd
 l0
 L4
 V12]RoOTXnjYb>@1zQ5jbb1
 Z7 OV;C;10.1d;51
 31
-Z8 !s108 1470418037.474000
-Z9 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd|
-Z10 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd|
+Z8 !s108 1470428036.668000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd|
+Z10 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd|
 Z11 o-93 -work work -O0
 Z12 tExplicit 1
 !s100 IcFg7[PR9>TGK_1nGYCS;2
 !i10b 1
 Artl
 Z13 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
-Z14 DEx4 work 8 if_block 0 22 HM]lUn[UaP?;?PSd65X@d0
+Z14 DEx4 work 8 if_block 0 22 Q9B4ZJMnTB^RoLkKa>F?00
 R2
 R3
 DEx4 work 3 cpu 0 22 12]RoOTXnjYb>@1zQ5jbb1
 l22
 L15
-VL[U2ELcM4g?g1m05@>GNc0
+VUeN6YmkWZOXX68?_Va>o20
 R7
 31
 R8
@@ -38,46 +38,62 @@ R9
 R10
 R11
 R12
-!s100 kz`gcnAoYTXUROGTa?ISz2
+!s100 XJf66`ahed;<D4KTzJIea3
 !i10b 1
 Ecpu_vhd_tst
-w1470417436
+Z15 w1470427825
 R2
 R3
 R4
-8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
-FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
+Z16 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht
+Z17 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht
 l0
-L4
+L30
 Vc4mRn1T0=<l9chJdEFzZ>2
-!s100 TN[nCI9l0AR0_m2Xe8L@f0
+!s100 NFLzGc4GbO=2aY>_`a?Y>1
 R7
 31
 !i10b 1
-!s108 1470418037.933000
-!s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht|
-!s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht|
+Z18 !s108 1470428037.074000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht|
+Z20 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht|
+R11
+R12
+Acpu_arch
+R2
+R3
+DEx4 work 11 cpu_vhd_tst 0 22 c4mRn1T0=<l9chJdEFzZ>2
+l58
+L32
+VUf4A:=Fll`ki5b@R9Uo7a3
+!s100 iF>IEXdC:jUT02bXiWlPP3
+R7
+31
+!i10b 1
+R18
+R19
+R20
 R11
 R12
 Eif_block
-Z15 w1470411621
+R1
 R13
 R2
 R3
 R4
-Z16 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd
-Z17 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd
+Z21 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd
+Z22 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd
 l0
 L5
-VHM]lUn[UaP?;?PSd65X@d0
+VQ9B4ZJMnTB^RoLkKa>F?00
 R7
 31
-Z18 !s108 1470418036.951000
-Z19 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd|
-Z20 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd|
+Z23 !s108 1470428035.859000
+Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd|
+Z25 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd|
 R11
 R12
-!s100 o:XH6MUifK>ka5`JOXjDW2
+!s100 8Kl3:7cnI9]K1kZEaYZ;g0
 !i10b 1
 Artl
 R13
@@ -86,13 +102,13 @@ R3
 R14
 l22
 L20
-VdH7L^m59VR^=Sgf>G1N2V3
+V92OMFYY3lj[JfZ69k>9IX2
 R7
 31
-R18
-R19
-R20
+R23
+R24
+R25
 R11
 R12
-!s100 Q`CGGJ:CX<0G;AFeOcHjl3
+!s100 :bT_PNJLk1G3Mm[2_124S2
 !i10b 1

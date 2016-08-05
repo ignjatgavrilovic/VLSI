@@ -72,15 +72,15 @@ GND                          : A2        : gnd    :                   :         
 GND*                         : A3        :        :                   :         : 3         :                
 VCCIO3                       : A4        : power  :                   : 3.3V    : 3         :                
 GND*                         : A5        :        :                   :         : 3         :                
-GND*                         : A6        :        :                   :         : 3         :                
-GND*                         : A7        :        :                   :         : 3         :                
-GND*                         : A8        :        :                   :         : 3         :                
-adr_out[9]                   : A9        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[30]                  : A6        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[5]                   : A7        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[8]                   : A8        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[12]                  : A9        : output : 3.3-V LVTTL       :         : 3         : N              
 adr_out[16]                  : A10       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[29]                  : A11       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[0]                   : A12       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[17]                  : A11       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : A12       :        :                   :         : 3         :                
 GND                          : A13       : gnd    :                   :         :           :                
-adr_out[3]                   : A14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : A14       :        :                   :         : 3         :                
 VCCIO3                       : A15       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : A16       : power  :                   : 3.3V    : 4         :                
 GND*                         : A17       :        :                   :         : 4         :                
@@ -399,15 +399,15 @@ GND*                         : B2        :        :                   :         
 GND*                         : B3        :        :                   :         : 3         :                
 GND*                         : B4        :        :                   :         : 3         :                
 GND*                         : B5        :        :                   :         : 3         :                
-GND*                         : B6        :        :                   :         : 3         :                
-GND*                         : B7        :        :                   :         : 3         :                
-GND*                         : B8        :        :                   :         : 3         :                
-adr_out[2]                   : B9        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[28]                  : B6        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[7]                   : B7        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[31]                  : B8        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[10]                  : B9        : output : 3.3-V LVTTL       :         : 3         : N              
 adr_out[22]                  : B10       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[27]                  : B11       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[15]                  : B12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[8]                   : B13       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[26]                  : B14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : B11       :        :                   :         : 3         :                
+GND*                         : B12       :        :                   :         : 3         :                
+GND*                         : B13       :        :                   :         : 3         :                
+GND*                         : B14       :        :                   :         : 3         :                
 GND*                         : B15       :        :                   :         : 3         :                
 GND*                         : B16       :        :                   :         : 4         :                
 GND*                         : B17       :        :                   :         : 4         :                
@@ -430,14 +430,14 @@ GND*                         : C3        :        :                   :         
 GND*                         : C4        :        :                   :         : 3         :                
 GND*                         : C5        :        :                   :         : 3         :                
 GND                          : C6        : gnd    :                   :         :           :                
-GND*                         : C7        :        :                   :         : 3         :                
+adr_out[3]                   : C7        : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : C8        : power  :                   : 3.3V    : 3         :                
-GND*                         : C9        :        :                   :         : 3         :                
-GND*                         : C10       :        :                   :         : 3         :                
+adr_out[9]                   : C9        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[23]                  : C10       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : C11       : power  :                   : 3.3V    : 3         :                
-adr_out[19]                  : C12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[5]                   : C13       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[12]                  : C14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : C12       :        :                   :         : 3         :                
+GND*                         : C13       :        :                   :         : 3         :                
+GND*                         : C14       :        :                   :         : 3         :                
 GND*                         : C15       :        :                   :         : 3         :                
 GND*                         : C16       :        :                   :         : 4         :                
 GND*                         : C17       :        :                   :         : 4         :                
@@ -459,15 +459,15 @@ GND*                         : D2        :        :                   :         
 GND*                         : D3        :        :                   :         : 2         :                
 GND*                         : D4        :        :                   :         : 3         :                
 GND*                         : D5        :        :                   :         : 3         :                
-GND*                         : D6        :        :                   :         : 3         :                
-GND*                         : D7        :        :                   :         : 3         :                
-GND*                         : D8        :        :                   :         : 3         :                
-GND*                         : D9        :        :                   :         : 3         :                
-adr_out[18]                  : D10       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[29]                  : D6        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[24]                  : D7        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[27]                  : D8        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[26]                  : D9        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[13]                  : D10       : output : 3.3-V LVTTL       :         : 3         : N              
 GND                          : D11       : gnd    :                   :         :           :                
-adr_out[31]                  : D12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[28]                  : D13       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[14]                  : D14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : D12       :        :                   :         : 3         :                
+adr_out[0]                   : D13       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : D14       :        :                   :         : 3         :                
 GND*                         : D15       :        :                   :         : 3         :                
 GND+                         : D16       :        :                   :         : 4         :                
 GND*                         : D17       :        :                   :         : 4         :                
@@ -492,12 +492,12 @@ GND                          : E5        : gnd    :                   :         
 VCCIO3                       : E6        : power  :                   : 3.3V    : 3         :                
 GND*                         : E7        :        :                   :         : 3         :                
 GND*                         : E8        :        :                   :         : 3         :                
-GND*                         : E9        :        :                   :         : 3         :                
-GND*                         : E10       :        :                   :         : 3         :                
-adr_out[24]                  : E11       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[30]                  : E12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[7]                   : E13       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[4]                   : E14       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[4]                   : E9        : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[25]                  : E10       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[18]                  : E11       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[15]                  : E12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : E13       :        :                   :         : 3         :                
+GND*                         : E14       :        :                   :         : 3         :                
 GND*                         : E15       :        :                   :         : 3         :                
 GND+                         : E16       :        :                   :         : 4         :                
 GND*                         : E17       :        :                   :         : 4         :                
@@ -524,9 +524,9 @@ GND*                         : F7        :        :                   :         
 GND*                         : F8        :        :                   :         : 3         :                
 GND                          : F9        : gnd    :                   :         :           :                
 VCCIO3                       : F10       : power  :                   : 3.3V    : 3         :                
-adr_out[20]                  : F11       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[19]                  : F11       : output : 3.3-V LVTTL       :         : 3         : N              
 adr_out[21]                  : F12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[1]                   : F13       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : F13       :        :                   :         : 3         :                
 GND                          : F14       : gnd    :                   :         :           :                
 VCCIO3                       : F15       : power  :                   : 3.3V    : 3         :                
 GND*                         : F16       :        :                   :         : 4         :                
@@ -554,10 +554,10 @@ GND*                         : G6        :        :                   :         
 GNDA_PLL3                    : G8        : gnd    :                   :         :           :                
 GND*                         : G9        :        :                   :         : 3         :                
 GND*                         : G10       :        :                   :         : 3         :                
-GND*                         : G11       :        :                   :         : 3         :                
-adr_out[17]                  : G12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[25]                  : G13       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[11]                  : G14       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[1]                   : G11       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[20]                  : G12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : G13       :        :                   :         : 3         :                
+GND*                         : G14       :        :                   :         : 3         :                
 reset                        : G15       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : G16       :        :                   :         : 4         :                
 GND*                         : G17       :        :                   :         : 4         :                
@@ -584,10 +584,10 @@ GND*                         : H7        :        :                   :         
 GND*                         : H8        :        :                   :         : 2         :                
 VCCA_PLL3                    : H9        : power  :                   : 1.2V    :           :                
 GND*                         : H10       :        :                   :         : 3         :                
-GND*                         : H11       :        :                   :         : 3         :                
-adr_out[23]                  : H12       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[13]                  : H13       : output : 3.3-V LVTTL       :         : 3         : N              
-adr_out[10]                  : H14       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[2]                   : H11       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[11]                  : H12       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[14]                  : H13       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : H14       :        :                   :         : 3         :                
 GND+                         : H15       :        :                   :         : 3         :                
 GND*                         : H16       :        :                   :         : 4         :                
 GND*                         : H17       :        :                   :         : 4         :                
@@ -615,8 +615,8 @@ GND_PLL3                     : J8        : gnd    :                   :         
 VCCD_PLL3                    : J9        : power  :                   : 1.2V    :           :                
 GND                          : J10       : gnd    :                   :         :           :                
 VCCIO3                       : J11       : power  :                   : 3.3V    : 3         :                
-GND*                         : J12       :        :                   :         : 3         :                
-adr_out[6]                   : J13       : output : 3.3-V LVTTL       :         : 3         : N              
+adr_out[6]                   : J12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : J13       :        :                   :         : 3         :                
 GND                          : J14       : gnd    :                   :         :           :                
 VCCIO3                       : J15       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : J16       : power  :                   : 3.3V    : 4         :                
