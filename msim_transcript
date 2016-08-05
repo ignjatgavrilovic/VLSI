@@ -1,0 +1,240 @@
+# vsim +altera -do CPU_run_msim_rtl_vhdl.do -l msim_transcript -gui work.cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_vhd_tst(cpu_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.cpu(rtl)
+# Loading work.if_block(rtl)
+# Loading ieee.std_logic_textio(body)
+# Loading work.instr_cache(rtl)
+# CPU_run_msim_rtl_vhdl.do 
+# invalid command name "CPU_run_msim_rtl_vhdl.do"
+# Load canceled
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+# ** Error: (vsim-7) Failed to open VHDL file "javni_test_inst_in.txt" in rb mode.
+# 
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Instance: /cpu_vhd_tst/i2
+# ** Fatal: (vsim-7) Failed to open VHDL file "javni_test_inst_in.txt" in rb mode.
+# 
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Process: /cpu_vhd_tst/i2/line__24 File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd
+# Fatal error in Process line__24 at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd line 35
+# 
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+add wave -position end  sim:/cpu_vhd_tst/i2/reset
+add wave -position end  sim:/cpu_vhd_tst/i2/pc
+add wave -position end  sim:/cpu_vhd_tst/i2/adr_in
+add wave -position end  sim:/cpu_vhd_tst/i2/cache
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+add wave -position end  sim:/cpu_vhd_tst/clock/clk_next
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht 81 Process clock
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+restart -f
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+# ** Error: (vsim-7) Failed to open VHDL file "javni_test_inst_in.txt" in rb mode.
+# 
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Instance: /cpu_vhd_tst/i2
+# ** Fatal: (vsim-7) Failed to open VHDL file "javni_test_inst_in.txt" in rb mode.
+# 
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 1  Process: /cpu_vhd_tst/i2/line__24 File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd
+# Fatal error in Process line__24 at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd line 35
+# 
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+# Compile of CPU.vhd was successful.
+# Compile of INSTR_CACHE.vhd was successful.
+# Compile of CPU.vht was successful.
+# Compile of IF_BLOCK.vhd was successful.
+# 4 compiles, 0 failed with no errors. 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run -continue
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd 35 Process line__24
+# 
+restart -f
+# Loading work.cpu_vhd_tst(cpu_arch)
+# Loading work.cpu(rtl)
+# Loading work.if_block(rtl)
+# Loading work.instr_cache(rtl)
+quit -sim
+# Compile of CPU.vhd was successful.
+# Compile of INSTR_CACHE.vhd was successful.
+# Compile of CPU.vht was successful.
+# Compile of IF_BLOCK.vhd was successful.
+# 4 compiles, 0 failed with no errors. 
+vsim +altera -do CPU_run_msim_rtl_vhdl.do -l msim_transcript -gui work.cpu_vhd_tst
+# vsim +altera -do CPU_run_msim_rtl_vhdl.do -l msim_transcript -gui work.cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_vhd_tst(cpu_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.cpu(rtl)
+# Loading work.if_block(rtl)
+# Loading ieee.std_logic_textio(body)
+# Loading work.instr_cache(rtl)
+# CPU_run_msim_rtl_vhdl.do 
+# invalid command name "CPU_run_msim_rtl_vhdl.do"
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+run -continue
+run
+run
+add wave -position end  sim:/cpu_vhd_tst/adr_out
+add wave -position end  sim:/cpu_vhd_tst/clk
+add wave -position end  sim:/cpu_vhd_tst/reset
+add wave -position end  sim:/cpu_vhd_tst/pc
+add wave -position end  sim:/cpu_vhd_tst/adr_in
+run
+run -continue
+run -continue
+run -continue
+run
+run
+run -continue
+run -continue
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run

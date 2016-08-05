@@ -1,0 +1,36 @@
+{E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/INSTR_CACHE.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_textio
+-- Compiling entity INSTR_CACHE
+-- Compiling architecture RTL of INSTR_CACHE
+
+} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd} {0 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CPU
+-- Compiling architecture rtl of CPU
+** Error: (vcom-11) Could not find work.if_block.
+
+** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd(23): (vcom-1195) Cannot find expanded name "work.IF_BLOCK".
+
+** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd(23): Unknown expanded name.
+** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd(32): VHDL Compiler exiting
+
+} {8.0 9.0 10.0 11.0 12.0 14.0} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht} {0 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CPU_vhd_tst
+-- Compiling architecture CPU_arch of CPU_vhd_tst
+** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht(14): near "signal": expecting ';'
+** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht(15): near "out": expecting STRING or IDENTIFIER or << or '('
+** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht(21): near ")": expecting FUNCTION or PROCEDURE or IMPURE or PURE
+
+} {8.0 11.0} {}}

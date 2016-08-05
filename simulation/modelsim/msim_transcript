@@ -1,0 +1,59 @@
+# Reading E:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do CPU_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity IF_BLOCK
+# -- Compiling architecture rtl of IF_BLOCK
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity CPU
+# -- Compiling architecture rtl of CPU
+# -- Loading package NUMERIC_STD
+# -- Loading entity IF_BLOCK
+# 
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity CPU_vhd_tst
+# -- Compiling architecture CPU_arch of CPU_vhd_tst
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht(14): near "signal": expecting ';'
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht(15): near "out": expecting STRING or IDENTIFIER or << or '('
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht(21): near ")": expecting FUNCTION or PROCEDURE or IMPURE or PURE
+# ** Error: E:/altera/13.0sp1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./CPU_run_msim_rtl_vhdl.do line 11
+# E:/altera/13.0sp1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}"
+# Load canceled
+vmap -del work
+# Removing reference to logical library work
+# Modifying modelsim.ini
+vmap work rtl_work
+# Modifying modelsim.ini
+vsim +altera -do CPU_run_msim_rtl_vhdl.do -l msim_transcript -gui work.cpu_vhd_tst
+# vsim +altera -do CPU_run_msim_rtl_vhdl.do -l msim_transcript -gui work.cpu_vhd_tst 
+# Loading std.standard
+# ** Error: (vsim-3173) Entity 'E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/rtl_work.cpu_vhd_tst' has no architecture.
+# 
+# Error loading design
+# reading E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini
+# Loading project pokusaj
