@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Fri Aug 05 23:49:27 2016
+Sat Aug 06 17:28:46 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,8 +14,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "ID_BLOCK:ID_BLOCK"
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -41,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Aug 05 23:49:27 2016           ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 06 17:28:46 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 128                                             ;
+; Total logic elements               ; 96                                              ;
 ;     Total combinational functions  ; 32                                              ;
-;     Dedicated logic registers      ; 128                                             ;
-; Total registers                    ; 128                                             ;
-; Total pins                         ; 98                                              ;
+;     Dedicated logic registers      ; 96                                              ;
+; Total registers                    ; 96                                              ;
+; Total pins                         ; 66                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -170,7 +171,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 128   ;
+; Estimated Total logic elements              ; 96    ;
 ;                                             ;       ;
 ; Total combinational functions               ; 32    ;
 ; Logic element usage by number of LUT inputs ;       ;
@@ -182,15 +183,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- normal mode                          ; 2     ;
 ;     -- arithmetic mode                      ; 30    ;
 ;                                             ;       ;
-; Total registers                             ; 128   ;
-;     -- Dedicated logic registers            ; 128   ;
+; Total registers                             ; 96    ;
+;     -- Dedicated logic registers            ; 96    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 98    ;
+; I/O pins                                    ; 66    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 128   ;
-; Total fan-out                               ; 383   ;
+; Maximum fan-out                             ; 96    ;
+; Total fan-out                               ; 287   ;
 ; Average fan-out                             ; 1.48  ;
 +---------------------------------------------+-------+
 
@@ -200,8 +201,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
-; |CPU                       ; 32 (0)            ; 128 (0)      ; 0           ; 0            ; 0       ; 0         ; 98   ; 0            ; |CPU                   ; work         ;
-;    |IF_BLOCK:IF_BLOCK|     ; 32 (32)           ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IF_BLOCK:IF_BLOCK ; work         ;
+; |CPU                       ; 32 (0)            ; 96 (0)       ; 0           ; 0            ; 0       ; 0         ; 66   ; 0            ; |CPU                   ; work         ;
+;    |IF_BLOCK:IF_BLOCK|     ; 32 (32)           ; 96 (96)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IF_BLOCK:IF_BLOCK ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -211,7 +212,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 128   ;
+; Total registers                              ; 96    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -219,6 +220,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ID_BLOCK:ID_BLOCK"                                                                       ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; load_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; store_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mov_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; movi_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; add_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sub_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; addi_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; subi_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; and_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; or_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; xor_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; not_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; shr_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; shl_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sar_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rol_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ror_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; jmp_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; jsr_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rts_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; push_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pop_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; beq_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; bnq_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; bgt_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blt_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; bge_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ble_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; halt_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs1_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs2_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rd_out    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; imm_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -236,7 +278,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Aug 05 23:49:24 2016
+    Info: Processing started: Sat Aug 06 17:28:41 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VLSI_Projekat -c CPU
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
@@ -252,22 +294,86 @@ Info (12021): Found 2 design units, including 1 entities, in source file id_bloc
     Info (12022): Found design unit 1: ID_BLOCK-rtl
     Info (12023): Found entity 1: ID_BLOCK
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(20): object "LOAD_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(21): object "STORE_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(22): object "MOV_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(23): object "MOVI_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(24): object "ADD_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(25): object "SUB_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(26): object "ADDI_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(27): object "SUBI_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(28): object "AND_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(29): object "OR_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(30): object "XOR_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(31): object "NOT_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(32): object "SHR_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(33): object "SHL_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(34): object "SAR_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(35): object "ROL_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(36): object "ROR_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(37): object "JMP_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(38): object "JSR_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(39): object "RTS_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(40): object "PUSH_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(41): object "POP_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(42): object "BEQ_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(43): object "BNQ_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(44): object "BGT_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(45): object "BLT_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(46): object "BGE_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(47): object "BLE_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(48): object "HALT_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(51): object "Rs1_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(52): object "Rs2_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(53): object "Rd_id_ex" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(54): object "imm_id_ex" assigned a value but never read
 Info (12128): Elaborating entity "IF_BLOCK" for hierarchy "IF_BLOCK:IF_BLOCK"
 Warning (10036): Verilog HDL or VHDL warning at IF_BLOCK.vhd(19): object "ir" assigned a value but never read
 Info (12128): Elaborating entity "ID_BLOCK" for hierarchy "ID_BLOCK:ID_BLOCK"
-Warning (12158): Entity "ID_BLOCK" contains only dangling pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
+Warning (21074): Design contains 33 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "reset"
-Info (21057): Implemented 226 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "ir_in[0]"
+    Warning (15610): No output dependent on input pin "ir_in[1]"
+    Warning (15610): No output dependent on input pin "ir_in[2]"
+    Warning (15610): No output dependent on input pin "ir_in[3]"
+    Warning (15610): No output dependent on input pin "ir_in[4]"
+    Warning (15610): No output dependent on input pin "ir_in[5]"
+    Warning (15610): No output dependent on input pin "ir_in[6]"
+    Warning (15610): No output dependent on input pin "ir_in[7]"
+    Warning (15610): No output dependent on input pin "ir_in[8]"
+    Warning (15610): No output dependent on input pin "ir_in[9]"
+    Warning (15610): No output dependent on input pin "ir_in[10]"
+    Warning (15610): No output dependent on input pin "ir_in[11]"
+    Warning (15610): No output dependent on input pin "ir_in[12]"
+    Warning (15610): No output dependent on input pin "ir_in[13]"
+    Warning (15610): No output dependent on input pin "ir_in[14]"
+    Warning (15610): No output dependent on input pin "ir_in[15]"
+    Warning (15610): No output dependent on input pin "ir_in[16]"
+    Warning (15610): No output dependent on input pin "ir_in[17]"
+    Warning (15610): No output dependent on input pin "ir_in[18]"
+    Warning (15610): No output dependent on input pin "ir_in[19]"
+    Warning (15610): No output dependent on input pin "ir_in[20]"
+    Warning (15610): No output dependent on input pin "ir_in[21]"
+    Warning (15610): No output dependent on input pin "ir_in[22]"
+    Warning (15610): No output dependent on input pin "ir_in[23]"
+    Warning (15610): No output dependent on input pin "ir_in[24]"
+    Warning (15610): No output dependent on input pin "ir_in[25]"
+    Warning (15610): No output dependent on input pin "ir_in[26]"
+    Warning (15610): No output dependent on input pin "ir_in[27]"
+    Warning (15610): No output dependent on input pin "ir_in[28]"
+    Warning (15610): No output dependent on input pin "ir_in[29]"
+    Warning (15610): No output dependent on input pin "ir_in[30]"
+    Warning (15610): No output dependent on input pin "ir_in[31]"
+Info (21057): Implemented 162 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 34 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 128 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 533 megabytes
-    Info: Processing ended: Fri Aug 05 23:49:27 2016
-    Info: Elapsed time: 00:00:03
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 96 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 510 megabytes
+    Info: Processing ended: Sat Aug 06 17:28:46 2016
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:03
 
 

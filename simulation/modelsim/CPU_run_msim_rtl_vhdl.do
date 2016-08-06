@@ -6,6 +6,7 @@ vlib rtl_work
 vmap work rtl_work
 
 vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd}
+vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd}
 vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd}
 
 vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht}

@@ -17,7 +17,6 @@ COMPONENT CPU
 		adr_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		clk : IN STD_LOGIC;
 		ir_in : in std_logic_vector(31 downto 0);
-		ir_out : out std_logic_vector(31 downto 0);
 		reset : IN STD_LOGIC
 	);
 END COMPONENT;
@@ -37,8 +36,7 @@ BEGIN
 		adr_out => adr,
 		clk => clk,
 		reset => reset,
-		ir_in => ir_cache_if,
-		ir_out => ir_if_id
+		ir_in => ir_cache_if
 	);
 	
 	i2 : INSTR_CACHE

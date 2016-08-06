@@ -3,26 +3,12 @@ dataset reload -f
 # Usage: dataset info <option> <dataset_name>
 # Compile of CPU.vhd was successful.
 # Compile of INSTR_CACHE.vhd was successful.
-# Compile of CPU.vht failed with 1 errors.
-# Compile of IF_BLOCK.vhd was successful.
-# 4 compiles, 1 failed with 1 error. 
-# Compile of CPU.vhd was successful.
-# Compile of INSTR_CACHE.vhd was successful.
-# Compile of CPU.vht failed with 1 errors.
-# Compile of IF_BLOCK.vhd was successful.
-# 4 compiles, 1 failed with 1 error. 
-# Compile of CPU.vhd was successful.
-# Compile of INSTR_CACHE.vhd was successful.
-# Compile of CPU.vht failed with 11 errors.
-# Compile of IF_BLOCK.vhd was successful.
-# 4 compiles, 1 failed with 11 errors. 
-# Compile of CPU.vhd was successful.
-# Compile of INSTR_CACHE.vhd was successful.
 # Compile of CPU.vht was successful.
 # Compile of IF_BLOCK.vhd was successful.
-# 4 compiles, 0 failed with no errors. 
-vsim work.cpu_vhd_tst
-# vsim work.cpu_vhd_tst 
+# Compile of ID_BLOCK.vhd was successful.
+# 5 compiles, 0 failed with no errors. 
+vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -30,13 +16,14 @@ vsim work.cpu_vhd_tst
 # Loading ieee.numeric_std(body)
 # Loading work.cpu(rtl)
 # Loading work.if_block(rtl)
+# Loading work.id_block(rtl)
 # Loading ieee.std_logic_textio(body)
 # Loading work.instr_cache(rtl)
-add wave -position end  sim:/cpu_vhd_tst/adr
-add wave -position end  sim:/cpu_vhd_tst/clk
-add wave -position end  sim:/cpu_vhd_tst/reset
-add wave -position end  sim:/cpu_vhd_tst/ir_cache_if
-add wave -position end  sim:/cpu_vhd_tst/ir_if_id
+add wave -position end  sim:/cpu_vhd_tst/i1/ID_BLOCK/clk
+add wave -position end  sim:/cpu_vhd_tst/i1/ID_BLOCK/ir_in
+add wave -position end  sim:/cpu_vhd_tst/i1/ID_BLOCK/LOAD_out
+add wave -position end  sim:/cpu_vhd_tst/i1/ID_BLOCK/ROL_out
+add wave -position end  sim:/cpu_vhd_tst/i1/ID_BLOCK/MOV_out
 run
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
@@ -45,48 +32,95 @@ run
 run
 run
 run
-quit -sim
-vmap -del work
-# Removing reference to logical library work
-# Modifying C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/Mixa_test.mpf
-vmap work work
-# Modifying C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/Mixa_test.mpf
-vsim work.cpu_vhd_tst
-# vsim work.cpu_vhd_tst 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.cpu_vhd_tst(cpu_arch)
-# Loading ieee.numeric_std(body)
-# Loading work.cpu(rtl)
-# Loading work.if_block(rtl)
-# Loading ieee.std_logic_textio(body)
-# Loading work.instr_cache(rtl)
-quit -sim
-# Compile of CPU.vhd was successful.
-# Compile of INSTR_CACHE.vhd was successful.
-# Compile of CPU.vht was successful.
-# Compile of IF_BLOCK.vhd was successful.
-# 4 compiles, 0 failed with no errors. 
-vsim work.cpu_vhd_tst
-# vsim work.cpu_vhd_tst 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.cpu_vhd_tst(cpu_arch)
-# Loading ieee.numeric_std(body)
-# Loading work.cpu(rtl)
-# Loading work.if_block(rtl)
-# Loading ieee.std_logic_textio(body)
-# Loading work.instr_cache(rtl)
-add wave -position end  sim:/cpu_vhd_tst/adr
-add wave -position end  sim:/cpu_vhd_tst/clk
-add wave -position end  sim:/cpu_vhd_tst/reset
-add wave -position end  sim:/cpu_vhd_tst/ir_cache_if
-add wave -position end  sim:/cpu_vhd_tst/ir_if_id
+run
+run
+run
+add wave -position end  sim:/cpu_vhd_tst/i2/adr_in
+restart -f
 run
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+run
+run
+run
+run
+run
+run
+run
+restart -f
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+run
+run
+run
+run
+run
+run
+run
+restart -f
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+# Break in Process line__24 at C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd line 36
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+run
+# Break in Process line__47 at C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd line 48
+run
+run
+# Break in Process line__47 at C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd line 48
+run
+run
+# Break in Process line__47 at C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd line 48
+restart -f
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i2
+run
+run
+run
+run
+run
+run
+run
+run
 run
 run
 run
