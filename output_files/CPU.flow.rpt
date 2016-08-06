@@ -1,5 +1,5 @@
 Flow report for CPU
-Sat Aug 06 17:29:22 2016
+Sat Aug 06 23:43:45 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Sat Aug 06 17:29:22 2016           ;
+; Flow Status                        ; Successful - Sat Aug 06 23:43:45 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C70F896I8                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 96 / 68,416 ( < 1 % )                           ;
-;     Total combinational functions  ; 32 / 68,416 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 96 / 68,416 ( < 1 % )                           ;
-; Total registers                    ; 96                                              ;
-; Total pins                         ; 66 / 622 ( 11 % )                               ;
+; Total logic elements               ; 134                                             ;
+;     Total combinational functions  ; 39                                              ;
+;     Dedicated logic registers      ; 132                                             ;
+; Total registers                    ; 132                                             ;
+; Total pins                         ; 142                                             ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0 / 1,152,000 ( 0 % )                           ;
-; Embedded Multiplier 9-bit elements ; 0 / 300 ( 0 % )                                 ;
-; Total PLLs                         ; 0 / 4 ( 0 % )                                   ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/06/2016 17:28:43 ;
+; Start date & time ; 08/06/2016 23:43:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU                 ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 128575983216852.147049732303480       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 128575983216852.147051982208096       ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; cpu_vhd_tst    ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; cpu_vhd_tst                           ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation ;
@@ -96,41 +96,29 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 509 MB              ; 00:00:03                           ;
-; Fitter                    ; 00:00:19     ; 1.0                     ; 828 MB              ; 00:00:19                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 445 MB              ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 422 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 399 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:30                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 521 MB              ; 00:00:03                           ;
+; Total                ; 00:00:03     ; --                      ; --                  ; 00:00:03                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
-+---------------------------+------------------+-----------+------------+----------------+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off VLSI_Projekat -c CPU
-quartus_fit --read_settings_files=off --write_settings_files=off VLSI_Projekat -c CPU
-quartus_asm --read_settings_files=off --write_settings_files=off VLSI_Projekat -c CPU
-quartus_sta VLSI_Projekat -c CPU
-quartus_eda --read_settings_files=off --write_settings_files=off VLSI_Projekat -c CPU
 
 
 

@@ -9,7 +9,10 @@ entity IF_BLOCK is
 		clk : in std_logic;
 		adr_out : out std_logic_vector(31 downto 0);
 		ir_in : in std_logic_vector(31 downto 0);
-		ir_out : out std_logic_vector(31 downto 0)
+		ir_out : out std_logic_vector(31 downto 0);
+		
+		new_pc_in : in  std_logic_vector(31 downto 0); -- ubaciti logiku
+		pc_out	 : out std_logic_vector(31 downto 0)
 	);
 	
 
@@ -26,11 +29,12 @@ begin
 			ir <= ir_in; -- dobijen 
 			adr_out <= pc;
 			pc_next := std_logic_vector(unsigned(pc) + 1);
+			pc_out <= pc;  -- ovo se prosledjuje ID-ju
 		end if;
 		
 		if (falling_edge(clk)) then
 			ir_out <= ir_in;
-			pc := pc_next;
+			pc := pc_next; -- srediti
 		end if;
 		
 	end process;	

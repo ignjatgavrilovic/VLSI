@@ -64,4 +64,6 @@ set_global_assignment -name VHDL_FILE CPU.vhd
 set_global_assignment -name VHDL_FILE IF_BLOCK.vhd
 set_global_assignment -name VHDL_FILE INSTR_CACHE.vhd
 set_global_assignment -name VHDL_FILE ID_BLOCK.vhd
+set_global_assignment -name VHDL_FILE EX_BLOCK.vhd
+set_global_assignment -name VHDL_FILE REG_FILE.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
