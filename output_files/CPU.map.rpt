@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Fri Aug 05 23:49:27 2016
+Sat Aug 06 23:43:45 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,9 +13,12 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Port Connectivity Checks: "EX_BLOCK:EX_BLOCK"
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -41,16 +44,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Aug 05 23:49:27 2016           ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 06 23:43:45 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 128                                             ;
-;     Total combinational functions  ; 32                                              ;
-;     Dedicated logic registers      ; 128                                             ;
-; Total registers                    ; 128                                             ;
-; Total pins                         ; 98                                              ;
+; Total logic elements               ; 134                                             ;
+;     Total combinational functions  ; 39                                              ;
+;     Dedicated logic registers      ; 132                                             ;
+; Total registers                    ; 132                                             ;
+; Total pins                         ; 142                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -162,6 +165,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; CPU.vhd                          ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd      ;         ;
 ; IF_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd ;         ;
 ; ID_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd ;         ;
+; EX_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd ;         ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
 
 
@@ -170,28 +174,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 128   ;
+; Estimated Total logic elements              ; 134   ;
 ;                                             ;       ;
-; Total combinational functions               ; 32    ;
+; Total combinational functions               ; 39    ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 1     ;
+;     -- 4 input functions                    ; 1     ;
+;     -- 3 input functions                    ; 7     ;
 ;     -- <=2 input functions                  ; 31    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 2     ;
+;     -- normal mode                          ; 9     ;
 ;     -- arithmetic mode                      ; 30    ;
 ;                                             ;       ;
-; Total registers                             ; 128   ;
-;     -- Dedicated logic registers            ; 128   ;
+; Total registers                             ; 132   ;
+;     -- Dedicated logic registers            ; 132   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 98    ;
+; I/O pins                                    ; 142   ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 128   ;
-; Total fan-out                               ; 383   ;
-; Average fan-out                             ; 1.48  ;
+; Maximum fan-out                             ; 132   ;
+; Total fan-out                               ; 391   ;
+; Average fan-out                             ; 1.25  ;
 +---------------------------------------------+-------+
 
 
@@ -200,10 +204,147 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name    ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
-; |CPU                       ; 32 (0)            ; 128 (0)      ; 0           ; 0            ; 0       ; 0         ; 98   ; 0            ; |CPU                   ; work         ;
-;    |IF_BLOCK:IF_BLOCK|     ; 32 (32)           ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IF_BLOCK:IF_BLOCK ; work         ;
+; |CPU                       ; 39 (0)            ; 132 (0)      ; 0           ; 0            ; 0       ; 0         ; 142  ; 0            ; |CPU                   ; work         ;
+;    |EX_BLOCK:EX_BLOCK|     ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|EX_BLOCK:EX_BLOCK ; work         ;
+;    |ID_BLOCK:ID_BLOCK|     ; 7 (7)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|ID_BLOCK:ID_BLOCK ; work         ;
+;    |IF_BLOCK:IF_BLOCK|     ; 32 (32)           ; 112 (112)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CPU|IF_BLOCK:IF_BLOCK ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; ID_BLOCK:ID_BLOCK|LOAD_out~reg0        ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|STORE_out~reg0       ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|MOV_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|ADD_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|SUB_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|ADDI_out~reg0        ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|SUBI_out~reg0        ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|AND_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|OR_out~reg0          ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|XOR_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|NOT_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|SHR_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|SHL_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|SAR_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|ROL_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|ROR_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|JMP_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|JSR_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BEQ_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BNQ_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BGT_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BLT_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BGE_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BLE_out~reg0         ; Stuck at VCC due to stuck port data_in ;
+; ID_BLOCK:ID_BLOCK|BLE_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|BGE_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[0]~en         ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[1]~en         ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[2]~en         ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[3]~en         ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[4]~en         ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs2_out[0]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs2_out[1]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs2_out[2]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs2_out[3]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs2_out[4]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs1_out[0]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs1_out[1]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs1_out[2]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs1_out[3]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rs1_out[4]~en        ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|BLT_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|BGT_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|BNQ_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|BEQ_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|JSR_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|JMP_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|ROR_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|ROL_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|SAR_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|SHL_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|SHR_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|NOT_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|XOR_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|OR_out~en            ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|AND_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|SUBI_out~en          ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|ADDI_out~en          ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|SUB_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|ADD_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|MOV_out~en           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|STORE_out~en         ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|LOAD_out~en          ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0       ; Lost fanout                            ;
+; IF_BLOCK:IF_BLOCK|ir_out[25]           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[3]~reg0       ; Lost fanout                            ;
+; IF_BLOCK:IF_BLOCK|ir_out[24]           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[2]~reg0       ; Lost fanout                            ;
+; IF_BLOCK:IF_BLOCK|ir_out[23]           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[1]~reg0       ; Lost fanout                            ;
+; IF_BLOCK:IF_BLOCK|ir_out[22]           ; Lost fanout                            ;
+; ID_BLOCK:ID_BLOCK|Rd_out[0]~reg0       ; Lost fanout                            ;
+; IF_BLOCK:IF_BLOCK|ir_out[21]           ; Lost fanout                            ;
+; EX_BLOCK:EX_BLOCK|rdReg2_out           ; Stuck at VCC due to stuck port data_in ;
+; EX_BLOCK:EX_BLOCK|rdReg1_out           ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 75 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++----------------------------------+---------------------------+-------------------------------------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register                            ;
++----------------------------------+---------------------------+-------------------------------------------------------------------+
+; ID_BLOCK:ID_BLOCK|SHL_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ROR_out~en, ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0,   ;
+;                                  ; due to stuck port data_in ; IF_BLOCK:IF_BLOCK|ir_out[25], ID_BLOCK:ID_BLOCK|Rd_out[3]~reg0,   ;
+;                                  ;                           ; IF_BLOCK:IF_BLOCK|ir_out[24], ID_BLOCK:ID_BLOCK|Rd_out[2]~reg0,   ;
+;                                  ;                           ; IF_BLOCK:IF_BLOCK|ir_out[23], ID_BLOCK:ID_BLOCK|Rd_out[1]~reg0,   ;
+;                                  ;                           ; IF_BLOCK:IF_BLOCK|ir_out[22], ID_BLOCK:ID_BLOCK|Rd_out[0]~reg0,   ;
+;                                  ;                           ; IF_BLOCK:IF_BLOCK|ir_out[21]                                      ;
+; ID_BLOCK:ID_BLOCK|SUBI_out~reg0  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|Rs1_out[0]~en, ID_BLOCK:ID_BLOCK|Rs1_out[1]~en, ;
+;                                  ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|Rs1_out[2]~en, ID_BLOCK:ID_BLOCK|Rs1_out[3]~en, ;
+;                                  ;                           ; ID_BLOCK:ID_BLOCK|Rs1_out[4]~en, ID_BLOCK:ID_BLOCK|XOR_out~en     ;
+; ID_BLOCK:ID_BLOCK|SAR_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|Rd_out[0]~en, ID_BLOCK:ID_BLOCK|Rd_out[1]~en,   ;
+;                                  ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|Rd_out[2]~en, ID_BLOCK:ID_BLOCK|Rd_out[3]~en,   ;
+;                                  ;                           ; ID_BLOCK:ID_BLOCK|Rd_out[4]~en, ID_BLOCK:ID_BLOCK|JMP_out~en      ;
+; ID_BLOCK:ID_BLOCK|BNQ_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BGE_out~en, ID_BLOCK:ID_BLOCK|Rs2_out[0]~en,    ;
+;                                  ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|Rs2_out[1]~en, ID_BLOCK:ID_BLOCK|Rs2_out[2]~en, ;
+;                                  ;                           ; ID_BLOCK:ID_BLOCK|Rs2_out[3]~en, ID_BLOCK:ID_BLOCK|Rs2_out[4]~en  ;
+; ID_BLOCK:ID_BLOCK|LOAD_out~reg0  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ADD_out~en, ID_BLOCK:ID_BLOCK|MOV_out~en,       ;
+;                                  ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|STORE_out~en, ID_BLOCK:ID_BLOCK|LOAD_out~en     ;
+; ID_BLOCK:ID_BLOCK|OR_out~reg0    ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BNQ_out~en, ID_BLOCK:ID_BLOCK|SHR_out~en,       ;
+;                                  ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|rdReg2_out                                      ;
+; ID_BLOCK:ID_BLOCK|STORE_out~reg0 ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|AND_out~en, ID_BLOCK:ID_BLOCK|SUB_out~en        ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|AND_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BEQ_out~en, ID_BLOCK:ID_BLOCK|NOT_out~en        ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|XOR_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BGT_out~en, ID_BLOCK:ID_BLOCK|SHL_out~en        ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|MOV_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ADDI_out~en                                     ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|ADD_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|SUBI_out~en                                     ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|ADDI_out~reg0  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|OR_out~en                                       ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|NOT_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|SAR_out~en                                      ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|SHR_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ROL_out~en                                      ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|ROL_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|JSR_out~en                                      ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|JMP_out~reg0   ; Stuck at VCC              ; EX_BLOCK:EX_BLOCK|rdReg1_out                                      ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|BEQ_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BLT_out~en                                      ;
+;                                  ; due to stuck port data_in ;                                                                   ;
+; ID_BLOCK:ID_BLOCK|BGT_out~reg0   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BLE_out~en                                      ;
+;                                  ; due to stuck port data_in ;                                                                   ;
++----------------------------------+---------------------------+-------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -211,7 +352,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 128   ;
+; Total registers                              ; 132   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -219,6 +360,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "EX_BLOCK:EX_BLOCK"                                                                       ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; alu_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; b_out     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; load_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; store_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -236,7 +390,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Aug 05 23:49:24 2016
+    Info: Processing started: Sat Aug 06 23:43:41 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VLSI_Projekat -c CPU
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
@@ -251,23 +405,158 @@ Info (12021): Found 2 design units, including 1 entities, in source file instr_c
 Info (12021): Found 2 design units, including 1 entities, in source file id_block.vhd
     Info (12022): Found design unit 1: ID_BLOCK-rtl
     Info (12023): Found entity 1: ID_BLOCK
+Info (12021): Found 2 design units, including 1 entities, in source file ex_block.vhd
+    Info (12022): Found design unit 1: EX_BLOCK-rtl
+    Info (12023): Found entity 1: EX_BLOCK
+Info (12021): Found 2 design units, including 1 entities, in source file reg_file.vhd
+    Info (12022): Found design unit 1: REG_FILE-rtl
+    Info (12023): Found entity 1: REG_FILE
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(67): object "ALU_ex_mem" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(68): object "B_ex_mem" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(69): object "Reg_ex_mem" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(71): object "load_ex_mem" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(72): object "store_ex_mem" assigned a value but never read
 Info (12128): Elaborating entity "IF_BLOCK" for hierarchy "IF_BLOCK:IF_BLOCK"
-Warning (10036): Verilog HDL or VHDL warning at IF_BLOCK.vhd(19): object "ir" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at IF_BLOCK.vhd(22): object "ir" assigned a value but never read
 Info (12128): Elaborating entity "ID_BLOCK" for hierarchy "ID_BLOCK:ID_BLOCK"
-Warning (12158): Entity "ID_BLOCK" contains only dangling pins
+Info (12128): Elaborating entity "EX_BLOCK" for hierarchy "EX_BLOCK:EX_BLOCK"
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BLE_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BGE_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rd_out[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rd_out[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rd_out[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rd_out[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rd_out[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs2_out[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs2_out[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs2_out[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs2_out[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs2_out[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs1_out[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs1_out[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs1_out[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs1_out[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|Rs1_out[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BLT_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BGT_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BNQ_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BEQ_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|JSR_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|JMP_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|ROR_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|ROL_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|SAR_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|SHL_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|SHR_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|NOT_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|XOR_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|OR_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|AND_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|SUBI_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|ADDI_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|SUB_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|ADD_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|MOV_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|STORE_out" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|LOAD_out" feeding internal logic into a wire
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "rdReg1_ex_reg" is stuck at VCC
+    Warning (13410): Pin "rdReg2_ex_reg" is stuck at VCC
+Info (17049): 49 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
+Warning (21074): Design contains 81 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "reset"
-Info (21057): Implemented 226 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 34 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 128 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 533 megabytes
-    Info: Processing ended: Fri Aug 05 23:49:27 2016
-    Info: Elapsed time: 00:00:03
+    Warning (15610): No output dependent on input pin "ir_in[0]"
+    Warning (15610): No output dependent on input pin "ir_in[1]"
+    Warning (15610): No output dependent on input pin "ir_in[2]"
+    Warning (15610): No output dependent on input pin "ir_in[3]"
+    Warning (15610): No output dependent on input pin "ir_in[4]"
+    Warning (15610): No output dependent on input pin "ir_in[5]"
+    Warning (15610): No output dependent on input pin "ir_in[6]"
+    Warning (15610): No output dependent on input pin "ir_in[7]"
+    Warning (15610): No output dependent on input pin "ir_in[8]"
+    Warning (15610): No output dependent on input pin "ir_in[9]"
+    Warning (15610): No output dependent on input pin "ir_in[10]"
+    Warning (15610): No output dependent on input pin "ir_in[21]"
+    Warning (15610): No output dependent on input pin "ir_in[22]"
+    Warning (15610): No output dependent on input pin "ir_in[23]"
+    Warning (15610): No output dependent on input pin "ir_in[24]"
+    Warning (15610): No output dependent on input pin "ir_in[25]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[0]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[1]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[2]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[3]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[4]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[5]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[6]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[7]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[8]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[9]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[10]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[11]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[12]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[13]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[14]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[15]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[16]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[17]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[18]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[19]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[20]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[21]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[22]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[23]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[24]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[25]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[26]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[27]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[28]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[29]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[30]"
+    Warning (15610): No output dependent on input pin "reg1_data_reg_ex[31]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[0]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[1]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[2]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[3]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[4]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[5]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[6]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[7]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[8]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[9]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[10]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[11]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[12]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[13]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[14]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[15]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[16]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[17]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[18]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[19]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[20]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[21]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[22]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[23]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[24]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[25]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[26]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[27]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[28]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[29]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[30]"
+    Warning (15610): No output dependent on input pin "reg2_data_reg_ex[31]"
+Info (21057): Implemented 276 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 98 input pins
+    Info (21059): Implemented 44 output pins
+    Info (21061): Implemented 134 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 132 warnings
+    Info: Peak virtual memory: 521 megabytes
+    Info: Processing ended: Sat Aug 06 23:43:46 2016
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:03
 
 

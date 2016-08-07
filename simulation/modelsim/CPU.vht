@@ -6,19 +6,35 @@ END CPU_vhd_tst;
 ARCHITECTURE CPU_arch OF CPU_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
-signal adr : std_logic_vector(31 downto 0);
+signal adr_if_instrcache : std_logic_vector(31 downto 0);
 SIGNAL clk : STD_LOGIC;
 SIGNAL reset : STD_LOGIC;
-signal ir_cache_if : std_logic_vector(31 downto 0);
-signal ir_if_id : std_logic_vector(31 downto 0);
+signal ir_instrcache_if : std_logic_vector(31 downto 0);
+--signal ir_if_id : std_logic_vector(31 downto 0);
+
+-- vezano za REG_FILE
+signal rdReg1_ex_reg : std_logic;
+signal rdReg2_ex_reg : std_logic;
+
+signal reg1_no_ex_reg   : std_logic_vector(4 downto 0);
+signal reg1_data_reg_ex : std_logic_vector(31 downto 0);
+signal reg2_no_ex_reg   : std_logic_vector(4 downto 0);
+signal reg2_data_reg_ex : std_logic_vector(31 downto 0);
 
 COMPONENT CPU
 	PORT (
 		adr_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		clk : IN STD_LOGIC;
 		ir_in : in std_logic_vector(31 downto 0);
-		ir_out : out std_logic_vector(31 downto 0);
-		reset : IN STD_LOGIC
+		reset : IN STD_LOGIC;
+		
+		rdReg1_ex_reg : out std_logic;
+		rdReg2_ex_reg : out std_logic;
+
+		reg1_no_ex_reg   : out std_logic_vector(4 downto 0);
+		reg1_data_reg_ex : in  std_logic_vector(31 downto 0);
+		reg2_no_ex_reg   : out std_logic_vector(4 downto 0);
+		reg2_data_reg_ex : in  std_logic_vector(31 downto 0) 
 	);
 END COMPONENT;
 
@@ -30,24 +46,58 @@ component INSTR_CACHE
 	);
 end component;
 
+component REG_FILE
+	port(
+		reset : in std_logic;
+	
+		rdReg1_in : in std_logic;
+		rdReg2_in : in std_logic;
+		
+		reg1_no_in 	  : in  std_logic_vector(4 downto 0);
+		reg1_data_out : out std_logic_vector(31 downto 0);
+		reg2_no_in 	  : in  std_logic_vector(4 downto 0);
+		reg2_data_out : out std_logic_vector(31 downto 0) 
+	);
+end component;
+
 BEGIN
-	-- signal sa signal iz komponente => TSB
-	i1 : CPU
+	-- signal iz komponente => TSB
+	i_cpu : CPU
 	PORT MAP (
-		adr_out => adr,
+		adr_out => adr_if_instrcache,
 		clk => clk,
 		reset => reset,
-		ir_in => ir_cache_if,
-		ir_out => ir_if_id
+		ir_in => ir_instrcache_if,
+		
+		rdReg1_ex_reg => rdReg1_ex_reg,
+		rdReg2_ex_reg => rdReg2_ex_reg,
+
+		reg1_no_ex_reg   => reg1_no_ex_reg,
+		reg1_data_reg_ex => reg1_data_reg_ex,
+		reg2_no_ex_reg   => reg2_no_ex_reg,
+		reg2_data_reg_ex => reg2_data_reg_ex
 	);
 	
-	i2 : INSTR_CACHE
+	i_instr_cache : INSTR_CACHE
 	PORT MAP (
 		reset => reset,
-		ir_out => ir_cache_if,
-		adr_in => adr
+		ir_out => ir_instrcache_if,
+		adr_in => adr_if_instrcache
 	);
 
+	i_reg_file : REG_FILE
+	port map (
+		reset => reset,
+		
+		rdReg1_in => rdReg1_ex_reg,
+		rdReg2_in => rdReg2_ex_reg,
+		
+		reg1_no_in 	  => reg1_no_ex_reg,
+		reg1_data_out => reg1_data_reg_ex,
+		reg2_no_in 	  => reg2_no_ex_reg,
+		reg2_data_out => reg2_data_reg_ex
+	);
+	
 	clock: process is
 		variable clk_next:std_logic:='1';
    begin
