@@ -1,0 +1,25 @@
+library ieee;
+
+entity MEM_BLOCK is
+
+	port (
+		clk : in std_logic;
+		
+		-- dobijeno od EX
+		ALU_in	: in std_logic_vector(31 downto 0);
+		B_in    	: in std_logic_vector(31 downto 0); --operand za store
+		load_in	: in std_logic;
+		store_in	: in std_logic;
+		Reg_in	: in std_logic_vector(4 downto 0);
+		
+		-- salje se WB
+		ALU_out  : out std_logic_vector(31 downto 0);
+	);
+	
+end MEM_BLOCK;
+
+architecture rtl of MEM_BLOCK is
+
+begin
+
+end architecture;

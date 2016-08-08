@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity WB_BLOCK is
+
+	port (
+		clk : in std_logic;
+	);
+
+end WB_BLOCK;
+
+architecture rtl of WB_BLOCK is
+
+begin
+
+end architecture;

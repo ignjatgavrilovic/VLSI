@@ -4,15 +4,17 @@ use ieee.numeric_std.all;
 
 entity IF_BLOCK is
 
-	port
-	(
+	port (
 		clk : in std_logic;
 		adr_out : out std_logic_vector(31 downto 0);
 		ir_in : in std_logic_vector(31 downto 0);
-		ir_out : out std_logic_vector(31 downto 0);
 		
-		new_pc_in : in  std_logic_vector(31 downto 0); -- ubaciti logiku
-		pc_out	 : out std_logic_vector(31 downto 0)
+		-- dobijamo od EX_BLOCK-a u slucaju da treba da se skoci
+		new_pc_in : in  std_logic_vector(31 downto 0); 
+		
+		-- saljemo ID_BLOCK-u
+		ir_out : out std_logic_vector(31 downto 0);
+		pc_out : out std_logic_vector(31 downto 0)
 	);
 	
 
@@ -26,15 +28,14 @@ begin
 		variable pc_next : std_logic_vector(31 downto 0) := (others => '0');
 	begin
 		if (rising_edge(clk)) then 
-			ir <= ir_in; -- dobijen 
-			adr_out <= pc;
-			pc_next := std_logic_vector(unsigned(pc) + 1);
-			pc_out <= pc;  -- ovo se prosledjuje ID-ju
+			pc := pc_next;
+			adr_out <= pc_next;
 		end if;
 		
 		if (falling_edge(clk)) then
-			ir_out <= ir_in;
-			pc := pc_next; -- srediti
+			ir_out <= ir_in; -- dobijen od INSTR_CACHE-a i salje se ID_BLOCK-u
+			pc_out <= pc;  -- ovo se prosledjuje ID-ju
+			pc_next := std_logic_vector(unsigned(pc) + 1);
 		end if;
 		
 	end process;	

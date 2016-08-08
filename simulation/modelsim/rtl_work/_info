@@ -2,36 +2,39 @@ m255
 K3
 13
 cModel Technology
-Z0 dC:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim
+Z0 dE:\Ignjat backup\Fax\4. Godina\VLSI\Projekat\simulation\modelsim
 Ecpu
-Z1 w1470485019
+Z1 w1470577393
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z4 dC:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim
-Z5 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd
-Z6 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd
+Z4 dE:\Ignjat backup\Fax\4. Godina\VLSI\Projekat\simulation\modelsim
+Z5 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd
+Z6 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd
 l0
 L4
-VNZ19JI23P>R5hJ:k;5L<H0
+VeDnLL]5WJSUWAFUE6^05X2
 Z7 OV;C;10.1d;51
 31
-Z8 !s108 1470494842.479000
-Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd|
-Z10 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd|
+Z8 !s108 1470685692.892000
+Z9 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd|
+Z10 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd|
 Z11 o-93 -work work -O0
 Z12 tExplicit 1
-!s100 @z]]22?hnb`?V=`[mNF5?0
+!s100 2aNeX]R^Q>N]D8V`@6Q<d1
 !i10b 1
 Artl
-Z13 DEx4 work 8 id_block 0 22 EF5f]f?jCMoG1>B4_8[Km2
-Z14 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
-Z15 DEx4 work 8 if_block 0 22 T[VijMIl5P;2CcmEMF?@R3
+Z13 DEx4 work 8 wb_block 0 22 8E^5jN]6I`:fB]C28B7Xn2
+Z14 DEx4 work 9 mem_block 0 22 ;dDimd^1;PZN0EJM:O<2i3
+Z15 DEx4 work 8 ex_block 0 22 =JO?]Idc?mC]e`1nfc:=L3
+Z16 DEx4 work 8 id_block 0 22 iIW=e>GUGnC5UKZl=e9:D0
+Z17 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z18 DEx4 work 8 if_block 0 22 SNY_P[B^:?DkVT[o9:`fj1
 R2
 R3
-DEx4 work 3 cpu 0 22 NZ19JI23P>R5hJ:k;5L<H0
-l56
-L16
-V>D7e[bXVIdT]kK4^LH[n30
+DEx4 work 3 cpu 0 22 eDnLL]5WJSUWAFUE6^05X2
+l88
+L34
+Vgam16bD<mXKcjf5MgnlYb0
 R7
 31
 R8
@@ -39,15 +42,15 @@ R9
 R10
 R11
 R12
-!s100 cE:?Q]ai:9F:1YaOETVci3
+!s100 m209O1Uc9JAoBEKU<H45]1
 !i10b 1
 Ecpu_vhd_tst
-Z16 w1470433506
+Z19 w1470577771
 R2
 R3
 R4
-Z17 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht
-Z18 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht
+Z20 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
+Z21 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
 l0
 L4
 Vc4mRn1T0=<l9chJdEFzZ>2
@@ -55,96 +58,203 @@ Vc4mRn1T0=<l9chJdEFzZ>2
 R7
 31
 !i10b 1
-Z19 !s108 1470494842.903000
-Z20 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht|
-Z21 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht|
+Z22 !s108 1470685693.331000
+Z23 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht|
+Z24 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht|
 R11
 R12
 Acpu_arch
 R2
 R3
 DEx4 work 11 cpu_vhd_tst 0 22 c4mRn1T0=<l9chJdEFzZ>2
-l33
+l100
 L6
-VzdTfC_hXLk`77?RK[@R@d1
-!s100 FRV[8A_NLj8gX`ScQZnM03
+V1@OmkBEiK62?DJY9dMf5g1
+!s100 8QiX2IO=dRUO]O>6ZMU1b3
 R7
 31
 !i10b 1
-R19
-R20
-R21
+R22
+R23
+R24
 R11
 R12
-Eid_block
-Z22 w1470494715
+Eex_block
+Z25 w1470582478
+R17
 R2
 R3
 R4
-Z23 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd
-Z24 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd
+Z26 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd
+Z27 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd
 l0
-L4
-VEF5f]f?jCMoG1>B4_8[Km2
+L7
+V=JO?]Idc?mC]e`1nfc:=L3
 R7
 31
-Z25 !s108 1470494842.104000
-Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd|
-Z27 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd|
+Z28 !s108 1470685692.109000
+Z29 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd|
+Z30 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd|
 R11
 R12
-!s100 l@:N2342HM]_oM_P3F=7T0
+!s100 1E<;14A?nmJoHzVEmB5PK3
+!i10b 1
+Artl
+R17
+R2
+R3
+R15
+l74
+L72
+VX6jCQk1>=k9coSk>bZ:kP3
+R7
+31
+R28
+R29
+R30
+R11
+R12
+!s100 a@:J7Dz;TFa]8?KZmzW<K3
+!i10b 1
+Eid_block
+Z31 w1470581687
+R2
+R3
+R4
+Z32 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd
+Z33 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd
+l0
+L4
+ViIW=e>GUGnC5UKZl=e9:D0
+R7
+31
+Z34 !s108 1470685691.557000
+Z35 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd|
+Z36 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd|
+R11
+R12
+!s100 @P1h05H?lIz3jPo<Ra7mE3
+!i10b 1
+Artl
+R2
+R3
+R16
+l55
+L53
+Vjci>Y5kznbQLPKj=R640>0
+R7
+31
+R34
+R35
+R36
+R11
+R12
+!s100 je1>PK=:MnSVD8eVnk:iR1
+!i10b 1
+Eif_block
+Z37 w1470581250
+R17
+R2
+R3
+R4
+Z38 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd
+Z39 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd
+l0
+L5
+VSNY_P[B^:?DkVT[o9:`fj1
+R7
+31
+Z40 !s108 1470685691.197000
+Z41 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd|
+Z42 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd|
+R11
+R12
+!s100 NHDI;3beBE0Lk<0@j[6RG1
+!i10b 1
+Artl
+R17
+R2
+R3
+R18
+l25
+L23
+VIkCOC61CNbSUf8QUG@`lE1
+R7
+31
+R40
+R41
+R42
+R11
+R12
+!s100 N[:zhiiJ]9R9O46dSLmXl1
+!i10b 1
+Emem_block
+Z43 w1470588017
+R2
+R3
+R4
+Z44 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd
+Z45 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd
+l0
+L4
+V;dDimd^1;PZN0EJM:O<2i3
+R7
+31
+Z46 !s108 1470685690.866000
+Z47 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd|
+Z48 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd|
+R11
+R12
+!s100 lIY5HC;]Rd_FgMT1XfkLB3
+!i10b 1
+Artl
+R2
+R3
+R14
+l32
+L30
+V4zfZaW0doz:D_]7^lPKk`2
+R7
+31
+R46
+R47
+R48
+R11
+R12
+!s100 2?EMjG1URh[Ra0R;3[e<Z0
+!i10b 1
+Ewb_block
+Z49 w1470588122
+R2
+R3
+R4
+Z50 8E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd
+Z51 FE:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd
+l0
+L4
+V8E^5jN]6I`:fB]C28B7Xn2
+R7
+31
+Z52 !s108 1470685692.466000
+Z53 !s90 -reportprogress|300|-93|-work|work|E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd|
+Z54 !s107 E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd|
+R11
+R12
+!s100 8KCP8RD4`TGh<lb;E5a9d0
 !i10b 1
 Artl
 R2
 R3
 R13
-l54
-L52
-VKna5fgC3YhQC5cT>SabK21
+l23
+L21
+Vf8cmd3=haBG42n;3NTZ;l1
 R7
 31
-R25
-R26
-R27
+R52
+R53
+R54
 R11
 R12
-!s100 S`<MROz9AUXonA8;Yo6@f2
-!i10b 1
-Eif_block
-Z28 w1470431992
-R14
-R2
-R3
-R4
-Z29 8C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd
-Z30 FC:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd
-l0
-L5
-VT[VijMIl5P;2CcmEMF?@R3
-R7
-31
-Z31 !s108 1470494841.722000
-Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd|
-Z33 !s107 C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd|
-R11
-R12
-!s100 4@HlmfXQJ=z0APeb^HkgT2
-!i10b 1
-Artl
-R14
-R2
-R3
-R15
-l20
-L18
-VP9NaQWON;bd[Rn@ao;nj03
-R7
-31
-R31
-R32
-R33
-R11
-R12
-!s100 8ojUJ`Vc7ZX[iE2HK:JKm1
+!s100 cLRL;WH2]be@GmFM1<EGj3
 !i10b 1

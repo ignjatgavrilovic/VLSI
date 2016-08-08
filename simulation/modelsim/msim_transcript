@@ -1,16 +1,23 @@
-# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# Reading E:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
 # do CPU_run_msim_rtl_vhdl.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Copying E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
-# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+# ** Warning: Copied E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd}
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MEM_BLOCK
+# -- Compiling architecture rtl of MEM_BLOCK
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -18,14 +25,29 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity IF_BLOCK
 # -- Compiling architecture rtl of IF_BLOCK
-# vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd}
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ID_BLOCK
 # -- Compiling architecture rtl of ID_BLOCK
-# vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd}
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity EX_BLOCK
+# -- Compiling architecture rtl of EX_BLOCK
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity WB_BLOCK
+# -- Compiling architecture rtl of WB_BLOCK
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -35,8 +57,11 @@
 # -- Loading package NUMERIC_STD
 # -- Loading entity IF_BLOCK
 # -- Loading entity ID_BLOCK
+# -- Loading entity EX_BLOCK
+# -- Loading entity MEM_BLOCK
+# -- Loading entity WB_BLOCK
 # 
-# vcom -93 -work work {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht}
+# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -52,19 +77,26 @@
 # Loading work.cpu_vhd_tst(cpu_arch)
 # Loading ieee.numeric_std(body)
 # Loading work.cpu(rtl)
-# ** Error: (vsim-3732) C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht(42): No default binding for component instance 'i1'.
-# 
-#    The following component port is not on the entity:
-#           ir_out
-# 
-#         Region: /cpu_vhd_tst/i1
 # Loading work.if_block(rtl)
 # Loading work.id_block(rtl)
-# ** Warning: (vsim-3473) Component instance "i2 : INSTR_CACHE" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht
-# Error loading design
-# Error: Error loading design 
-#        Pausing macro execution 
-# MACRO ./CPU_run_msim_rtl_vhdl.do PAUSED at line 14
-# reading C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini
-# Loading project Mixa_test
+# Loading work.ex_block(rtl)
+# Loading work.mem_block(rtl)
+# Loading work.wb_block(rtl)
+# ** Warning: (vsim-3473) Component instance "i_instr_cache : INSTR_CACHE" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
+# ** Warning: (vsim-3473) Component instance "i_reg_file : REG_FILE" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
+# ** Warning: (vsim-3473) Component instance "i_data_cache : DATA_CACHE" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 2 ms
+# Cannot change directory while a simulation is in progress.
+# Use the "quit -sim" command to unload the design first.
+quit -sim
+# reading E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini
+# Loading project Ignjat_test

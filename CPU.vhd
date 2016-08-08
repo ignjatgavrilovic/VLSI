@@ -16,7 +16,17 @@ entity CPU is
 		reg1_no_ex_reg   : out std_logic_vector(4 downto 0);
 		reg1_data_reg_ex : in  std_logic_vector(31 downto 0);
 		reg2_no_ex_reg   : out std_logic_vector(4 downto 0);
-		reg2_data_reg_ex : in  std_logic_vector(31 downto 0) 
+		reg2_data_reg_ex : in  std_logic_vector(31 downto 0);
+		
+		rd_mem_datacache		: out std_logic;
+		wr_mem_datacache		: out std_logic;
+		adr_mem_datacache		: out std_logic_vector(31 downto 0);
+		data_mem_datacache	: out std_logic_vector(31 downto 0);
+		data_datacache_mem	: in  std_logic_vector(31 downto 0);
+	
+		wr_wb_reg	: out std_logic;
+		Reg_wb_reg	: out std_logic_vector(4 downto 0);
+		data_wb_reg	: out std_logic_vector(31 downto 0)
 	);
 
 end CPU;
@@ -71,6 +81,9 @@ architecture rtl of CPU is
 		signal load_ex_mem  : std_logic;
 		signal store_ex_mem : std_logic;
 		signal new_pc_ex_if	: std_logic_vector(31 downto 0);
+		
+		signal ALU_mem_wb		: std_logic_vector(31 downto 0);
+		signal Reg_mem_wb		: std_logic_vector(4 downto 0);
 		
 begin
 	IF_BLOCK: entity work.IF_BLOCK
@@ -186,6 +199,32 @@ begin
 		store_out => store_ex_mem,
 		pc_in => pc_id_ex,
 		new_pc_out => new_pc_ex_if
-		
+	);
+	
+	MEM_BLOCK: entity work.MEM_BLOCK
+	port map(
+		clk 		=> clk,
+		ALU_in	=> ALU_ex_mem,
+		B_in    	=> B_ex_mem,
+		load_in	=> load_ex_mem,
+		store_in	=> store_ex_mem,
+		Reg_in	=> reg_ex_mem,
+		ALU_out  => ALU_mem_wb,
+		Reg_out  => Reg_mem_wb,
+		rd_out	=> rd_mem_datacache,
+		wr_out	=> wr_mem_datacache,
+		adr_out	=> adr_mem_datacache,
+		data_out => data_mem_datacache,
+		data_in  => data_datacache_mem
+	);
+	
+	WB_BLOCK: entity work.WB_BLOCK
+	port map(
+		clk => clk,
+		ALU_in => ALU_mem_wb,
+		Reg_in => Reg_mem_wb,
+		wr_out   => wr_wb_reg,	
+		reg_out  => Reg_wb_reg,	
+		data_out => data_wb_reg	
 	);
 end architecture;

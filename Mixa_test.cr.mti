@@ -1,10 +1,11 @@
-{C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd}
+{C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\EX_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity ID_BLOCK
--- Compiling architecture rtl of ID_BLOCK
+-- Loading package NUMERIC_STD
+-- Compiling entity EX_BLOCK
+-- Compiling architecture rtl of EX_BLOCK
 
 } {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -16,14 +17,13 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity INSTR_CACHE
 -- Compiling architecture RTL of INSTR_CACHE
 
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\EX_BLOCK.vhd}
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity EX_BLOCK
--- Compiling architecture rtl of EX_BLOCK
+-- Compiling entity ID_BLOCK
+-- Compiling architecture rtl of ID_BLOCK
 
 } {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -37,13 +37,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading entity ID_BLOCK
 -- Loading entity EX_BLOCK
 
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {C:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim\CPU.vht}
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity CPU_vhd_tst
--- Compiling architecture CPU_arch of CPU_vhd_tst
+-- Loading package NUMERIC_STD
+-- Compiling entity REG_FILE
+-- Compiling architecture rtl of REG_FILE
 
 } {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -54,13 +55,12 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity IF_BLOCK
 -- Compiling architecture rtl of IF_BLOCK
 
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd}
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {C:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim\CPU.vht}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity REG_FILE
--- Compiling architecture rtl of REG_FILE
+-- Compiling entity CPU_vhd_tst
+-- Compiling architecture CPU_arch of CPU_vhd_tst
 
 } {} {}}

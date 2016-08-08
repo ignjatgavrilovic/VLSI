@@ -15,10 +15,8 @@ entity INSTR_CACHE is
 end INSTR_CACHE;
 
 architecture RTL of INSTR_CACHE is
-	
 	type cache_type is array(4095 downto 0) of std_logic_vector(31 downto 0);
 	signal cache : cache_type;
-
 begin
 	-- napuni cache podacima iz fajla
 	process (reset) is
@@ -29,7 +27,7 @@ begin
 		variable stop: std_logic:='0';
 	begin
 		if (reset = '1' AND  stop ='0') then
-			file_open(read_file, "test01.txt", read_mode);
+			file_open(read_file, "test_ins_01.txt", read_mode);
 			--readline (read_file, read_line); -- pocetna pc
 		
 			while not (endfile(read_file)) loop
@@ -39,7 +37,7 @@ begin
 
 				cache(to_integer(unsigned(adr))) <= data;
 			end loop;-- for_loop;
-			
+			file_close(read_file);
 			stop:='1';
 		end if;
 	end process;

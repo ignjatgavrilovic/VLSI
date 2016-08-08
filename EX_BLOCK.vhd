@@ -2,6 +2,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- dodati Reg_out <= 'Z' za sve instrukcije koje ne upisuju u reg_file
+
 entity EX_BLOCK is
 	
 	port (
@@ -54,16 +56,15 @@ entity EX_BLOCK is
 		reg2_data_in  : in  std_logic_vector(31 downto 0); 
 		
 		-- za komunikaciju sa MEM_BLOCK
-		ALU_out : out std_logic_vector(31 downto 0);
-		B_out   : out std_logic_vector(31 downto 0); --operand za store
-		
-		-- 5 bitova iz IR-a sluze za adresiranje registara u WB stepenu
-		Reg_out : out std_logic_vector(4 downto 0);
-		
+		ALU_out  : out std_logic_vector(31 downto 0);
+		B_out    : out std_logic_vector(31 downto 0); --operand za store
 		load_out : out std_logic;
 		store_out: out std_logic;
-		pc_in : in std_logic_vector(31 downto 0);
-		new_pc_out : out std_logic_vector(31 downto 0)
+		Reg_out : out std_logic_vector(4 downto 0); -- 5 bitova iz IR-a sluze za adresiranje registara u WB stepenu
+		
+		-- slanje pc-ja
+		new_pc_out : out std_logic_vector(31 downto 0); -- salje se IF-u
+		pc_in : in std_logic_vector(31 downto 0)			-- dobija se od ID
 	);
 	
 end EX_BLOCK;
@@ -73,171 +74,241 @@ architecture rtl of EX_BLOCK is
 begin
 	
 	process (clk) is
-	begin
-	
-		if (rising_edge(clk)) then
+		variable LOAD_pom:  std_logic;
+		variable STORE_pom:  std_logic;
+		variable MOV_pom:  std_logic;
+		variable MOVI_pom:  std_logic;
+		variable ADD_pom:  std_logic;
+		variable SUB_pom:  std_logic;
+		variable ADDI_pom:  std_logic;
+		variable SUBI_pom:  std_logic;
+		variable AND_pom:  std_logic;
+		variable OR_pom:  std_logic;
+		variable XOR_pom:  std_logic;
+		variable NOT_pom:  std_logic;
+		variable SHR_pom:  std_logic;
+		variable SHL_pom:  std_logic;
+		variable SAR_pom:  std_logic;
+		variable ROL_pom:  std_logic;
+		variable ROR_pom:  std_logic;
+		variable JMP_pom:  std_logic;
+		variable JSR_pom:  std_logic;
+		variable RTS_pom:  std_logic;
+		variable PUSH_pom:  std_logic;
+		variable POP_pom:  std_logic;
+		variable BEQ_pom:  std_logic;
+		variable BNQ_pom:  std_logic;
+		variable BGT_pom:  std_logic;
+		variable BLT_pom:  std_logic;
+		variable BGE_pom:  std_logic;
+		variable BLE_pom:  std_logic;
+		variable HALT_pom:  std_logic;
 		
-			if (LOAD_in = '1') then
-				reg1_no_out <= Rs1_in;
+		variable Rs1_pom: std_logic_vector(4 downto 0);
+		variable Rs2_pom: std_logic_vector(4 downto 0);
+		variable Rd_pom:  std_logic_vector(4 downto 0);
+		variable imm_pom: std_logic_vector(31 downto 0);
+		
+		variable pc_pom : std_logic_vector(31 downto 0);
+	begin
+		
+		if (rising_edge(clk)) then
+			LOAD_pom   := LOAD_in ;
+			STORE_pom  := STORE_in;
+			MOV_pom    := MOV_in  ;
+			MOVI_pom   := MOVI_in ;
+			ADD_pom    := ADD_in  ;
+			SUB_pom    := SUB_in  ;
+			ADDI_pom   := ADDI_in ;
+			SUBI_pom   := SUBI_in ;
+			AND_pom    := AND_in  ;
+			OR_pom     := OR_in   ;
+			XOR_pom    := XOR_in  ;
+			NOT_pom    := NOT_in  ;
+			SHR_pom    := SHR_in  ;
+			SHL_pom    := SHL_in  ;
+			SAR_pom    := SAR_in  ;
+			ROL_pom    := ROL_in  ;
+			ROR_pom    := ROR_in  ;
+			JMP_pom    := JMP_in  ;
+			JSR_pom    := JSR_in  ;
+			RTS_pom    := RTS_in  ;
+			PUSH_pom   := PUSH_in ;
+			POP_pom    := POP_in  ;
+			BEQ_pom    := BEQ_in  ;
+			BNQ_pom    := BNQ_in  ;
+			BGT_pom    := BGT_in  ;
+			BLT_pom    := BLT_in  ;
+			BGE_pom    := BGE_in  ;
+			BLE_pom    := BLE_in  ;
+			HALT_pom   := HALT_in ;
+			
+			Rs1_pom    := Rs1_in  ;
+			Rs2_pom    := Rs2_in  ;
+			Rd_pom     := Rd_in   ;
+			imm_pom    := imm_in  ;
+			
+			if (LOAD_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (STORE_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (STORE_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (MOV_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (MOV_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (MOVI_in = '1') then
+			if (MOVI_pom = '1') then
 				-- ovde nista ne treba
 			end if;
 			
-			if (ADD_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (ADD_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (SUB_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (SUB_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (ADDI_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (ADDI_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (SUBI_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (SUBI_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (AND_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (AND_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (OR_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (OR_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (XOR_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (XOR_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (NOT_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (NOT_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (SHR_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (SHR_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (SHL_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (SHL_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (SAR_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (SAR_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 				
-			if (ROL_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (ROL_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (ROR_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (ROR_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (JMP_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (JMP_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (JSR_in = '1') then
-				reg1_no_out <= Rd_in;
+			if (JSR_pom = '1') then
+				reg1_no_out <= Rd_pom;
 				rdReg1_out <= '1';
 			end if;
 			
-			if (RTS_in = '1') then
+			if (RTS_pom = '1') then
 				-- vraca iz subroutine, rad sa stekom
 			end if;
 			
-			if (PUSH_in = '1') then
+			if (PUSH_pom = '1') then
 				-- rad sa stekom
 			end if;
 			
-			if (POP_in = '1') then
+			if (POP_pom = '1') then
 				-- rad sa stekom
 			end if;
 			
-			if (BEQ_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (BEQ_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (BNQ_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (BNQ_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (BGT_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (BGT_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (BLT_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (BLT_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (BGE_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (BGE_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (BLE_in = '1') then
-				reg1_no_out <= Rs1_in;
+			if (BLE_pom = '1') then
+				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_in;
+				reg2_no_out <= Rs2_pom;
 				rdReg2_out <= '1';
 			end if;
 			
-			if (HALT_in = '1') then
+			if (HALT_pom = '1') then
 				
 			end if;
 			
@@ -245,151 +316,151 @@ begin
 	
 		if (falling_edge(clk)) then
 			
-			if (LOAD_in = '1') then
-				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_in));
-				Reg_out <= Rd_in;
+			if (LOAD_pom = '1') then
+				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom)); -- adresa sa koje se cita
+				Reg_out <= Rd_pom;
 				load_out <= '1';
 			end if;
 			
-			if (STORE_in = '1') then
-				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_in));
+			if (STORE_pom = '1') then
+				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 				B_out <= reg2_data_in;
 				store_out <= '1';
 			end if;
 			
-			if (MOV_in = '1') then
+			if (MOV_pom = '1') then
 				ALU_out <= reg1_data_in;
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (MOVI_in = '1') then
-				ALU_out <= imm_in;
-				Reg_out <= Rd_in;
+			if (MOVI_pom = '1') then
+				ALU_out <= imm_pom;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (ADD_in = '1') then
+			if (ADD_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(reg2_data_in));
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (SUB_in = '1') then
+			if (SUB_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) - signed(reg2_data_in));
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (ADDI_in = '1') then
-				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_in));
-				Reg_out <= Rd_in;
+			if (ADDI_pom = '1') then
+				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (SUBI_in = '1') then
-				ALU_out <= std_logic_vector(signed(reg1_data_in) - signed(imm_in));
-				Reg_out <= Rd_in;
+			if (SUBI_pom = '1') then
+				ALU_out <= std_logic_vector(signed(reg1_data_in) - signed(imm_pom));
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (AND_in = '1') then
+			if (AND_pom = '1') then
 				ALU_out <= reg1_data_in and reg2_data_in;
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (OR_in = '1') then
+			if (OR_pom = '1') then
 				ALU_out <= reg1_data_in or reg2_data_in;
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (XOR_in = '1') then
+			if (XOR_pom = '1') then
 				ALU_out <= reg1_data_in xor reg2_data_in;
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (NOT_in = '1') then
+			if (NOT_pom = '1') then
 				ALU_out <= not reg1_data_in;
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (SHR_in = '1') then
+			if (SHR_pom = '1') then
 				ALU_out <= reg1_data_in; --std_logic_vector(unsigned(reg1_data_in) srl unsigned(imm_in));  
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (SHL_in = '1') then
+			if (SHL_pom = '1') then
 				ALU_out <= reg1_data_in; --std_logic_vector(unsigned(reg1_data_in) sll unsigned(imm_in));
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (SAR_in = '1') then
+			if (SAR_pom = '1') then
 				ALU_out <= reg1_data_in;-- sra unsigned(imm_in);
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (ROL_in = '1') then
+			if (ROL_pom = '1') then
 				ALU_out <= reg1_data_in;-- ror unsigned(imm_in);
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (ROR_in = '1') then
+			if (ROR_pom = '1') then
 				ALU_out <= reg1_data_in;-- rol unsigned(imm_in);
-				Reg_out <= Rd_in;
+				Reg_out <= Rd_pom;
 			end if;
 			
-			if (JMP_in = '1') then
-				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_in));
+			if (JMP_pom = '1') then
+				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 			end if;
 			
-			if (JSR_in = '1') then
+			if (JSR_pom = '1') then
 				-- dodati rad sa stekom
-				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_in));
+				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 			end if;
 			
-			if (RTS_in = '1') then
+			if (RTS_pom = '1') then
 				
 			end if;
 			
-			if (PUSH_in = '1') then
+			if (PUSH_pom = '1') then
 				
 			end if;
 			
-			if (POP_in = '1') then
+			if (POP_pom = '1') then
 				
 			end if;
 			
-			if (BEQ_in = '1') then
+			if (BEQ_pom = '1') then
 				if (reg1_data_in = reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_in) + signed(imm_in));
+					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
 				end if;
 			end if;
 			
-			if (BNQ_in = '1') then
+			if (BNQ_pom = '1') then
 				if (reg1_data_in /= reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_in) + signed(imm_in));
+					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
 				end if;
 			end if;
 			
-			if (BGT_in = '1') then
+			if (BGT_pom = '1') then
 				if (reg1_data_in > reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_in) + signed(imm_in));
+					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
 				end if;
 			end if;
 			
-			if (BLT_in = '1') then
+			if (BLT_pom = '1') then
 				if (reg1_data_in < reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_in) + signed(imm_in));
+					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
 				end if;
 			end if;
 			
-			if (BGE_in = '1') then
+			if (BGE_pom = '1') then
 				if (reg1_data_in >= reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_in) + signed(imm_in));
+					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
 				end if;
 			end if;
 			
-			if (BLE_in = '1') then
+			if (BLE_pom = '1') then
 				if (reg1_data_in <= reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_in) + signed(imm_in));
+					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
 				end if;
 			end if;
 			
-			if (HALT_in = '1') then
+			if (HALT_pom = '1') then
 				
 			end if;
 			

@@ -6,8 +6,9 @@ entity ID_BLOCK is
 	port (
 		clk : in std_logic;
 		
-		--pc_in : in std_logic_vector(31 downto 0);   // vratiti kad budemo propagirali PC
 		ir_in : in std_logic_vector(31 downto 0);
+		pc_in  : in  std_logic_vector(31 downto 0);
+		pc_out : out std_logic_vector(31 downto 0);
 		
 		-- instrukcijsi signali		
 		LOAD_out: out std_logic;
@@ -44,10 +45,7 @@ entity ID_BLOCK is
 		Rs1_out: out std_logic_vector(4 downto 0);
 		Rs2_out: out std_logic_vector(4 downto 0);
 		Rd_out: out std_logic_vector(4 downto 0);
-		imm_out: out std_logic_vector(31 downto 0);
-		
-		pc_in  : in  std_logic_vector(31 downto 0);
-		pc_out : out std_logic_vector(31 downto 0)
+		imm_out: out std_logic_vector(31 downto 0)
 	);
 
 end ID_BLOCK;
@@ -57,9 +55,15 @@ architecture rtl of ID_BLOCK is
 begin
 
 	process(clk,ir_in) is	
+		variable ir : std_logic_vector(31 downto 0);
+		variable pc : std_logic_vector(31 downto 0);
 	begin
-	
 		if (rising_edge(clk)) then
+			ir := ir_in;
+			pc := pc_in;
+		end if;
+		
+		if (falling_edge(clk)) then
 			LOAD_out <='Z';
 			STORE_out <='Z';
 			MOV_out <='Z';
@@ -95,202 +99,202 @@ begin
 			Rd_out <= (others => 'Z');
 			imm <= (others => 'Z');
 			
-			pc_out <= pc_in;
-			
-			if (B"000000" = ir_in(31 downto 26)) then
+			pc_out <= pc;
+
+			if (B"000000" = ir(31 downto 26)) then
 				LOAD_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				imm(15 downto 0)  <= ir_in(15 downto 0);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				imm(15 downto 0)  <= ir(15 downto 0);
 			end if;
 			
-			if (B"000001" = ir_in(31 downto 26)) then
+			if (B"000001" = ir(31 downto 26)) then
 				STORE_out  <= '1';
-				Rs1_out  <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				imm(10 downto 0)  <= ir_in(10 downto 0);				
+				Rs1_out  <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				imm(10 downto 0)  <= ir(10 downto 0);				
 			end if;
 			
-			if (B"000100" = ir_in(31 downto 26)) then
+			if (B"000100" = ir(31 downto 26)) then
 				MOV_out <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
 			end if;
 				
-			if (B"000101" = ir_in(31 downto 26)) then
+			if (B"000101" = ir(31 downto 26)) then
 				MOVI_out <= '1';
-				Rd_out <= ir_in(25 downto 21);
-				imm(15 downto 0) <= ir_in(15 downto 0);
+				Rd_out <= ir(25 downto 21);
+				imm(15 downto 0) <= ir(15 downto 0);
 			end if;
 			
-			if (B"001000" = ir_in(31 downto 26)) then
+			if (B"001000" = ir(31 downto 26)) then
 				ADD_out  <= '1';
-				Rd_out   <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				Rs2_out  <= ir_in(15 downto 11);
+				Rd_out   <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				Rs2_out  <= ir(15 downto 11);
 			end if;
 				
-			if (B"001001" = ir_in(31 downto 26)) then
+			if (B"001001" = ir(31 downto 26)) then
 				SUB_out  <= '1';
-				Rd_out   <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				Rs2_out  <= ir_in(15 downto 11);
+				Rd_out   <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				Rs2_out  <= ir(15 downto 11);
 			end if;
 			
-			if (B"001100" = ir_in(31 downto 26)) then
+			if (B"001100" = ir(31 downto 26)) then
 				ADDI_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				imm(15 downto 0)  <= ir_in(15 downto 0);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				imm(15 downto 0)  <= ir(15 downto 0);
 			end if;
 			
-			if (B"001101" = ir_in(31 downto 26)) then
+			if (B"001101" = ir(31 downto 26)) then
 				SUBI_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				imm(15 downto 0)  <= ir_in(15 downto 0);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				imm(15 downto 0)  <= ir(15 downto 0);
 			end if;
 			
-			if (B"010000" = ir_in(31 downto 26)) then
+			if (B"010000" = ir(31 downto 26)) then
 				AND_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				Rs2_out  <= ir_in(15 downto 11);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				Rs2_out  <= ir(15 downto 11);
 			end if;
 				
-			if (B"010001" = ir_in(31 downto 26)) then
+			if (B"010001" = ir(31 downto 26)) then
 				OR_out <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				Rs2_out  <= ir_in(15 downto 11);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				Rs2_out  <= ir(15 downto 11);
 			end if;
 			
-			if (B"010010" = ir_in(31 downto 26)) then
+			if (B"010010" = ir(31 downto 26)) then
 				XOR_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				Rs2_out  <= ir_in(15 downto 11);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				Rs2_out  <= ir(15 downto 11);
 			end if;
 				
-			if (B"010011" = ir_in(31 downto 26)) then
+			if (B"010011" = ir(31 downto 26)) then
 				NOT_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
-				Rs1_out  <= ir_in(20 downto 16);
-				--Rs2_out  <= ir_in(15 downto 11);
+				Rd_out  <= ir(25 downto 21);
+				Rs1_out  <= ir(20 downto 16);
+				--Rs2_out  <= ir(15 downto 11);
 			end if;
 				
-			if (B"011000" = ir_in(31 downto 26)) then
+			if (B"011000" = ir(31 downto 26)) then
 				SHL_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
+				Rd_out  <= ir(25 downto 21);
 				imm(15 downto 5)<= (others=>'0');
-				imm(4 downto 0)  <= ir_in(15 downto 11);
+				imm(4 downto 0)  <= ir(15 downto 11);
 			end if;
 				
-			if (B"011001" = ir_in(31 downto 26)) then
+			if (B"011001" = ir(31 downto 26)) then
 				SHR_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
+				Rd_out  <= ir(25 downto 21);
 				imm(15 downto 5)<= (others=>'0');
-				imm(4 downto 0)  <= ir_in(15 downto 11);
+				imm(4 downto 0)  <= ir(15 downto 11);
 			end if;
 				
-			if (B"011010" = ir_in(31 downto 26)) then
+			if (B"011010" = ir(31 downto 26)) then
 				SAR_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
+				Rd_out  <= ir(25 downto 21);
 				imm(15 downto 5)<= (others=>'0');
-				imm(4 downto 0)  <= ir_in(15 downto 11);
+				imm(4 downto 0)  <= ir(15 downto 11);
 			end if;
 				
-			if (B"011011" = ir_in(31 downto 26)) then
+			if (B"011011" = ir(31 downto 26)) then
 				ROL_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
+				Rd_out  <= ir(25 downto 21);
 				imm(15 downto 5)<= (others=>'0');
-				imm(4 downto 0)  <= ir_in(15 downto 11);
+				imm(4 downto 0)  <= ir(15 downto 11);
 			end if;
 				
-			if (B"011100" = ir_in(31 downto 26)) then
+			if (B"011100" = ir(31 downto 26)) then
 				ROR_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
+				Rd_out  <= ir(25 downto 21);
 				imm(15 downto 5)<= (others=>'0');
-				imm(4 downto 0)  <= ir_in(15 downto 11);
+				imm(4 downto 0)  <= ir(15 downto 11);
 			end if;
 				
-			if (B"100000" = ir_in(31 downto 26)) then
+			if (B"100000" = ir(31 downto 26)) then
 				JMP_out  <= '1';
-				Rs1_out <= ir_in(20 downto 16);
-				imm(15 downto 0) <= ir_in(15 downto 0);
+				Rs1_out <= ir(20 downto 16);
+				imm(15 downto 0) <= ir(15 downto 0);
 			end if;
 				
-			if (B"100001" = ir_in(31 downto 26)) then
+			if (B"100001" = ir(31 downto 26)) then
 				JSR_out  <= '1';
-				Rs1_out <= ir_in(20 downto 16);
-				imm(15 downto 0) <= ir_in(15 downto 0);
+				Rs1_out <= ir(20 downto 16);
+				imm(15 downto 0) <= ir(15 downto 0);
 			end if;
 				
-			if (B"100010" = ir_in(31 downto 26)) then
+			if (B"100010" = ir(31 downto 26)) then
 				RTS_out  <= '1';
 			end if;
 				
-			if (B"100100" = ir_in(31 downto 26)) then
+			if (B"100100" = ir(31 downto 26)) then
 				PUSH_out  <= '1';
-				Rs2_out <= ir_in(20 downto 16);
+				Rs2_out <= ir(20 downto 16);
 			end if;
 				
-			if (B"100101" = ir_in(31 downto 26)) then
+			if (B"100101" = ir(31 downto 26)) then
 				POP_out  <= '1';
-				Rd_out  <= ir_in(25 downto 21);
+				Rd_out  <= ir(25 downto 21);
 			end if;
 				
-			if (B"101000" = ir_in(31 downto 26)) then
+			if (B"101000" = ir(31 downto 26)) then
 				BEQ_out  <= '1';
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				Rs1_out <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(10 downto 0)  <= ir_in(10 downto 0);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				Rs1_out <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(10 downto 0)  <= ir(10 downto 0);
 			end if;
 			
-			if (B"101001" = ir_in(31 downto 26)) then
+			if (B"101001" = ir(31 downto 26)) then
 				BNQ_out  <= '1';
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				Rs1_out <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(10 downto 0)  <= ir_in(10 downto 0);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				Rs1_out <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(10 downto 0)  <= ir(10 downto 0);
 			end if;
 			
-			if (B"101010" = ir_in(31 downto 26)) then
+			if (B"101010" = ir(31 downto 26)) then
 				BGT_out  <= '1';
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				Rs1_out <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(10 downto 0)  <= ir_in(10 downto 0);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				Rs1_out <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(10 downto 0)  <= ir(10 downto 0);
 				
 			end if;
 			
-			if (B"101011" = ir_in(31 downto 26)) then
+			if (B"101011" = ir(31 downto 26)) then
 				BLT_out  <= '1';
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				Rs1_out <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(10 downto 0)  <= ir_in(10 downto 0);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				Rs1_out <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(10 downto 0)  <= ir(10 downto 0);
 			end if;
 			
-			if (B"101100" = ir_in(31 downto 26)) then
+			if (B"101100" = ir(31 downto 26)) then
 				BGE_out  <= '1';
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				Rs1_out <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(10 downto 0)  <= ir_in(10 downto 0);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				Rs1_out <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(10 downto 0)  <= ir(10 downto 0);
 			end if;
 			
-			if (B"101101" = ir_in(31 downto 26)) then
+			if (B"101101" = ir(31 downto 26)) then
 				BLE_out  <= '1';
-				imm(15 downto 11)  <= ir_in(25 downto 21);
-				Rs1_out <= ir_in(20 downto 16);
-				Rs2_out <= ir_in(15 downto 11);
-				imm(10 downto 0)  <= ir_in(10 downto 0);
+				imm(15 downto 11)  <= ir(25 downto 21);
+				Rs1_out <= ir(20 downto 16);
+				Rs2_out <= ir(15 downto 11);
+				imm(10 downto 0)  <= ir(10 downto 0);
 			end if;
 			
-			if (B"111111" = ir_in(31 downto 26)) then
+			if (B"111111" = ir(31 downto 26)) then
 				HALT_out  <= '1';
 				--STOP_IF <= '1';
 			end if;
