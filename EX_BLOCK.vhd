@@ -64,13 +64,19 @@ entity EX_BLOCK is
 		
 		-- slanje pc-ja
 		new_pc_out : out std_logic_vector(31 downto 0); -- salje se IF-u
-		pc_in : in std_logic_vector(31 downto 0)			-- dobija se od ID
+		pc_in : in std_logic_vector(31 downto 0);			-- dobija se od ID
+		
+		-- prima od ID i vraca IF-u
+		predicted_pc_in	 : in  std_logic_vector(31 downto 0); 
+		predicted_pc_out 	 : out std_logic_vector(31 downto 0);
+		jump_predicted_in	 : in  std_logic; 
+		jump_predicted_out : out std_logic
 	);
 	
 end EX_BLOCK;
 
 architecture rtl of EX_BLOCK is
-
+	signal sp : std_logic_vector(31 downto 0) := X"0000FFFF";
 begin
 	
 	process (clk) is
@@ -259,11 +265,12 @@ begin
 			end if;
 			
 			if (PUSH_pom = '1') then
-				-- rad sa stekom
+				reg1_no_out <= Rs1_pom;
+				rdReg1_out <= '1';
 			end if;
 			
 			if (POP_pom = '1') then
-				-- rad sa stekom
+				-- ovde nista
 			end if;
 			
 			if (BEQ_pom = '1') then
@@ -315,6 +322,9 @@ begin
 		end if;
 	
 		if (falling_edge(clk)) then
+			
+			predicted_pc_out <= predicted_pc_in;
+			jump_predicted_out <= jump_predicted_in;
 			
 			if (LOAD_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom)); -- adresa sa koje se cita
@@ -379,27 +389,57 @@ begin
 			end if;
 			
 			if (SHR_pom = '1') then
-				ALU_out <= reg1_data_in; --std_logic_vector(unsigned(reg1_data_in) srl unsigned(imm_in));  
+				for i in 0 to 31 loop
+					if (i < 31 - to_integer(unsigned(imm_in))) then
+						ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
+					else
+						ALU_out(i) <= '0';
+					end if;
+				end loop;
 				Reg_out <= Rd_pom;
 			end if;
 			
 			if (SHL_pom = '1') then
-				ALU_out <= reg1_data_in; --std_logic_vector(unsigned(reg1_data_in) sll unsigned(imm_in));
+				for i in 31 downto 0 loop
+					if (i > 31 - to_integer(unsigned(imm_in))) then
+						ALU_out(i) <= reg1_data_in(i - to_integer(unsigned(imm_in)));
+					else
+						ALU_out(i) <= '0';
+					end if;
+				end loop;
 				Reg_out <= Rd_pom;
 			end if;
 			
 			if (SAR_pom = '1') then
-				ALU_out <= reg1_data_in;-- sra unsigned(imm_in);
+				for i in 0 to 31 loop
+					if (i < 31 - to_integer(unsigned(imm_in))) then
+						ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
+					else
+						ALU_out(i) <= reg1_data_in(31);
+					end if;
+				end loop;
 				Reg_out <= Rd_pom;
 			end if;
 			
 			if (ROL_pom = '1') then
-				ALU_out <= reg1_data_in;-- ror unsigned(imm_in);
+				for i in 31 downto 0 loop
+					if (i >= 31 - to_integer(unsigned(imm_in))) then
+						ALU_out(i) <= reg1_data_in(i - to_integer(unsigned(imm_in)));
+					else
+						ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)) - 32);
+					end if;
+				end loop;
 				Reg_out <= Rd_pom;
 			end if;
 			
 			if (ROR_pom = '1') then
-				ALU_out <= reg1_data_in;-- rol unsigned(imm_in);
+				for i in 0 to 31 loop
+					if (i <= 31 - to_integer(unsigned(imm_in))) then
+							ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
+						else
+							ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)) - 32);
+						end if;
+				end loop;
 				Reg_out <= Rd_pom;
 			end if;
 			
@@ -408,20 +448,31 @@ begin
 			end if;
 			
 			if (JSR_pom = '1') then
-				-- dodati rad sa stekom
+				-- sp na stack
+				ALU_out <= sp;
+				sp <= std_logic_vector(unsigned(sp) + 1);
+				B_out <= std_logic_vector(unsigned(pc_in) + 1);
+				store_out <= '1';
+				-- prva adresa potprograma
 				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 			end if;
 			
 			if (RTS_pom = '1') then
-				
+				-- uraditi sa hazardima zbog stall-a
 			end if;
 			
 			if (PUSH_pom = '1') then
-				
+				ALU_out <= sp;
+				sp <= std_logic_vector(unsigned(sp) + 1);
+				B_out <= reg1_data_in;
+				store_out <= '1';
 			end if;
 			
 			if (POP_pom = '1') then
-				
+				sp <= std_logic_vector(unsigned(sp) - 1);
+				ALU_out <= sp;
+				Reg_out <= Rd_pom;
+				load_out <= '1';
 			end if;
 			
 			if (BEQ_pom = '1') then

@@ -84,6 +84,13 @@ architecture rtl of CPU is
 		
 		signal ALU_mem_wb		: std_logic_vector(31 downto 0);
 		signal Reg_mem_wb		: std_logic_vector(4 downto 0);
+
+		signal predicted_pc_if_id   : std_logic_vector(31 downto 0);
+		signal jump_predicted_if_id : std_logic;
+		signal predicted_pc_id_ex   : std_logic_vector(31 downto 0);
+		signal jump_predicted_id_ex : std_logic;
+		signal predicted_pc_ex_if   : std_logic_vector(31 downto 0);
+		signal jump_predicted_ex_if : std_logic;
 		
 begin
 	IF_BLOCK: entity work.IF_BLOCK
@@ -93,7 +100,12 @@ begin
 		ir_out => ir_if_id,
 		adr_out => adr_out,
 		new_pc_in => new_pc_ex_if,
-		pc_out => pc_if_id
+		pc_out => pc_if_id,
+
+		predicted_pc_in	 => predicted_pc_ex_if,
+		predicted_pc_out 	 => predicted_pc_if_id,
+		jump_predicted_in	 => jump_predicted_ex_if,
+		jump_predicted_out => jump_predicted_if_id
 	);
 	
 	ID_BLOCK: entity work.ID_BLOCK
@@ -138,7 +150,12 @@ begin
 		imm_out => imm_id_ex,
 		
 		pc_in  => pc_if_id,
-		pc_out => pc_id_ex
+		pc_out => pc_id_ex,
+		
+		predicted_pc_in	 => predicted_pc_if_id,
+		predicted_pc_out 	 => predicted_pc_id_ex,
+		jump_predicted_in	 => jump_predicted_if_id,
+		jump_predicted_out => jump_predicted_id_ex
 	);
 	
 	
@@ -198,7 +215,12 @@ begin
 		load_out => load_ex_mem,
 		store_out => store_ex_mem,
 		pc_in => pc_id_ex,
-		new_pc_out => new_pc_ex_if
+		new_pc_out => new_pc_ex_if,
+		
+		predicted_pc_in	 => predicted_pc_id_ex,
+		predicted_pc_out 	 => predicted_pc_ex_if,
+		jump_predicted_in	 => jump_predicted_id_ex,
+		jump_predicted_out => jump_predicted_ex_if
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK

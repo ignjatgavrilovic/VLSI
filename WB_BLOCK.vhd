@@ -31,7 +31,7 @@ begin
 			ALU_pom := ALU_in;
 			REG_pom := Reg_in;
 			
-			if (Reg_in /= "ZZZZZ") then -- jel moze ovako?
+			if (Reg_in /= "ZZZZZ" AND Reg_in /= "UUUUU") then -- jel moze ovako?
 				Reg_out <= Reg_in;
 				data_out <= ALU_in;
 				wr_out <= '1';

@@ -45,7 +45,13 @@ entity ID_BLOCK is
 		Rs1_out: out std_logic_vector(4 downto 0);
 		Rs2_out: out std_logic_vector(4 downto 0);
 		Rd_out: out std_logic_vector(4 downto 0);
-		imm_out: out std_logic_vector(31 downto 0)
+		imm_out: out std_logic_vector(31 downto 0);
+		
+		-- prosledjivanje od IF do EX
+		predicted_pc_in	 : in  std_logic_vector(31 downto 0); 
+		predicted_pc_out 	 : out std_logic_vector(31 downto 0);
+		jump_predicted_in	 : in  std_logic; 
+		jump_predicted_out : out std_logic
 	);
 
 end ID_BLOCK;
@@ -64,6 +70,10 @@ begin
 		end if;
 		
 		if (falling_edge(clk)) then
+			-- lecovati po potrebi
+			predicted_pc_out <= predicted_pc_in;
+			jump_predicted_out <= jump_predicted_in;
+			
 			LOAD_out <='Z';
 			STORE_out <='Z';
 			MOV_out <='Z';

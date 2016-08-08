@@ -22,8 +22,7 @@ end DATA_CACHE;
 
 architecture rtl of DATA_CACHE is
 	type cache_type is array(550 downto 0) of std_logic_vector(31 downto 0);
-	signal cache : cache_type;
-	signal cache_next : cache_type;
+	shared variable cache : cache_type;
 begin
 	-- process koji ce da cita iz fajla
 	process (reset, clk) is
@@ -33,9 +32,9 @@ begin
 		variable data : std_logic_vector (31 downto 0);
 		variable stop: std_logic:='0';
 	begin
-		for i in cache'range loop
-			cache(i) <= cache_next(i);
-		end loop;
+		--for i in cache'range loop
+		--	cache(i) := cache_next(i);
+		--end loop;
 		if (reset = '1' AND  stop ='0') then
 			file_open(read_file, "test_data_01.txt", read_mode);
 			--readline (read_file, read_line); -- pocetna pc
@@ -45,19 +44,19 @@ begin
 				hread(read_line, adr);
 				read(read_line, data);
 
-				cache(to_integer(unsigned(adr))) <= data;
+				cache(to_integer(unsigned(adr))) := data;
 			end loop;-- for_loop;
 			file_close(read_file);
 			stop:='1';
 		end if;
 	end process;
 	
-	process (cache) is
-	begin
-		for i in cache'range loop
-			cache_next(i) <= cache(i);
-		end loop;
-	end process;
+--	process (cache) is
+--	begin
+--		for i in cache'range loop
+--			cache_next(i) := cache(i);
+--		end loop;
+--	end process;
 	
 	process (rd_in) is
 	begin
@@ -66,7 +65,7 @@ begin
 	
 	process (wr_in) is
 	begin
-		cache(to_integer(unsigned(adr_in))) <= data_in;
+		cache(to_integer(unsigned(adr_in))) := data_in;
 	end process;
 	
 end architecture;
