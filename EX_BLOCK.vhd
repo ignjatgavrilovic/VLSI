@@ -154,6 +154,8 @@ begin
 			Rd_pom     := Rd_in   ;
 			imm_pom    := imm_in  ;
 			
+			
+			
 			if (LOAD_pom = '1') then
 				reg1_no_out <= Rs1_pom;
 				rdReg1_out <= '1';
@@ -322,9 +324,14 @@ begin
 		end if;
 	
 		if (falling_edge(clk)) then
+			rdReg1_out <= '0';
+			rdReg2_out <= '0';
 			
 			predicted_pc_out <= predicted_pc_in;
 			jump_predicted_out <= jump_predicted_in;
+			
+			load_out <= 'Z';
+			store_out <= 'Z';
 			
 			if (LOAD_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom)); -- adresa sa koje se cita

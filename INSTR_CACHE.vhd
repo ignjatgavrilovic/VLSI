@@ -27,7 +27,7 @@ begin
 		variable stop: std_logic:='0';
 	begin
 		if (reset = '1' AND  stop ='0') then
-			file_open(read_file, "test_ins_01.txt", read_mode);
+			file_open(read_file, "testovi/test_ins_01.txt", read_mode);
 			--readline (read_file, read_line); -- pocetna pc
 		
 			while not (endfile(read_file)) loop

@@ -29,7 +29,7 @@ architecture rtl of IF_BLOCK is
 	shared variable predictor : std_logic_vector(1 downto 0) := "01";
 begin
 	process (clk) is 
-		variable pc : std_logic_vector(31 downto 0);
+		variable pc : std_logic_vector(31 downto 0) := (others => '1');
 		variable pc_next : std_logic_vector(31 downto 0) := (others => '0');
 		variable imm_jump: std_logic_vector(15 downto 0);
 	begin

@@ -37,6 +37,10 @@ begin
 				wr_out <= '1';
 			end if;
 		end if;
+		
+		if (falling_edge(clk)) then
+			wr_out <= '0';
+		end if;
 	end process;
 	
 end architecture;

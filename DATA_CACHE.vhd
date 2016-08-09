@@ -36,7 +36,7 @@ begin
 		--	cache(i) := cache_next(i);
 		--end loop;
 		if (reset = '1' AND  stop ='0') then
-			file_open(read_file, "test_data_01.txt", read_mode);
+			file_open(read_file, "testovi/test_data_01.txt", read_mode);
 			--readline (read_file, read_line); -- pocetna pc
 		
 			while not (endfile(read_file)) loop
@@ -60,12 +60,16 @@ begin
 	
 	process (rd_in) is
 	begin
-		data_out <= cache(to_integer(unsigned(adr_in)));
+		if (rd_in = '1') then
+			data_out <= cache(to_integer(unsigned(adr_in)));
+		end if;
 	end process;
 	
 	process (wr_in) is
 	begin
-		cache(to_integer(unsigned(adr_in))) := data_in;
+		if (wr_in = '1') then
+			cache(to_integer(unsigned(adr_in))) := data_in;
+		end if;
 	end process;
 	
 end architecture;

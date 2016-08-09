@@ -62,8 +62,10 @@ begin
 			if (load_pom = '1') then
 				ALU_out <= data_in; -- dobijen podatak od DATA_CACHE
 				Reg_out <= Reg_pom;
+				rd_out <= 'Z';
 			elsif (store_pom = '1') then
 				Reg_out <= Reg_pom; -- 'Z'
+				wr_out <= 'Z';
 			else 
 				ALU_out <= ALU_pom;
 				Reg_out <= Reg_pom;
