@@ -53,7 +53,23 @@ entity EX_BLOCK is
 		store_out: out std_logic;
 		Reg_out  : out std_logic_vector(4 downto 0); -- 5 bitova iz IR-a sluze za adresiranje registara u WB stepenu
 		
-		pc_in		: in std_logic_vector(31 downto 0)
+		pc_in		: in std_logic_vector(31 downto 0);
+		
+		-- HAZARDI
+		
+		-- ex -> ex
+		reg_no_ex_fwd_in    : in  std_logic_vector(4 downto 0);
+		reg_data_ex_fwd_in  : in  std_logic_vector(31 downto 0);
+		reg_no_ex_fwd_out   : out std_logic_vector(4 downto 0);
+		reg_data_ex_fwd_out : out std_logic_vector(31 downto 0);
+		
+		-- mem -> ex
+		reg_no_mem_fwd_in   : in  std_logic_vector(4 downto 0);
+		reg_data_mem_fwd_in : in  std_logic_vector(31 downto 0);
+		
+		-- id -> ex
+		reg1_no_fwd_in		  : in std_logic_vector(4 downto 0);
+		reg2_no_fwd_in		  : in std_logic_vector(4 downto 0)
 	);
 	
 end EX_BLOCK;
@@ -105,6 +121,7 @@ begin
 	begin
 		
 		if (rising_edge(clk)) then
+			
 			LOAD_pom   := LOAD_in ;
 			STORE_pom  := STORE_in;
 			MOV_pom    := MOV_in  ;
@@ -176,6 +193,8 @@ begin
 			if (ADD_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(reg2_data_in));
 				Reg_out <= Rd_pom;
+				reg_data_ex_fwd_out <= std_logic_vector(signed(reg1_data_in) + signed(reg2_data_in));
+				reg_no_ex_fwd_out <= Rd_pom;
 			end if;
 			
 			if (SUB_pom = '1') then

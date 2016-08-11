@@ -94,6 +94,16 @@ architecture rtl of CPU is
 		
 		signal predictor_high_bit_id_if : std_logic;
 		signal idle_id_id : std_logic;
+		
+		-- hazardi
+		signal reg_no_ex_ex_fwd    : std_logic_vector(4 downto 0);
+		signal reg_data_ex_ex_fwd  : std_logic_vector(31 downto 0);
+		
+		signal reg_no_mem_ex_fwd   : std_logic_vector(4 downto 0);
+		signal reg_data_mem_ex_fwd : std_logic_vector(31 downto 0);
+		
+		signal reg1_no_id_ex_fwd   : std_logic_vector(4 downto 0);
+		signal reg2_no_id_ex_fwd   : std_logic_vector(4 downto 0);
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -174,7 +184,11 @@ begin
 		new_pc_out => new_pc_id_if,
 		
 		idle_self_out => idle_id_id,
-		idle_self_in  => idle_id_id
+		idle_self_in  => idle_id_id,
+		
+		reg1_no_fwd_out => reg1_no_id_ex_fwd,
+		reg2_no_fwd_out => reg2_no_id_ex_fwd
+		
 	);
 	
 	
@@ -225,7 +239,18 @@ begin
 		load_out => load_ex_mem,
 		store_out => store_ex_mem,
 		
-		pc_in => pc_id_ex
+		pc_in => pc_id_ex,
+		
+		reg_no_ex_fwd_in  => reg_no_ex_ex_fwd,
+		reg_no_ex_fwd_out => reg_no_ex_ex_fwd,
+		reg_data_ex_fwd_in  => reg_data_ex_ex_fwd,
+		reg_data_ex_fwd_out => reg_data_ex_ex_fwd,
+		
+		reg_no_mem_fwd_in   => reg_no_mem_ex_fwd,
+		reg_data_mem_fwd_in => reg_data_mem_ex_fwd,
+		
+		reg1_no_fwd_in => reg1_no_id_ex_fwd,
+		reg2_no_fwd_in => reg2_no_id_ex_fwd
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK
@@ -242,7 +267,10 @@ begin
 		wr_out	=> wr_mem_datacache,
 		adr_out	=> adr_mem_datacache,
 		data_out => data_mem_datacache,
-		data_in  => data_datacache_mem
+		data_in  => data_datacache_mem,
+		
+		reg_no_fwd_out   => reg_no_mem_ex_fwd,
+		reg_data_fwd_out => reg_data_mem_ex_fwd
 	);
 	
 	WB_BLOCK: entity work.WB_BLOCK
@@ -255,3 +283,4 @@ begin
 		data_out => data_wb_reg	
 	);
 end architecture;
+

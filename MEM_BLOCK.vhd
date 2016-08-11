@@ -22,7 +22,11 @@ entity MEM_BLOCK is
 		wr_out	: out std_logic;
 		adr_out	: out std_logic_vector(31 downto 0); -- adresa na koju se upisuje/sa koje se cita
 		data_out : out std_logic_vector(31 downto 0);
-		data_in  : in  std_logic_vector(31 downto 0)
+		data_in  : in  std_logic_vector(31 downto 0);
+		
+		-- HAZARDI mem -> ex
+		reg_no_fwd_out   : out std_logic_vector(4 downto 0);
+		reg_data_fwd_out : out std_logic_vector(31 downto 0)
 	);
 	
 end MEM_BLOCK;

@@ -67,7 +67,11 @@ entity ID_BLOCK is
 		new_pc_out				  : out std_logic_vector(31 downto 0);
 		
 		idle_self_in  : in  std_logic;
-		idle_self_out : out std_logic
+		idle_self_out : out std_logic;
+		
+		-- HAZARDI id -> ex
+		reg1_no_fwd_out : out std_logic_vector(4 downto 0);
+		reg2_no_fwd_out : out std_logic_vector(4 downto 0)
 	); 
 
 end ID_BLOCK;
@@ -684,6 +688,7 @@ begin
 	end process;
 	
 end architecture;
+
 
 
 
