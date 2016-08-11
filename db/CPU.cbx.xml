@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="CPU">
-		<CBX_INST_ENTRY INSTANCE_NAME="|CPU|IF_BLOCK:IF_BLOCK|altshift_taps:jump_predicted_out_rtl_0" CBX_FILE_NAME="shift_taps_p1m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

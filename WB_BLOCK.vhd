@@ -35,12 +35,12 @@ begin
 				Reg_out <= Reg_in;
 				data_out <= ALU_in;
 				wr_out <= '1';
+			else
+				wr_out <= 'Z';
 			end if;
+			
 		end if;
 		
-		if (falling_edge(clk)) then
-			wr_out <= '0';
-		end if;
 	end process;
 	
 end architecture;

@@ -10,13 +10,13 @@ entity CPU is
 		ir_in : in std_logic_vector(31 downto 0); -- dobijeno od instr_cache
 		adr_out : out std_logic_vector(31 downto 0);
 		
-		rdReg1_ex_reg : out std_logic;
-		rdReg2_ex_reg : out std_logic;
+		rdReg1_id_reg : out std_logic;
+		rdReg2_id_reg : out std_logic;
 
-		reg1_no_ex_reg   : out std_logic_vector(4 downto 0);
-		reg1_data_reg_ex : in  std_logic_vector(31 downto 0);
-		reg2_no_ex_reg   : out std_logic_vector(4 downto 0);
-		reg2_data_reg_ex : in  std_logic_vector(31 downto 0);
+		reg1_no_id_reg   : out std_logic_vector(4 downto 0);
+		reg1_data_reg_id : in  std_logic_vector(31 downto 0);
+		reg2_no_id_reg   : out std_logic_vector(4 downto 0);
+		reg2_data_reg_id : in  std_logic_vector(31 downto 0);
 		
 		rd_mem_datacache		: out std_logic;
 		wr_mem_datacache		: out std_logic;
@@ -69,8 +69,8 @@ architecture rtl of CPU is
 		signal pc_id_ex : std_logic_vector(31 downto 0);
 		 
 		--registri
-		signal Rs1_id_ex: std_logic_vector(4 downto 0);
-		signal Rs2_id_ex: std_logic_vector(4 downto 0);
+		signal reg1_data_id_ex: std_logic_vector(31 downto 0);
+		signal reg2_data_id_ex: std_logic_vector(31 downto 0);
 		signal Rd_id_ex: std_logic_vector(4 downto 0);
 		signal imm_id_ex: std_logic_vector(31 downto 0);
 		
@@ -80,7 +80,7 @@ architecture rtl of CPU is
 		
 		signal load_ex_mem  : std_logic;
 		signal store_ex_mem : std_logic;
-		signal new_pc_ex_if	: std_logic_vector(31 downto 0);
+		signal new_pc_id_if	: std_logic_vector(31 downto 0);
 		
 		signal ALU_mem_wb		: std_logic_vector(31 downto 0);
 		signal Reg_mem_wb		: std_logic_vector(4 downto 0);
@@ -92,6 +92,8 @@ architecture rtl of CPU is
 		signal predicted_pc_ex_if   : std_logic_vector(31 downto 0);
 		signal jump_predicted_ex_if : std_logic;
 		
+		signal predictor_high_bit_id_if : std_logic;
+		signal idle_id_id : std_logic;
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -99,13 +101,15 @@ begin
 		ir_in => ir_in,
 		ir_out => ir_if_id,
 		adr_out => adr_out,
-		new_pc_in => new_pc_ex_if,
+		new_pc_in => new_pc_id_if,
 		pc_out => pc_if_id,
 
 		predicted_pc_in	 => predicted_pc_ex_if,
 		predicted_pc_out 	 => predicted_pc_if_id,
 		jump_predicted_in	 => jump_predicted_ex_if,
-		jump_predicted_out => jump_predicted_if_id
+		jump_predicted_out => jump_predicted_if_id,
+		
+		predictor_high_bit_in => predictor_high_bit_id_if
 	);
 	
 	ID_BLOCK: entity work.ID_BLOCK
@@ -143,11 +147,19 @@ begin
 		BLE_out => BLE_id_ex,
 		HALT_out => HALT_id_ex,
 		
+		rdReg1_out => rdReg1_id_reg,
+		rdReg2_out => rdReg2_id_reg,
+		
+		reg1_no_out   => reg1_no_id_reg,
+		reg1_data_in  => reg1_data_reg_id,
+		reg2_no_out   => reg2_no_id_reg,
+		reg2_data_in  => reg2_data_reg_id,
+		
 		--registri
-		Rs1_out => Rs1_id_ex,
-		Rs2_out => Rs2_id_ex,
 		Rd_out => Rd_id_ex,
 		imm_out => imm_id_ex,
+		reg1_data_out => reg1_data_id_ex, 
+		reg2_data_out => reg2_data_id_ex,
 		
 		pc_in  => pc_if_id,
 		pc_out => pc_id_ex,
@@ -155,7 +167,14 @@ begin
 		predicted_pc_in	 => predicted_pc_if_id,
 		predicted_pc_out 	 => predicted_pc_id_ex,
 		jump_predicted_in	 => jump_predicted_if_id,
-		jump_predicted_out => jump_predicted_id_ex
+		jump_predicted_out => jump_predicted_id_ex,
+		
+		predictor_high_bit_out => predictor_high_bit_id_if,
+		
+		new_pc_out => new_pc_id_if,
+		
+		idle_self_out => idle_id_id,
+		idle_self_in  => idle_id_id
 	);
 	
 	
@@ -194,19 +213,10 @@ begin
 		BLE_in => BLE_id_ex,
 		HALT_in => HALT_id_ex,
 		
-		Rs1_in => Rs1_id_ex,
-		Rs2_in => Rs2_id_ex,
 		Rd_in => Rd_id_ex,
 		imm_in => imm_id_ex,
-	
-		rdReg1_out => rdReg1_ex_reg,
-		rdReg2_out => rdReg2_ex_reg,
-		
-		
-		reg1_no_out   => reg1_no_ex_reg,
-		reg1_data_in  => reg1_data_reg_ex,
-		reg2_no_out   => reg2_no_ex_reg,
-		reg2_data_in  => reg2_data_reg_ex,
+		reg1_data_in => reg1_data_id_ex,
+		reg2_data_in => reg2_data_id_ex,
 	
 		ALU_out => ALU_ex_mem,
 		B_out   => B_ex_mem,
@@ -214,13 +224,8 @@ begin
 		
 		load_out => load_ex_mem,
 		store_out => store_ex_mem,
-		pc_in => pc_id_ex,
-		new_pc_out => new_pc_ex_if,
 		
-		predicted_pc_in	 => predicted_pc_id_ex,
-		predicted_pc_out 	 => predicted_pc_ex_if,
-		jump_predicted_in	 => jump_predicted_id_ex,
-		jump_predicted_out => jump_predicted_ex_if
+		pc_in => pc_id_ex
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK

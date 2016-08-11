@@ -40,43 +40,28 @@ entity EX_BLOCK is
 		BLE_in: in std_logic;
 		HALT_in: in std_logic;
 		
-		--registri
-		Rs1_in: in std_logic_vector(4 downto 0);
-		Rs2_in: in std_logic_vector(4 downto 0);
-		Rd_in: in std_logic_vector(4 downto 0);
-		imm_in: in std_logic_vector(31 downto 0);
-	
-		-- za komunikaciju sa REG_FILE
-		rdReg1_out: out std_logic;
-		rdReg2_out: out std_logic;
-		
-		reg1_no_out   : out std_logic_vector(4 downto 0); 
-		reg1_data_in  : in  std_logic_vector(31 downto 0); 
-		reg2_no_out   : out std_logic_vector(4 downto 0);
-		reg2_data_in  : in  std_logic_vector(31 downto 0); 
+		-- operandi dobijeni od ID
+		Rd_in				: in std_logic_vector(4 downto 0);
+		imm_in			: in std_logic_vector(31 downto 0);
+		reg1_data_in 	: in std_logic_vector(31 downto 0);
+		reg2_data_in 	: in std_logic_vector(31 downto 0);
 		
 		-- za komunikaciju sa MEM_BLOCK
 		ALU_out  : out std_logic_vector(31 downto 0);
 		B_out    : out std_logic_vector(31 downto 0); --operand za store
 		load_out : out std_logic;
 		store_out: out std_logic;
-		Reg_out : out std_logic_vector(4 downto 0); -- 5 bitova iz IR-a sluze za adresiranje registara u WB stepenu
+		Reg_out  : out std_logic_vector(4 downto 0); -- 5 bitova iz IR-a sluze za adresiranje registara u WB stepenu
 		
-		-- slanje pc-ja
-		new_pc_out : out std_logic_vector(31 downto 0); -- salje se IF-u
-		pc_in : in std_logic_vector(31 downto 0);			-- dobija se od ID
-		
-		-- prima od ID i vraca IF-u
-		predicted_pc_in	 : in  std_logic_vector(31 downto 0); 
-		predicted_pc_out 	 : out std_logic_vector(31 downto 0);
-		jump_predicted_in	 : in  std_logic; 
-		jump_predicted_out : out std_logic
+		pc_in		: in std_logic_vector(31 downto 0)
 	);
 	
 end EX_BLOCK;
 
 architecture rtl of EX_BLOCK is
 	signal sp : std_logic_vector(31 downto 0) := X"0000FFFF";
+	signal idle_out : std_logic;
+	signal idle_in  : std_logic;
 begin
 	
 	process (clk) is
@@ -110,8 +95,9 @@ begin
 		variable BLE_pom:  std_logic;
 		variable HALT_pom:  std_logic;
 		
-		variable Rs1_pom: std_logic_vector(4 downto 0);
-		variable Rs2_pom: std_logic_vector(4 downto 0);
+		
+		--variable Rs1_pom: std_logic_vector(4 downto 0);
+		--variable Rs2_pom: std_logic_vector(4 downto 0);
 		variable Rd_pom:  std_logic_vector(4 downto 0);
 		variable imm_pom: std_logic_vector(31 downto 0);
 		
@@ -149,200 +135,32 @@ begin
 			BLE_pom    := BLE_in  ;
 			HALT_pom   := HALT_in ;
 			
-			Rs1_pom    := Rs1_in  ;
-			Rs2_pom    := Rs2_in  ;
 			Rd_pom     := Rd_in   ;
 			imm_pom    := imm_in  ;
-			
-			
-			
-			if (LOAD_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (STORE_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (MOV_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (MOVI_pom = '1') then
-				-- ovde nista ne treba
-			end if;
-			
-			if (ADD_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (SUB_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (ADDI_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (SUBI_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (AND_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (OR_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (XOR_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (NOT_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (SHR_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (SHL_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (SAR_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-				
-			if (ROL_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (ROR_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (JMP_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (JSR_pom = '1') then
-				reg1_no_out <= Rd_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (RTS_pom = '1') then
-				-- vraca iz subroutine, rad sa stekom
-			end if;
-			
-			if (PUSH_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-			end if;
-			
-			if (POP_pom = '1') then
-				-- ovde nista
-			end if;
-			
-			if (BEQ_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (BNQ_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (BGT_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (BLT_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (BGE_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (BLE_pom = '1') then
-				reg1_no_out <= Rs1_pom;
-				rdReg1_out <= '1';
-				reg2_no_out <= Rs2_pom;
-				rdReg2_out <= '1';
-			end if;
-			
-			if (HALT_pom = '1') then
-				
-			end if;
-			
+
 		end if;
 	
 		if (falling_edge(clk)) then
-			rdReg1_out <= '0';
-			rdReg2_out <= '0';
+		
+			--predicted_pc_out <= predicted_pc_in;
+			--jump_predicted_out <= jump_predicted_in;
 			
-			predicted_pc_out <= predicted_pc_in;
-			jump_predicted_out <= jump_predicted_in;
-			
-			load_out <= 'Z';
+			Reg_out   <= (others => 'Z');
+			ALU_out   <= (others => 'Z');
+			B_out     <= (others => 'Z');
+			load_out  <= 'Z';
 			store_out <= 'Z';
 			
 			if (LOAD_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom)); -- adresa sa koje se cita
 				Reg_out <= Rd_pom;
-				load_out <= '1';
+				--load_out <= '1';
 			end if;
 			
 			if (STORE_pom = '1') then
 				ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 				B_out <= reg2_data_in;
-				store_out <= '1';
+				--store_out <= '1';
 			end if;
 			
 			if (MOV_pom = '1') then
@@ -451,7 +269,7 @@ begin
 			end if;
 			
 			if (JMP_pom = '1') then
-				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+				--new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 			end if;
 			
 			if (JSR_pom = '1') then
@@ -461,7 +279,7 @@ begin
 				B_out <= std_logic_vector(unsigned(pc_in) + 1);
 				store_out <= '1';
 				-- prva adresa potprograma
-				new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+				--new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
 			end if;
 			
 			if (RTS_pom = '1') then
@@ -483,44 +301,45 @@ begin
 			end if;
 			
 			if (BEQ_pom = '1') then
-				if (reg1_data_in = reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
-				end if;
+				
 			end if;
 			
 			if (BNQ_pom = '1') then
-				if (reg1_data_in /= reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
-				end if;
+			
 			end if;
 			
 			if (BGT_pom = '1') then
-				if (reg1_data_in > reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
-				end if;
+			
 			end if;
 			
 			if (BLT_pom = '1') then
-				if (reg1_data_in < reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
-				end if;
+				
 			end if;
 			
 			if (BGE_pom = '1') then
-				if (reg1_data_in >= reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
-				end if;
+				
 			end if;
 			
 			if (BLE_pom = '1') then
-				if (reg1_data_in <= reg2_data_in) then
-					new_pc_out <= std_logic_vector(signed(pc_pom) + signed(imm_pom));
-				end if;
+				
 			end if;
 			
 			if (HALT_pom = '1') then
 				
 			end if;
+			
+			if (LOAD_pom = '1') then
+				load_out <= '1';
+			else
+				load_out <= 'Z';
+			end if;
+			
+			if (STORE_pom = '1') then
+				store_out <= '1';
+			else
+				store_out <= 'Z';
+			end if;
+			
 			
 		end if;
 	

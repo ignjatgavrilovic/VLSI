@@ -49,23 +49,28 @@ begin
 			if (load_pom = '1') then
 				adr_out <= ALU_pom; -- adresa koju saljemo DATA_CACHE
 				rd_out <= '1';
+				wr_out <= 'Z';
 			elsif (store_pom = '1') then
 				adr_out <= ALU_pom;
 				data_out <= B_pom;
 				wr_out <= '1';
+				rd_out <= 'Z';
 			else 
 				-- ne radimo nista
+				rd_out <= 'Z';
+				wr_out <= 'Z';
 			end if;
 		end if;
 		
 		if (falling_edge(clk)) then
+			--rd_out <= '0';
+			--wr_out <= '0';
+		
 			if (load_pom = '1') then
 				ALU_out <= data_in; -- dobijen podatak od DATA_CACHE
 				Reg_out <= Reg_pom;
-				rd_out <= 'Z';
 			elsif (store_pom = '1') then
 				Reg_out <= Reg_pom; -- 'Z'
-				wr_out <= 'Z';
 			else 
 				ALU_out <= ALU_pom;
 				Reg_out <= Reg_pom;

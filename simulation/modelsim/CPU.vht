@@ -13,13 +13,13 @@ signal ir_instrcache_if : std_logic_vector(31 downto 0);
 --signal ir_if_id : std_logic_vector(31 downto 0);
 
 -- vezano za REG_FILE
-signal rdReg1_ex_reg : std_logic;
-signal rdReg2_ex_reg : std_logic;
+signal rdReg1_id_reg : std_logic;
+signal rdReg2_id_reg : std_logic;
 
-signal reg1_no_ex_reg   : std_logic_vector(4 downto 0);
-signal reg1_data_reg_ex : std_logic_vector(31 downto 0);
-signal reg2_no_ex_reg   : std_logic_vector(4 downto 0);
-signal reg2_data_reg_ex : std_logic_vector(31 downto 0);
+signal reg1_no_id_reg   : std_logic_vector(4 downto 0);
+signal reg1_data_reg_id : std_logic_vector(31 downto 0);
+signal reg2_no_id_reg   : std_logic_vector(4 downto 0);
+signal reg2_data_reg_id : std_logic_vector(31 downto 0);
 
 signal rd_mem_datacache		: std_logic;
 signal wr_mem_datacache		: std_logic;
@@ -38,14 +38,14 @@ COMPONENT CPU
 		ir_in : in std_logic_vector(31 downto 0);
 		reset : IN STD_LOGIC;
 		
-		rdReg1_ex_reg : out std_logic;
-		rdReg2_ex_reg : out std_logic;
+		rdReg1_id_reg : out std_logic;
+		rdReg2_id_reg : out std_logic;
 
-		reg1_no_ex_reg   : out std_logic_vector(4 downto 0);
-		reg1_data_reg_ex : in  std_logic_vector(31 downto 0);
-		reg2_no_ex_reg   : out std_logic_vector(4 downto 0);
-		reg2_data_reg_ex : in  std_logic_vector(31 downto 0);
-		
+		reg1_no_id_reg   : out std_logic_vector(4 downto 0);
+		reg1_data_reg_id : in  std_logic_vector(31 downto 0);
+		reg2_no_id_reg   : out std_logic_vector(4 downto 0);
+		reg2_data_reg_id : in  std_logic_vector(31 downto 0);
+
 		rd_mem_datacache		: out std_logic;
 		wr_mem_datacache		: out std_logic;
 		adr_mem_datacache		: out std_logic_vector(31 downto 0);
@@ -107,13 +107,13 @@ BEGIN
 		reset => reset,
 		ir_in => ir_instrcache_if,
 		
-		rdReg1_ex_reg => rdReg1_ex_reg,
-		rdReg2_ex_reg => rdReg2_ex_reg,
+		rdReg1_id_reg => rdReg1_id_reg,
+		rdReg2_id_reg => rdReg2_id_reg,
 
-		reg1_no_ex_reg   => reg1_no_ex_reg,
-		reg1_data_reg_ex => reg1_data_reg_ex,
-		reg2_no_ex_reg   => reg2_no_ex_reg,
-		reg2_data_reg_ex => reg2_data_reg_ex,
+		reg1_no_id_reg   => reg1_no_id_reg,
+		reg1_data_reg_id => reg1_data_reg_id,
+		reg2_no_id_reg   => reg2_no_id_reg,
+		reg2_data_reg_id => reg2_data_reg_id,
 		
 		rd_mem_datacache	 => rd_mem_datacache,
 		wr_mem_datacache	 => wr_mem_datacache,
@@ -137,13 +137,13 @@ BEGIN
 	port map (
 		reset => reset,
 		
-		rdReg1_in => rdReg1_ex_reg,
-		rdReg2_in => rdReg2_ex_reg,
+		rdReg1_in => rdReg1_id_reg,
+		rdReg2_in => rdReg2_id_reg,
 		
-		reg1_no_in 	  => reg1_no_ex_reg,
-		reg1_data_out => reg1_data_reg_ex,
-		reg2_no_in 	  => reg2_no_ex_reg,
-		reg2_data_out => reg2_data_reg_ex,
+		reg1_no_in 	  => reg1_no_id_reg,
+		reg1_data_out => reg1_data_reg_id,
+		reg2_no_in 	  => reg2_no_id_reg,
+		reg2_data_out => reg2_data_reg_id,
 		
 		wr_in		=> wr_wb_reg,
 		reg_in	=> reg_wb_reg,

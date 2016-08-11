@@ -1,4 +1,26 @@
-{E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd}
+{E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd} {2 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ID_BLOCK
+-- Compiling architecture rtl of ID_BLOCK
+** Warning: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(77): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(78): (vcom-1236) Shared variables must be of a protected type.
+
+
+} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity EX_BLOCK
+-- Compiling architecture rtl of EX_BLOCK
+
+} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -16,14 +38,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity INSTR_CACHE
 -- Compiling architecture RTL of INSTR_CACHE
 
-} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity ID_BLOCK
--- Compiling architecture rtl of ID_BLOCK
-
 } {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -37,6 +51,26 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading entity EX_BLOCK
 -- Loading entity MEM_BLOCK
 -- Loading entity WB_BLOCK
+
+} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity IF_BLOCK
+-- Compiling architecture rtl of IF_BLOCK
+
+} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/REG_FILE.vhd} {2 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/REG_FILE.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity REG_FILE
+-- Compiling architecture rtl of REG_FILE
+** Warning: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/REG_FILE.vhd(29): (vcom-1236) Shared variables must be of a protected type.
+
 
 } {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -58,17 +92,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Warning: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/DATA_CACHE.vhd(25): (vcom-1236) Shared variables must be of a protected type.
 
 
-} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd} {2 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity IF_BLOCK
--- Compiling architecture rtl of IF_BLOCK
-** Warning: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd(29): (vcom-1236) Shared variables must be of a protected type.
-
-
 } {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -76,16 +99,5 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_1164
 -- Compiling entity CPU_vhd_tst
 -- Compiling architecture CPU_arch of CPU_vhd_tst
-
-} {} {}} {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/REG_FILE.vhd} {2 {vcom -work work -2002 -explicit {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/REG_FILE.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity REG_FILE
--- Compiling architecture rtl of REG_FILE
-** Warning: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/REG_FILE.vhd(29): (vcom-1236) Shared variables must be of a protected type.
-
 
 } {} {}}

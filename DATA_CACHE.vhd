@@ -58,14 +58,14 @@ begin
 --		end loop;
 --	end process;
 	
-	process (rd_in) is
+	process (rd_in, adr_in) is
 	begin
 		if (rd_in = '1') then
 			data_out <= cache(to_integer(unsigned(adr_in)));
 		end if;
 	end process;
 	
-	process (wr_in) is
+	process (wr_in, adr_in) is
 	begin
 		if (wr_in = '1') then
 			cache(to_integer(unsigned(adr_in))) := data_in;
