@@ -33,81 +33,107 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity ID_BLOCK
 # -- Compiling architecture rtl of ID_BLOCK
-# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity EX_BLOCK
-# -- Compiling architecture rtl of EX_BLOCK
-# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity WB_BLOCK
-# -- Compiling architecture rtl of WB_BLOCK
-# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity CPU
-# -- Compiling architecture rtl of CPU
-# -- Loading package NUMERIC_STD
-# -- Loading entity IF_BLOCK
-# -- Loading entity ID_BLOCK
-# -- Loading entity EX_BLOCK
-# -- Loading entity MEM_BLOCK
-# -- Loading entity WB_BLOCK
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(131): near ";": expecting ')'
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(404): near "if": expecting PROCESS
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(454): (vcom-1136) Unknown identifier "operand1".
 # 
-# vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity CPU_vhd_tst
-# -- Compiling architecture CPU_arch of CPU_vhd_tst
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(460): (vcom-1136) Unknown identifier "operand1".
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc"  cpu_vhd_tst
-# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps cpu_vhd_tst 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.cpu_vhd_tst(cpu_arch)
-# Loading ieee.numeric_std(body)
-# Loading work.cpu(rtl)
-# Loading work.if_block(rtl)
-# Loading work.id_block(rtl)
-# Loading work.ex_block(rtl)
-# Loading work.mem_block(rtl)
-# Loading work.wb_block(rtl)
-# ** Warning: (vsim-3473) Component instance "i_instr_cache : INSTR_CACHE" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
-# ** Warning: (vsim-3473) Component instance "i_reg_file : REG_FILE" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
-# ** Warning: (vsim-3473) Component instance "i_data_cache : DATA_CACHE" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst File: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/simulation/modelsim/CPU.vht
-# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(461): (vcom-1136) Unknown identifier "operand2".
 # 
-# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(469): (vcom-1136) Unknown identifier "operand1".
 # 
-# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(480): (vcom-1136) Unknown identifier "operand1".
 # 
-# This port will contribute value (U) to the signal network.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(481): (vcom-1136) Unknown identifier "operand2".
 # 
-# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(488): (vcom-1136) Unknown identifier "operand1".
 # 
-# This port will contribute value (U) to the signal network.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(489): (vcom-1136) Unknown identifier "operand2".
 # 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(496): (vcom-1136) Unknown identifier "operand1".
 # 
-# add wave *
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# run 2 ms
-quit -sim
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(503): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(510): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(511): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(518): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(519): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(526): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(527): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(534): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(564): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(570): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(580): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(591): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(592): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(596): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(596): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(596): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(604): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(605): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(609): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(609): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(609): Type error resolving infix expression "/=" as type std.STANDARD.BOOLEAN.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(617): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(618): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(622): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(622): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(622): Type error resolving infix expression ">" as type std.STANDARD.BOOLEAN.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(630): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(631): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(635): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(635): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(635): Type error resolving infix expression "<" as type std.STANDARD.BOOLEAN.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(643): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(644): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(648): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(648): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(648): Type error resolving infix expression ">=" as type std.STANDARD.BOOLEAN.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(656): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(657): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(661): (vcom-1136) Unknown identifier "operand1".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(661): (vcom-1136) Unknown identifier "operand2".
+# 
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(661): Type error resolving infix expression "<=" as type std.STANDARD.BOOLEAN.
+# ** Error: E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd(724): near "process": expecting ';'
+# ** Error: E:/altera/13.0sp1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./CPU_run_msim_rtl_vhdl.do line 10
+# E:/altera/13.0sp1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd}"
 # reading E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini
 # Loading project Ignjat_test

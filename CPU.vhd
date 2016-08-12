@@ -104,6 +104,8 @@ architecture rtl of CPU is
 		
 		signal reg1_no_id_ex_fwd   : std_logic_vector(4 downto 0);
 		signal reg2_no_id_ex_fwd   : std_logic_vector(4 downto 0);
+		
+		signal stall : std_logic;
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -119,7 +121,8 @@ begin
 		jump_predicted_in	 => jump_predicted_ex_if,
 		jump_predicted_out => jump_predicted_if_id,
 		
-		predictor_high_bit_in => predictor_high_bit_id_if
+		predictor_high_bit_in => predictor_high_bit_id_if,
+		stall_in => stall
 	);
 	
 	ID_BLOCK: entity work.ID_BLOCK
@@ -187,7 +190,9 @@ begin
 		idle_self_in  => idle_id_id,
 		
 		reg1_no_fwd_out => reg1_no_id_ex_fwd,
-		reg2_no_fwd_out => reg2_no_id_ex_fwd
+		reg2_no_fwd_out => reg2_no_id_ex_fwd,
+		
+		stall_in => stall
 		
 	);
 	
@@ -250,7 +255,10 @@ begin
 		reg_data_mem_fwd_in => reg_data_mem_ex_fwd,
 		
 		reg1_no_fwd_in => reg1_no_id_ex_fwd,
-		reg2_no_fwd_in => reg2_no_id_ex_fwd
+		reg2_no_fwd_in => reg2_no_id_ex_fwd,
+		
+		stall_in  => stall,
+		stall_out => stall
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK
