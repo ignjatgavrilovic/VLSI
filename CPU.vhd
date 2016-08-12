@@ -106,6 +106,7 @@ architecture rtl of CPU is
 		signal reg2_no_id_ex_fwd   : std_logic_vector(4 downto 0);
 		
 		signal stall : std_logic;
+		signal was_load : std_logic;
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -258,7 +259,10 @@ begin
 		reg2_no_fwd_in => reg2_no_id_ex_fwd,
 		
 		stall_in  => stall,
-		stall_out => stall
+		stall_out => stall,
+		
+		was_load_in  => was_load,
+		was_load_out => was_load
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK

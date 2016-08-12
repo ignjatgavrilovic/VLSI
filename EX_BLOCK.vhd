@@ -64,6 +64,8 @@ entity EX_BLOCK is
 		reg_data_ex_fwd_out : out std_logic_vector(31 downto 0);
 		stall_out			  : out std_logic; -- ovo ide i na IF i ID i u sebe
 		stall_in				  : in  std_logic;
+		was_load_in			  : in  std_logic;
+		was_load_out		  : out std_logic;
 		
 		-- mem -> ex
 		reg_no_mem_fwd_in   : in  std_logic_vector(4 downto 0);
@@ -162,15 +164,12 @@ begin
 				
 				-- HAZARDI logika za stall
 				if (reg1_no_fwd_in(0) /= 'Z' AND reg1_no_fwd_in(0) /= 'U') then
-					if (reg1_no_fwd_in = reg_no_ex_fwd_in) then
+					if (reg1_no_fwd_in = reg_no_ex_fwd_in AND was_load_in /= '1') then
 						operand1 := reg_data_ex_fwd_in;
+					elsif (reg1_no_fwd_in = reg_no_ex_fwd_in AND was_load_in = '1') then
+						stall_out <= '1';
 					elsif (reg1_no_fwd_in = reg_no_mem_fwd_in) then
-						-- ako dobijemo 'Z' => mora da se stall-uje jer je LOAD prethodna instrukcija
-						if (reg_data_mem_fwd_in(0) /= 'Z' AND reg_data_mem_fwd_in(0) /= 'U') then
-							operand1 := reg_data_mem_fwd_in;
-						else -- stall
-							stall_out <= '1';
-						end if;
+						operand1 := reg_data_mem_fwd_in;
 					else
 						operand1 := reg1_data_in;
 					end if;
@@ -179,15 +178,12 @@ begin
 				end if;
 				
 				if (reg2_no_fwd_in(0) /= 'Z' AND reg1_no_fwd_in(0) /= 'U') then
-					if (reg2_no_fwd_in = reg_no_ex_fwd_in) then
+					if (reg2_no_fwd_in = reg_no_ex_fwd_in AND was_load_in /= '1') then
 						operand2 := reg_data_ex_fwd_in;
-					elsif (reg2_no_fwd_in = reg_no_mem_fwd_in) then
-						-- ako dobijemo 'Z' => mora da se stall-uje jer je LOAD prethodna instrukcija
-						if (reg_data_mem_fwd_in(0) /= 'Z' AND reg_data_mem_fwd_in(0) /= 'U') then
+					elsif (reg2_no_fwd_in = reg_no_ex_fwd_in AND was_load_in = '1') then
+						stall_out <= '1';
+					elsif (reg2_no_fwd_in = reg_no_mem_fwd_in) then					
 							operand2 := reg_data_mem_fwd_in;
-						else -- stall
-							stall_out <= '1';
-						end if;
 					else
 						operand2 := reg2_data_in;
 					end if;
@@ -225,25 +221,27 @@ begin
 				B_out     <= (others => 'Z');
 				load_out  <= 'Z';
 				store_out <= 'Z';
+				was_load_out <= 'Z';
 				
 				if (LOAD_pom = '1') then
-					ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom)); -- adresa sa koje se cita
+					ALU_out <= std_logic_vector(signed(operand1) + signed(imm_pom)); -- adresa sa koje se cita
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+					-- 'Z' jer kad je LOAD prosledjujemo iz MEM-a
+					reg_data_ex_fwd_out <= (others => 'Z');
 					reg_no_ex_fwd_out <= Rd_pom;
-					--load_out <= '1';
+					was_load_out <= '1';
 				end if;
 				
 				if (STORE_pom = '1') then
-					ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
-					B_out <= reg2_data_in;
+					ALU_out <= std_logic_vector(signed(operand1) + signed(imm_pom));
+					B_out <= operand2;
 					--store_out <= '1';
 				end if;
 				
 				if (MOV_pom = '1') then
-					ALU_out <= reg1_data_in;
+					ALU_out <= operand1;
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= reg1_data_in;
+					reg_data_ex_fwd_out <= operand1;
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
@@ -255,66 +253,66 @@ begin
 				end if;
 				
 				if (ADD_pom = '1') then
-					ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(reg2_data_in));
+					ALU_out <= std_logic_vector(signed(operand1) + signed(operand2));
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= std_logic_vector(signed(reg1_data_in) + signed(reg2_data_in));
+					reg_data_ex_fwd_out <= std_logic_vector(signed(operand1) + signed(operand2));
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (SUB_pom = '1') then
-					ALU_out <= std_logic_vector(signed(reg1_data_in) - signed(reg2_data_in));
+					ALU_out <= std_logic_vector(signed(operand1) - signed(operand2));
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= std_logic_vector(signed(reg1_data_in) - signed(reg2_data_in));
+					reg_data_ex_fwd_out <= std_logic_vector(signed(operand1) - signed(operand2));
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (ADDI_pom = '1') then
-					ALU_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+					ALU_out <= std_logic_vector(signed(operand1) + signed(imm_pom));
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+					reg_data_ex_fwd_out <= std_logic_vector(signed(operand1) + signed(imm_pom));
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (SUBI_pom = '1') then
-					ALU_out <= std_logic_vector(signed(reg1_data_in) - signed(imm_pom));
+					ALU_out <= std_logic_vector(signed(operand1) - signed(imm_pom));
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= std_logic_vector(signed(reg1_data_in) - signed(imm_pom));
+					reg_data_ex_fwd_out <= std_logic_vector(signed(operand1) - signed(imm_pom));
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (AND_pom = '1') then
-					ALU_out <= reg1_data_in and reg2_data_in;
+					ALU_out <= operand1 and operand2;
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= reg1_data_in and reg2_data_in;
+					reg_data_ex_fwd_out <= operand1 and operand2;
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (OR_pom = '1') then
-					ALU_out <= reg1_data_in or reg2_data_in;
+					ALU_out <= operand1 or operand2;
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= reg1_data_in or reg2_data_in;
+					reg_data_ex_fwd_out <= operand1 or operand2;
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (XOR_pom = '1') then
-					ALU_out <= reg1_data_in xor reg2_data_in;
+					ALU_out <= operand1 xor operand2;
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= reg1_data_in xor reg2_data_in;
+					reg_data_ex_fwd_out <= operand1 xor operand2;
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (NOT_pom = '1') then
-					ALU_out <= not reg1_data_in;
+					ALU_out <= not operand1;
 					Reg_out <= Rd_pom;
-					reg_data_ex_fwd_out <= not reg1_data_in;
+					reg_data_ex_fwd_out <= not operand1;
 					reg_no_ex_fwd_out <= Rd_pom;
 				end if;
 				
 				if (SHR_pom = '1') then
 					for i in 0 to 31 loop
 						if (i < 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
+							ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
+							reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
 						else
 							ALU_out(i) <= '0';
 							reg_data_ex_fwd_out(i) <= '0';
@@ -327,8 +325,8 @@ begin
 				if (SHL_pom = '1') then
 					for i in 31 downto 0 loop
 						if (i > 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= reg1_data_in(i - to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= reg1_data_in(i - to_integer(unsigned(imm_in)));
+							ALU_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
+							reg_data_ex_fwd_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
 						else
 							ALU_out(i) <= '0';
 							reg_data_ex_fwd_out(i) <= '0';
@@ -341,11 +339,11 @@ begin
 				if (SAR_pom = '1') then
 					for i in 0 to 31 loop
 						if (i < 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
+							ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
+							reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
 						else
-							ALU_out(i) <= reg1_data_in(31);
-							reg_data_ex_fwd_out(i) <= reg1_data_in(31);
+							ALU_out(i) <= operand1(31);
+							reg_data_ex_fwd_out(i) <= operand1(31);
 						end if;
 					end loop;
 					Reg_out <= Rd_pom;
@@ -355,11 +353,11 @@ begin
 				if (ROL_pom = '1') then
 					for i in 31 downto 0 loop
 						if (i >= 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= reg1_data_in(i - to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= reg1_data_in(i - to_integer(unsigned(imm_in)));
+							ALU_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
+							reg_data_ex_fwd_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
 						else
-							ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)) - 32);
-							reg_data_ex_fwd_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)) - 32);
+							ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
+							reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
 						end if;
 					end loop;
 					Reg_out <= Rd_pom;
@@ -369,11 +367,11 @@ begin
 				if (ROR_pom = '1') then
 					for i in 0 to 31 loop
 						if (i <= 31 - to_integer(unsigned(imm_in))) then
-								ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
-								reg_data_ex_fwd_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)));
+								ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
+								reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
 							else
-								ALU_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)) - 32);
-								reg_data_ex_fwd_out(i) <= reg1_data_in(i + to_integer(unsigned(imm_in)) - 32);
+								ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
+								reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
 							end if;
 					end loop;
 					Reg_out <= Rd_pom;
@@ -381,7 +379,7 @@ begin
 				end if;
 				
 				if (JMP_pom = '1') then
-					--new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+					--new_pc_out <= std_logic_vector(signed(operand1) + signed(imm_pom));
 				end if;
 				
 				if (JSR_pom = '1') then
@@ -391,7 +389,7 @@ begin
 					B_out <= std_logic_vector(unsigned(pc_in) + 1);
 					store_out <= '1';
 					-- prva adresa potprograma
-					--new_pc_out <= std_logic_vector(signed(reg1_data_in) + signed(imm_pom));
+					--new_pc_out <= std_logic_vector(signed(operand1) + signed(imm_pom));
 				end if;
 				
 				if (RTS_pom = '1') then
@@ -401,7 +399,7 @@ begin
 				if (PUSH_pom = '1') then
 					ALU_out <= sp;
 					sp <= std_logic_vector(unsigned(sp) + 1);
-					B_out <= reg1_data_in;
+					B_out <= operand1;
 					store_out <= '1';
 				end if;
 				
@@ -453,8 +451,8 @@ begin
 				else
 					store_out <= 'Z';
 				end if;
-			else
-				
+			else -- ako je bio stall
+				was_load_out <= '0';
 			end if;
 				
 		end if; -- falling_edge
