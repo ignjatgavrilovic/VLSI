@@ -222,6 +222,7 @@ begin
 				load_out  <= 'Z';
 				store_out <= 'Z';
 				was_load_out <= 'Z';
+				reg_no_ex_fwd_out <= (others => 'Z');
 				
 				if (LOAD_pom = '1') then
 					ALU_out <= std_logic_vector(signed(operand1) + signed(imm_pom)); -- adresa sa koje se cita

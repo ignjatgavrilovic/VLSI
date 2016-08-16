@@ -1,23 +1,476 @@
-# Compile of CPU.vhd failed with 5 errors.
+# Compile of CPU.vhd failed with 10 errors.
 # Compile of DATA_CACHE.vhd was successful with warnings.
 # Compile of EX_BLOCK.vhd was successful.
 # Compile of ID_BLOCK.vhd was successful with warnings.
-# Compile of IF_BLOCK.vhd was successful.
+# Compile of IF_BLOCK.vhd was successful with warnings.
 # Compile of INSTR_CACHE.vhd was successful.
 # Compile of MEM_BLOCK.vhd was successful.
 # Compile of REG_FILE.vhd was successful with warnings.
 # Compile of CPU.vht was successful.
 # Compile of WB_BLOCK.vhd was successful.
-# 10 compiles, 1 failed with 5 errors. 
+# 10 compiles, 1 failed with 10 errors. 
 # Compile of CPU.vhd was successful.
 # Compile of DATA_CACHE.vhd was successful with warnings.
 # Compile of EX_BLOCK.vhd was successful.
 # Compile of ID_BLOCK.vhd was successful with warnings.
-# Compile of IF_BLOCK.vhd was successful.
+# Compile of IF_BLOCK.vhd was successful with warnings.
 # Compile of INSTR_CACHE.vhd was successful.
 # Compile of MEM_BLOCK.vhd was successful.
 # Compile of REG_FILE.vhd was successful with warnings.
 # Compile of CPU.vht was successful.
 # Compile of WB_BLOCK.vhd was successful.
 # 10 compiles, 0 failed with no errors. 
-vsim +altera -do CPU_run_msim_rtl_vhdl.do -l msim_transcript -gui work.cpu_vhd_tst
+vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_vhd_tst(cpu_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.cpu(rtl)
+# Loading work.if_block(rtl)
+# Loading work.id_block(rtl)
+# Loading work.ex_block(rtl)
+# Loading work.mem_block(rtl)
+# Loading work.wb_block(rtl)
+# Loading ieee.std_logic_textio(body)
+# Loading work.instr_cache(rtl)
+# Loading work.reg_file(rtl)
+# Loading work.data_cache(rtl)
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+add wave -position end  sim:/cpu_vhd_tst/clk
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+quit -sim
+# Compile of CPU.vhd was successful.
+# Compile of DATA_CACHE.vhd was successful with warnings.
+# Compile of EX_BLOCK.vhd was successful.
+# Compile of ID_BLOCK.vhd was successful with warnings.
+# Compile of IF_BLOCK.vhd was successful with warnings.
+# Compile of INSTR_CACHE.vhd was successful.
+# Compile of MEM_BLOCK.vhd was successful.
+# Compile of REG_FILE.vhd was successful with warnings.
+# Compile of CPU.vht was successful.
+# Compile of WB_BLOCK.vhd was successful.
+# 10 compiles, 0 failed with no errors. 
+vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_vhd_tst(cpu_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.cpu(rtl)
+# Loading work.if_block(rtl)
+# Loading work.id_block(rtl)
+# Loading work.ex_block(rtl)
+# Loading work.mem_block(rtl)
+# Loading work.wb_block(rtl)
+# Loading ieee.std_logic_textio(body)
+# Loading work.instr_cache(rtl)
+# Loading work.reg_file(rtl)
+# Loading work.data_cache(rtl)
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+add wave -position end  sim:/cpu_vhd_tst/clk
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Break in Process line__87 at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd line 270
+quit -sim
+# Compile of CPU.vhd was successful.
+# Compile of DATA_CACHE.vhd was successful with warnings.
+# Compile of EX_BLOCK.vhd was successful.
+# Compile of ID_BLOCK.vhd was successful with warnings.
+# Compile of IF_BLOCK.vhd was successful with warnings.
+# Compile of INSTR_CACHE.vhd was successful.
+# Compile of MEM_BLOCK.vhd was successful.
+# Compile of REG_FILE.vhd was successful with warnings.
+# Compile of CPU.vht was successful.
+# Compile of WB_BLOCK.vhd was successful.
+# 10 compiles, 0 failed with no errors. 
+vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps work.cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_vhd_tst(cpu_arch)
+# Loading ieee.numeric_std(body)
+# Loading work.cpu(rtl)
+# Loading work.if_block(rtl)
+# Loading work.id_block(rtl)
+# Loading work.ex_block(rtl)
+# Loading work.mem_block(rtl)
+# Loading work.wb_block(rtl)
+# Loading ieee.std_logic_textio(body)
+# Loading work.instr_cache(rtl)
+# Loading work.reg_file(rtl)
+# Loading work.data_cache(rtl)
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/predicted_pc_out(31 downto 0) has no driver.
+# 
+# This port will contribute value (UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/jump_predicted_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+# ** Warning: (vsim-8683) Uninitialized out port /cpu_vhd_tst/i_cpu/ID_BLOCK/idle_self_out has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+add wave -position end  sim:/cpu_vhd_tst/clk
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_vhd_tst/i_instr_cache
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Break in Process line__87 at E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd line 271
+run
+run
+run
