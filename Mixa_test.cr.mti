@@ -1,4 +1,12 @@
-{C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\EX_BLOCK.vhd}
+{C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/WB_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/WB_BLOCK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity WB_BLOCK
+-- Compiling architecture rtl of WB_BLOCK
+
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -6,6 +14,43 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Compiling entity EX_BLOCK
 -- Compiling architecture rtl of EX_BLOCK
+
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd} {2 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ID_BLOCK
+-- Compiling architecture rtl of ID_BLOCK
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(102): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(104): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(105): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(106): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(107): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(108): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(109): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(110): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(111): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(112): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(113): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(114): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(115): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd(116): (vcom-1236) Shared variables must be of a protected type.
+
 
 } {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/INSTR_CACHE.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -16,14 +61,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_textio
 -- Compiling entity INSTR_CACHE
 -- Compiling architecture RTL of INSTR_CACHE
-
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity ID_BLOCK
--- Compiling architecture rtl of ID_BLOCK
 
 } {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -36,8 +73,30 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading entity IF_BLOCK
 -- Loading entity ID_BLOCK
 -- Loading entity EX_BLOCK
+-- Loading entity MEM_BLOCK
+-- Loading entity WB_BLOCK
 
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd}
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/MEM_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/MEM_BLOCK.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MEM_BLOCK
+-- Compiling architecture rtl of MEM_BLOCK
+
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/DATA_CACHE.vhd} {2 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/DATA_CACHE.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_textio
+-- Compiling entity DATA_CACHE
+-- Compiling architecture rtl of DATA_CACHE
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/DATA_CACHE.vhd(25): (vcom-1236) Shared variables must be of a protected type.
+
+
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd} {2 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -45,8 +104,10 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Compiling entity REG_FILE
 -- Compiling architecture rtl of REG_FILE
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/REG_FILE.vhd(29): (vcom-1236) Shared variables must be of a protected type.
 
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd}
+
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd} {2 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -54,8 +115,10 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Compiling entity IF_BLOCK
 -- Compiling architecture rtl of IF_BLOCK
+** Warning: C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd(41): (vcom-1236) Shared variables must be of a protected type.
 
-} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {C:\Users\mihai_000\Desktop\VLSI rojekat desktop\VLSI projekat\VLSI\simulation\modelsim\CPU.vht}
+
+} {} {}} {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht} {1 {vcom -work work -2002 -explicit {C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/simulation/modelsim/CPU.vht}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
