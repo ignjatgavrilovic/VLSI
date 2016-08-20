@@ -435,6 +435,7 @@ begin
 						--STOP_IF <= '1';
 					end if;
 					
+					-- branch
 					if (B"101" = ir(31 downto 29)) then
 						
 						reg1no := ir(20 downto 16);
@@ -480,6 +481,46 @@ begin
 							reg2data := reg_data_mem_fwd_in;
 						else
 							reg2data := (others => 'Z');
+						end if;
+						
+						if (stall_branch_1 > stall_branch_2) then
+							stall_branch := stall_branch_1;
+						else
+							stall_branch := stall_branch_2;
+						end if;
+						
+						if (stall_branch = 1 OR stall_branch = 2) then
+							stall_id_out <= '1';
+						end if;
+						
+					end if;
+					
+					--JMP i JSR
+					if (B"10000" = ir(31 downto 27)) then
+						
+						reg1no := ir(20 downto 16);
+						reg2no := (others => 'Z');
+						stall_branch_1 := 0;
+						stall_branch_2 := 0;
+						
+						if (was_load_1 = '1') then
+							if (reg1no = was_load_1_reg_no) then
+								stall_branch_1 := 2;
+							end if;
+						elsif (was_load_2 = '1') then
+							if (reg1no = was_load_2_reg_no) then
+								stall_branch_1 := 1;
+							end if;
+						elsif (was_arithm = '1') then
+							if (reg1no = was_arithm_reg_no) then
+								stall_branch_1 := 1;
+							end if;
+						elsif (reg1no = reg_no_ex_fwd_in) then
+							reg1data := reg_data_ex_fwd_in;
+						elsif (reg1no = reg_no_mem_fwd_in) then
+							reg1data := reg_data_mem_fwd_in;
+						else
+							reg1data := (others => 'Z');
 						end if;
 						
 						if (stall_branch_1 > stall_branch_2) then
@@ -724,13 +765,11 @@ begin
 					end if;
 					
 					if (JMP_pom = '1') then
-						reg1_data_out <= reg1_data_in;
-						reg1_no_fwd_out <= ir(20 downto 16);
+						new_pc := std_logic_vector(signed(reg1data) + signed(imm_long));
 					end if;
 					
 					if (JSR_pom = '1') then
-						reg1_data_out <= reg1_data_in;
-						reg1_no_fwd_out <= ir(20 downto 16);
+						new_pc := std_logic_vector(signed(reg1data) + signed(imm_long));
 					end if;
 					
 					if (RTS_pom = '1') then
@@ -881,7 +920,11 @@ begin
 						jump_from_pc_out <= pc;
 						jump_to_pc_out <= new_pc;
 						write_cache_out <= '1';
-						
+					
+					elsif (ir_in(31 downto 27) = B"10000") then
+						-- desio se JMP ili JSR, sledeca ins idle, postavi novu ins
+						new_pc_out <= new_pc;
+						idle := '1';
 					else -- ako nije instrukcija skoka
 						new_pc_out <= (others => 'Z');
 					end if;

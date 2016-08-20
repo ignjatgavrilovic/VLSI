@@ -1,4 +1,4 @@
-0	LD R0, R15, 0
+0	JMP R0, 5
 1	BNQ R0, R1, 4
 2	LD R12, R12, 2	
-5	ADDI R1, R0, 9 
+5	ADDI R10, R0, F 

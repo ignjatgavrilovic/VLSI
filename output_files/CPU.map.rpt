@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Fri Aug 19 01:57:57 2016
+Sat Aug 20 16:26:22 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -46,7 +46,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Aug 19 01:57:57 2016           ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 20 16:26:22 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
@@ -154,23 +154,23 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 2      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                      ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                               ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
-; MEM_BLOCK.vhd                    ; yes             ; User VHDL File  ; E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/MEM_BLOCK.vhd ;         ;
-; CPU.vhd                          ; yes             ; User VHDL File  ; E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/CPU.vhd       ;         ;
-; IF_BLOCK.vhd                     ; yes             ; User VHDL File  ; E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/IF_BLOCK.vhd  ;         ;
-; ID_BLOCK.vhd                     ; yes             ; User VHDL File  ; E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/ID_BLOCK.vhd  ;         ;
-; EX_BLOCK.vhd                     ; yes             ; User VHDL File  ; E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/EX_BLOCK.vhd  ;         ;
-; WB_BLOCK.vhd                     ; yes             ; User VHDL File  ; E:/Ignjat backup/Fax/4. Godina/VLSI/Projekat/WB_BLOCK.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; MEM_BLOCK.vhd                    ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/MEM_BLOCK.vhd ;         ;
+; CPU.vhd                          ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/CPU.vhd       ;         ;
+; IF_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/IF_BLOCK.vhd  ;         ;
+; ID_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/ID_BLOCK.vhd  ;         ;
+; EX_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/EX_BLOCK.vhd  ;         ;
+; WB_BLOCK.vhd                     ; yes             ; User VHDL File  ; C:/Users/mihai_000/Desktop/VLSI rojekat desktop/VLSI projekat/VLSI/WB_BLOCK.vhd  ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -369,6 +369,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; EX_BLOCK:EX_BLOCK|Reg_out[2]~en              ; Lost fanout                                                ;
 ; EX_BLOCK:EX_BLOCK|Reg_out[3]~en              ; Lost fanout                                                ;
 ; EX_BLOCK:EX_BLOCK|Reg_out[4]~en              ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|new_pc_out[10]~en          ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|new_pc_out[9]~en           ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|new_pc_out[8]~en           ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|new_pc_out[7]~en           ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[6]~en           ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[5]~en           ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[4]~en           ; Lost fanout                                                ;
@@ -376,10 +380,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ID_BLOCK:ID_BLOCK|new_pc_out[2]~en           ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[1]~en           ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[0]~en           ; Lost fanout                                                ;
-; ID_BLOCK:ID_BLOCK|new_pc_out[7]~en           ; Lost fanout                                                ;
-; ID_BLOCK:ID_BLOCK|new_pc_out[8]~en           ; Lost fanout                                                ;
-; ID_BLOCK:ID_BLOCK|new_pc_out[9]~en           ; Lost fanout                                                ;
-; ID_BLOCK:ID_BLOCK|new_pc_out[10]~en          ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[11]~en          ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[12]~en          ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc_out[13]~en          ; Lost fanout                                                ;
@@ -594,6 +594,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ID_BLOCK:ID_BLOCK|reg1data[29]~en            ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|reg1data[30]~en            ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|reg1data[31]~en            ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|reg2no[0]~en               ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|reg2no[1]~en               ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|reg2no[2]~en               ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|reg2no[3]~en               ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|reg2no[4]~en               ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|BLE_pom~en                 ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|BGE_pom~en                 ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|BLT_pom~en                 ; Lost fanout                                                ;
@@ -797,12 +802,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; EX_BLOCK:EX_BLOCK|MOVI_pom                   ; Stuck at VCC due to stuck port data_in                     ;
 ; EX_BLOCK:EX_BLOCK|MOV_pom                    ; Stuck at VCC due to stuck port data_in                     ;
 ; EX_BLOCK:EX_BLOCK|LOAD_pom                   ; Stuck at VCC due to stuck port data_in                     ;
+; ID_BLOCK:ID_BLOCK|reg2no[0..4]               ; Stuck at GND due to stuck port clock_enable                ;
 ; EX_BLOCK:EX_BLOCK|imm_pom[0..31]             ; Lost fanout                                                ;
 ; EX_BLOCK:EX_BLOCK|operand2[0..31]            ; Lost fanout                                                ;
 ; EX_BLOCK:EX_BLOCK|operand1[0..31]            ; Lost fanout                                                ;
-; ID_BLOCK:ID_BLOCK|jump_from_pc_out[0..31]    ; Lost fanout                                                ;
-; ID_BLOCK:ID_BLOCK|jump_to_pc_out[0..31]      ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_to_pc_out[14..29]     ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_from_pc_out[24..31]   ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_to_pc_out[10..13]     ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_from_pc_out[11..23]   ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_to_pc_out[6..9]       ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_from_pc_out[0..10]    ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_to_pc_out[1..5,30,31] ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|new_pc[0]                  ; Lost fanout                                                ;
+; ID_BLOCK:ID_BLOCK|jump_to_pc_out[0]          ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|write_cache_out            ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|was_load_2                 ; Lost fanout                                                ;
 ; ID_BLOCK:ID_BLOCK|was_load_2_reg_no[0]       ; Lost fanout                                                ;
@@ -949,41 +961,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; IF_BLOCK:IF_BLOCK|stall_ex                   ; Merged with EX_BLOCK:EX_BLOCK|was_load_out~reg0            ;
 ; ID_BLOCK:ID_BLOCK|stall_ex                   ; Merged with EX_BLOCK:EX_BLOCK|was_load_out~reg0            ;
 ; EX_BLOCK:EX_BLOCK|stall_pom                  ; Merged with EX_BLOCK:EX_BLOCK|was_load_out~reg0            ;
-; ID_BLOCK:ID_BLOCK|reg1no[2]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|Rd_pom[1]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1_no_out[2]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1no[0]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|Rd_pom[4]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1_no_out[0]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1no[4]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2_no_out[1]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|Rd_pom[3]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1_no_out[4]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2no[2,4]                ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2_no_out[4]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1no[1]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2_no_out[0]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1no[3]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1_no_out[1]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|Rd_pom[0,2]                ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg1_no_out[3]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2_no_out[2]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2no[1]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2_no_out[3]             ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|reg2no[3]                  ; Merged with ID_BLOCK:ID_BLOCK|reg2no[0]                    ;
-; ID_BLOCK:ID_BLOCK|Rd_out[3]~reg0             ; Merged with ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0               ;
+; ID_BLOCK:ID_BLOCK|Rd_pom[2]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1_no_out[3]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg2_no_out[2]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|Rd_pom[0]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1no[1]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1_no_out[1]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|Rd_pom[4]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1_no_out[4]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg2_no_out[3]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1no[2,4]                ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1_no_out[0]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|Rd_pom[1]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg2_no_out[1]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|Rd_pom[3]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1_no_out[2]             ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg2_no_out[0,4]           ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
+; ID_BLOCK:ID_BLOCK|reg1no[3]                  ; Merged with ID_BLOCK:ID_BLOCK|reg1no[0]                    ;
 ; ID_BLOCK:ID_BLOCK|Rd_out[2]~reg0             ; Merged with ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0               ;
-; ID_BLOCK:ID_BLOCK|Rd_out[1]~reg0             ; Merged with ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0               ;
 ; ID_BLOCK:ID_BLOCK|Rd_out[0]~reg0             ; Merged with ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0               ;
+; ID_BLOCK:ID_BLOCK|Rd_out[1]~reg0             ; Merged with ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0               ;
+; ID_BLOCK:ID_BLOCK|Rd_out[3]~reg0             ; Merged with ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0               ;
 ; IF_BLOCK:IF_BLOCK|stall_id                   ; Merged with ID_BLOCK:ID_BLOCK|stall_id                     ;
 ; EX_BLOCK:EX_BLOCK|Rd_pom[1..4]               ; Merged with EX_BLOCK:EX_BLOCK|Rd_pom[0]                    ;
 ; EX_BLOCK:EX_BLOCK|Reg_out[4]~reg0            ; Merged with EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0    ;
-; EX_BLOCK:EX_BLOCK|Reg_out[3]~reg0            ; Merged with EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0    ;
 ; EX_BLOCK:EX_BLOCK|Reg_out[2]~reg0            ; Merged with EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0    ;
 ; EX_BLOCK:EX_BLOCK|Reg_out[1]~reg0            ; Merged with EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0    ;
+; EX_BLOCK:EX_BLOCK|Reg_out[3]~reg0            ; Merged with EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0    ;
 ; MEM_BLOCK:MEM_BLOCK|Reg_pom[1..4]            ; Merged with MEM_BLOCK:MEM_BLOCK|Reg_pom[0]                 ;
 ; MEM_BLOCK:MEM_BLOCK|reg_no_fwd_out[1..4]     ; Merged with MEM_BLOCK:MEM_BLOCK|reg_no_fwd_out[0]          ;
-; ID_BLOCK:ID_BLOCK|reg2no[0]                  ; Stuck at GND due to stuck port data_in                     ;
+; ID_BLOCK:ID_BLOCK|reg1no[0]                  ; Stuck at GND due to stuck port data_in                     ;
 ; ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0             ; Stuck at GND due to stuck port data_in                     ;
 ; EX_BLOCK:EX_BLOCK|Rd_pom[0]                  ; Stuck at GND due to stuck port data_in                     ;
 ; EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0  ; Stuck at GND due to stuck port data_in                     ;
@@ -1028,353 +1035,348 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ID_BLOCK:ID_BLOCK|reg1data[1]                ; Merged with ID_BLOCK:ID_BLOCK|reg2data[1]                  ;
 ; ID_BLOCK:ID_BLOCK|reg1data[0]                ; Merged with ID_BLOCK:ID_BLOCK|reg2data[0]                  ;
 ; ID_BLOCK:ID_BLOCK|reg2data[0..31]            ; Lost fanout                                                ;
-; Total Number of Removed Registers = 1202     ;                                                            ;
+; Total Number of Removed Registers = 1207     ;                                                            ;
 +----------------------------------------------+------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                     ;
-+---------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
-; Register name                               ; Reason for Removal        ; Registers Removed due to This Register                                                ;
-+---------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
-; EX_BLOCK:EX_BLOCK|store_out~reg0            ; Stuck at VCC              ; EX_BLOCK:EX_BLOCK|store_out~en, EX_BLOCK:EX_BLOCK|load_out~en,                        ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|B_out[0]~en, EX_BLOCK:EX_BLOCK|B_out[1]~en,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[2]~en, EX_BLOCK:EX_BLOCK|B_out[3]~en,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[4]~en, EX_BLOCK:EX_BLOCK|B_out[5]~en,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[6]~en, EX_BLOCK:EX_BLOCK|B_out[7]~en,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[8]~en, EX_BLOCK:EX_BLOCK|B_out[9]~en,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[10]~en, EX_BLOCK:EX_BLOCK|B_out[11]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[12]~en, EX_BLOCK:EX_BLOCK|B_out[13]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[14]~en, EX_BLOCK:EX_BLOCK|B_out[15]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[16]~en, EX_BLOCK:EX_BLOCK|B_out[17]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[18]~en, EX_BLOCK:EX_BLOCK|B_out[19]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[20]~en, EX_BLOCK:EX_BLOCK|B_out[21]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[22]~en, EX_BLOCK:EX_BLOCK|B_out[23]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[24]~en, EX_BLOCK:EX_BLOCK|B_out[25]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[26]~en, EX_BLOCK:EX_BLOCK|B_out[27]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[28]~en, EX_BLOCK:EX_BLOCK|B_out[29]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|B_out[30]~en, EX_BLOCK:EX_BLOCK|B_out[31]~en,                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[0]~en, EX_BLOCK:EX_BLOCK|ALU_out[1]~en,                     ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[2]~en, EX_BLOCK:EX_BLOCK|ALU_out[3]~en,                     ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[4]~en, EX_BLOCK:EX_BLOCK|ALU_out[5]~en,                     ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[6]~en, EX_BLOCK:EX_BLOCK|ALU_out[7]~en,                     ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[8]~en, EX_BLOCK:EX_BLOCK|ALU_out[9]~en,                     ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[10]~en, EX_BLOCK:EX_BLOCK|ALU_out[11]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[12]~en, EX_BLOCK:EX_BLOCK|ALU_out[13]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[14]~en, EX_BLOCK:EX_BLOCK|ALU_out[15]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[16]~en, EX_BLOCK:EX_BLOCK|ALU_out[17]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[18]~en, EX_BLOCK:EX_BLOCK|ALU_out[19]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[20]~en, EX_BLOCK:EX_BLOCK|ALU_out[21]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[22]~en, EX_BLOCK:EX_BLOCK|ALU_out[23]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[24]~en, EX_BLOCK:EX_BLOCK|ALU_out[25]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[26]~en, EX_BLOCK:EX_BLOCK|ALU_out[27]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[28]~en, EX_BLOCK:EX_BLOCK|ALU_out[29]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|ALU_out[30]~en, EX_BLOCK:EX_BLOCK|ALU_out[31]~en,                   ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|STORE_pom, ID_BLOCK:ID_BLOCK|STORE_out~reg0,                        ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[0], EX_BLOCK:EX_BLOCK|B_out[0]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[1], EX_BLOCK:EX_BLOCK|B_out[1]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[2], EX_BLOCK:EX_BLOCK|B_out[2]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[3], EX_BLOCK:EX_BLOCK|B_out[3]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[4], EX_BLOCK:EX_BLOCK|B_out[4]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[5], EX_BLOCK:EX_BLOCK|B_out[5]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[6], EX_BLOCK:EX_BLOCK|B_out[6]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[7], EX_BLOCK:EX_BLOCK|B_out[7]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[8], EX_BLOCK:EX_BLOCK|B_out[8]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[9], EX_BLOCK:EX_BLOCK|B_out[9]~reg0,                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[10], EX_BLOCK:EX_BLOCK|B_out[10]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[11], EX_BLOCK:EX_BLOCK|B_out[11]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[12], EX_BLOCK:EX_BLOCK|B_out[12]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[13], EX_BLOCK:EX_BLOCK|B_out[13]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[14], EX_BLOCK:EX_BLOCK|B_out[14]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[15], EX_BLOCK:EX_BLOCK|B_out[15]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[16], EX_BLOCK:EX_BLOCK|B_out[16]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[17], EX_BLOCK:EX_BLOCK|B_out[17]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[18], EX_BLOCK:EX_BLOCK|B_out[18]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[19], EX_BLOCK:EX_BLOCK|B_out[19]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[20], EX_BLOCK:EX_BLOCK|B_out[20]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[21], EX_BLOCK:EX_BLOCK|B_out[21]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[22], EX_BLOCK:EX_BLOCK|B_out[22]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[23], EX_BLOCK:EX_BLOCK|B_out[23]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[24], EX_BLOCK:EX_BLOCK|B_out[24]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[25], EX_BLOCK:EX_BLOCK|B_out[25]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[26], EX_BLOCK:EX_BLOCK|B_out[26]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[27], EX_BLOCK:EX_BLOCK|B_out[27]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[28], EX_BLOCK:EX_BLOCK|B_out[28]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[29], EX_BLOCK:EX_BLOCK|B_out[29]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[30], EX_BLOCK:EX_BLOCK|B_out[30]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|data_out[31], EX_BLOCK:EX_BLOCK|B_out[31]~reg0,                   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|wr_out~en, MEM_BLOCK:MEM_BLOCK|store_pom,                         ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[31], MEM_BLOCK:MEM_BLOCK|ALU_pom[30],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[29], MEM_BLOCK:MEM_BLOCK|ALU_pom[28],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[27], MEM_BLOCK:MEM_BLOCK|ALU_pom[26],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[25], MEM_BLOCK:MEM_BLOCK|ALU_pom[24],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[23], MEM_BLOCK:MEM_BLOCK|ALU_pom[22],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[21], MEM_BLOCK:MEM_BLOCK|ALU_pom[20],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[19], MEM_BLOCK:MEM_BLOCK|ALU_pom[18],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[17], MEM_BLOCK:MEM_BLOCK|ALU_pom[16],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[15], MEM_BLOCK:MEM_BLOCK|ALU_pom[14],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[13], MEM_BLOCK:MEM_BLOCK|ALU_pom[12],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[11], MEM_BLOCK:MEM_BLOCK|ALU_pom[10],                     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[9], MEM_BLOCK:MEM_BLOCK|ALU_pom[8],                       ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[7], MEM_BLOCK:MEM_BLOCK|ALU_pom[6],                       ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[5], MEM_BLOCK:MEM_BLOCK|ALU_pom[4],                       ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[3], MEM_BLOCK:MEM_BLOCK|ALU_pom[2],                       ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|ALU_pom[1], MEM_BLOCK:MEM_BLOCK|ALU_pom[0],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[0], EX_BLOCK:EX_BLOCK|operand2[1],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[2], EX_BLOCK:EX_BLOCK|operand2[3],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[4], EX_BLOCK:EX_BLOCK|operand2[5],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[6], EX_BLOCK:EX_BLOCK|operand2[7],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[8], EX_BLOCK:EX_BLOCK|operand2[9],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[10], EX_BLOCK:EX_BLOCK|operand2[11],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[12], EX_BLOCK:EX_BLOCK|operand2[13],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[14], EX_BLOCK:EX_BLOCK|operand2[15],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[16], EX_BLOCK:EX_BLOCK|operand2[17],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[18], EX_BLOCK:EX_BLOCK|operand2[19],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[20], EX_BLOCK:EX_BLOCK|operand2[21],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[22], EX_BLOCK:EX_BLOCK|operand2[23],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[24], EX_BLOCK:EX_BLOCK|operand2[25],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[26], EX_BLOCK:EX_BLOCK|operand2[27],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[28], EX_BLOCK:EX_BLOCK|operand2[29],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand2[30], EX_BLOCK:EX_BLOCK|operand2[31],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[0], EX_BLOCK:EX_BLOCK|operand1[1],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[2], EX_BLOCK:EX_BLOCK|operand1[3],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[4], EX_BLOCK:EX_BLOCK|operand1[5],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[6], EX_BLOCK:EX_BLOCK|operand1[7],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[8], EX_BLOCK:EX_BLOCK|operand1[9],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[10], EX_BLOCK:EX_BLOCK|operand1[11],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[12], EX_BLOCK:EX_BLOCK|operand1[13],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[14], EX_BLOCK:EX_BLOCK|operand1[15],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[16], EX_BLOCK:EX_BLOCK|operand1[17],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[18], EX_BLOCK:EX_BLOCK|operand1[19],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[20], EX_BLOCK:EX_BLOCK|operand1[21],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[22], EX_BLOCK:EX_BLOCK|operand1[23],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[24], EX_BLOCK:EX_BLOCK|operand1[25],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[26], EX_BLOCK:EX_BLOCK|operand1[27],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[28], EX_BLOCK:EX_BLOCK|operand1[29],                       ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|operand1[30], EX_BLOCK:EX_BLOCK|operand1[31]                        ;
-; ID_BLOCK:ID_BLOCK|BNQ_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|reg2data[0]~en, ID_BLOCK:ID_BLOCK|reg2data[1]~en,                   ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|reg2data[2]~en, ID_BLOCK:ID_BLOCK|reg2data[3]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[4]~en, ID_BLOCK:ID_BLOCK|reg2data[5]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[6]~en, ID_BLOCK:ID_BLOCK|reg2data[7]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[8]~en, ID_BLOCK:ID_BLOCK|reg2data[9]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[10]~en, ID_BLOCK:ID_BLOCK|reg2data[11]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[12]~en, ID_BLOCK:ID_BLOCK|reg2data[13]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[14]~en, ID_BLOCK:ID_BLOCK|reg2data[15]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[16]~en, ID_BLOCK:ID_BLOCK|reg2data[17]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[18]~en, ID_BLOCK:ID_BLOCK|reg2data[19]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[20]~en, ID_BLOCK:ID_BLOCK|reg2data[21]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[22]~en, ID_BLOCK:ID_BLOCK|reg2data[23]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[24]~en, ID_BLOCK:ID_BLOCK|reg2data[25]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[26]~en, ID_BLOCK:ID_BLOCK|reg2data[27]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[28]~en, ID_BLOCK:ID_BLOCK|reg2data[29]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[30]~en, ID_BLOCK:ID_BLOCK|reg2data[31]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[0]~en, ID_BLOCK:ID_BLOCK|reg1data[1]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[2]~en, ID_BLOCK:ID_BLOCK|reg1data[3]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[4]~en, ID_BLOCK:ID_BLOCK|reg1data[5]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[6]~en, ID_BLOCK:ID_BLOCK|reg1data[7]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[8]~en, ID_BLOCK:ID_BLOCK|reg1data[9]~en,                   ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[10]~en, ID_BLOCK:ID_BLOCK|reg1data[11]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[12]~en, ID_BLOCK:ID_BLOCK|reg1data[13]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[14]~en, ID_BLOCK:ID_BLOCK|reg1data[15]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[16]~en, ID_BLOCK:ID_BLOCK|reg1data[17]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[18]~en, ID_BLOCK:ID_BLOCK|reg1data[19]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[20]~en, ID_BLOCK:ID_BLOCK|reg1data[21]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[22]~en, ID_BLOCK:ID_BLOCK|reg1data[23]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[24]~en, ID_BLOCK:ID_BLOCK|reg1data[25]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[26]~en, ID_BLOCK:ID_BLOCK|reg1data[27]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg1data[28]~en, ID_BLOCK:ID_BLOCK|reg1data[29]~en,                 ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|BGE_pom~en, ID_BLOCK:ID_BLOCK|new_pc[29]                            ;
-; EX_BLOCK:EX_BLOCK|load_out~reg0             ; Stuck at VCC              ; MEM_BLOCK:MEM_BLOCK|load_pom, MEM_BLOCK:MEM_BLOCK|reg_no_fwd_out[0],                  ;
-;                                             ; due to stuck port data_in ; WB_BLOCK:WB_BLOCK|Reg_out[0], WB_BLOCK:WB_BLOCK|Reg_out[1],                           ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|Reg_out[2], WB_BLOCK:WB_BLOCK|Reg_out[3],                           ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|Reg_out[4], WB_BLOCK:WB_BLOCK|data_out[18],                         ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[17], WB_BLOCK:WB_BLOCK|data_out[16],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[15], WB_BLOCK:WB_BLOCK|data_out[14],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[13], WB_BLOCK:WB_BLOCK|data_out[12],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[11], WB_BLOCK:WB_BLOCK|data_out[10],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[9], WB_BLOCK:WB_BLOCK|data_out[8],                         ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[7], WB_BLOCK:WB_BLOCK|data_out[6],                         ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[5], WB_BLOCK:WB_BLOCK|data_out[4],                         ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[3], WB_BLOCK:WB_BLOCK|data_out[2],                         ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[1], WB_BLOCK:WB_BLOCK|wr_out~en,                           ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[0], WB_BLOCK:WB_BLOCK|data_out[19],                        ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[20], WB_BLOCK:WB_BLOCK|data_out[21],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[22], WB_BLOCK:WB_BLOCK|data_out[23],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[24], WB_BLOCK:WB_BLOCK|data_out[25],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[26], WB_BLOCK:WB_BLOCK|data_out[27],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[29], WB_BLOCK:WB_BLOCK|data_out[30],                       ;
-;                                             ;                           ; WB_BLOCK:WB_BLOCK|data_out[31]                                                        ;
-; ID_BLOCK:ID_BLOCK|reg2no[0]                 ; Stuck at GND              ; ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0, EX_BLOCK:EX_BLOCK|Rd_pom[0],                        ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0, MEM_BLOCK:MEM_BLOCK|Reg_pom[0],          ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[31], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[30],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[29], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[28],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[27], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[26],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[25], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[24],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[23], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[22],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[21], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[20],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[19], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[18],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[17], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[16],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[15], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[14],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[13], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[12],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[11], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[10],   ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[9], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[8],     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[7], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[6],     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[5], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[4],     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[3], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[2],     ;
-;                                             ;                           ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[1], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[0]      ;
-; ID_BLOCK:ID_BLOCK|XOR_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BLT_pom~en, ID_BLOCK:ID_BLOCK|PUSH_pom~en,                          ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|SAR_pom~en, ID_BLOCK:ID_BLOCK|XOR_out~reg0,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|XOR_pom, EX_BLOCK:EX_BLOCK|imm_pom[29],                             ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[28], EX_BLOCK:EX_BLOCK|imm_pom[27],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[26], EX_BLOCK:EX_BLOCK|imm_pom[25],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[24], EX_BLOCK:EX_BLOCK|imm_pom[23],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[22], EX_BLOCK:EX_BLOCK|imm_pom[21],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[20], EX_BLOCK:EX_BLOCK|imm_pom[19],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[18], EX_BLOCK:EX_BLOCK|imm_pom[17],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[16], EX_BLOCK:EX_BLOCK|imm_pom[15],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[14], EX_BLOCK:EX_BLOCK|imm_pom[13],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[12], EX_BLOCK:EX_BLOCK|imm_pom[11],                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[10], EX_BLOCK:EX_BLOCK|imm_pom[9],                          ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[8], EX_BLOCK:EX_BLOCK|imm_pom[7],                           ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[6], EX_BLOCK:EX_BLOCK|imm_pom[5],                           ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[4], EX_BLOCK:EX_BLOCK|imm_pom[3],                           ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[2], EX_BLOCK:EX_BLOCK|imm_pom[1],                           ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|imm_pom[0]                                                          ;
-; ID_BLOCK:ID_BLOCK|BEQ_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|new_pc[30], ID_BLOCK:ID_BLOCK|reg2data[31],                         ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|reg2data[30], ID_BLOCK:ID_BLOCK|reg2data[29],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[28], ID_BLOCK:ID_BLOCK|reg2data[27],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[26], ID_BLOCK:ID_BLOCK|reg2data[25],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[24], ID_BLOCK:ID_BLOCK|reg2data[23],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[22], ID_BLOCK:ID_BLOCK|reg2data[21],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[20], ID_BLOCK:ID_BLOCK|reg2data[19],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[18], ID_BLOCK:ID_BLOCK|reg2data[17],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[16], ID_BLOCK:ID_BLOCK|reg2data[15],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[14], ID_BLOCK:ID_BLOCK|reg2data[13],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[12], ID_BLOCK:ID_BLOCK|reg2data[11],                       ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[10], ID_BLOCK:ID_BLOCK|reg2data[9],                        ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[8], ID_BLOCK:ID_BLOCK|reg2data[7],                         ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[6], ID_BLOCK:ID_BLOCK|reg2data[5],                         ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[4], ID_BLOCK:ID_BLOCK|reg2data[3],                         ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[2], ID_BLOCK:ID_BLOCK|reg2data[1],                         ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|reg2data[0]                                                         ;
-; ID_BLOCK:ID_BLOCK|LOAD_pom                  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|POP_pom~en, ID_BLOCK:ID_BLOCK|ADDI_pom~en,                          ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|SUB_pom~en, ID_BLOCK:ID_BLOCK|ADD_pom~en,                           ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|MOVI_pom~en, ID_BLOCK:ID_BLOCK|MOV_pom~en,                          ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|STORE_pom~en, ID_BLOCK:ID_BLOCK|LOAD_pom~en,                        ;
-;                                             ;                           ; ID_BLOCK:ID_BLOCK|LOAD_out~reg0, EX_BLOCK:EX_BLOCK|LOAD_pom                           ;
-; ID_BLOCK:ID_BLOCK|AND_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BNQ_pom~en, ID_BLOCK:ID_BLOCK|JMP_pom~en,                           ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|SHR_pom~en, ID_BLOCK:ID_BLOCK|AND_out~reg0,                         ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|AND_pom                                                             ;
-; ID_BLOCK:ID_BLOCK|OR_pom                    ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BGT_pom~en, ID_BLOCK:ID_BLOCK|JSR_pom~en,                           ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|SHL_pom~en, ID_BLOCK:ID_BLOCK|OR_out~reg0,                          ;
-;                                             ;                           ; EX_BLOCK:EX_BLOCK|OR_pom                                                              ;
-; ID_BLOCK:ID_BLOCK|NOT_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ROL_pom~en, ID_BLOCK:ID_BLOCK|NOT_out~reg0,                         ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|NOT_pom, EX_BLOCK:EX_BLOCK|imm_pom[30]                              ;
-; ID_BLOCK:ID_BLOCK|SHR_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ROR_pom~en, ID_BLOCK:ID_BLOCK|SHR_out~reg0,                         ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|SHR_pom, EX_BLOCK:EX_BLOCK|imm_pom[31]                              ;
-; ID_BLOCK:ID_BLOCK|SAR_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|idle~en, ID_BLOCK:ID_BLOCK|SAR_out~reg0, EX_BLOCK:EX_BLOCK|SAR_pom, ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|new_pc[31]                                                          ;
-; ID_BLOCK:ID_BLOCK|STORE_pom                 ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|XOR_pom~en, ID_BLOCK:ID_BLOCK|OR_pom~en,                            ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|AND_pom~en                                                          ;
-; ID_BLOCK:ID_BLOCK|MOV_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|SUBI_pom~en, ID_BLOCK:ID_BLOCK|MOV_out~reg0,                        ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|MOV_pom                                                             ;
-; ID_BLOCK:ID_BLOCK|SUB_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BEQ_pom~en, ID_BLOCK:ID_BLOCK|SUB_out~reg0,                         ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|SUB_pom                                                             ;
-; ID_BLOCK:ID_BLOCK|SUBI_pom                  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|NOT_pom~en, ID_BLOCK:ID_BLOCK|SUBI_out~reg0,                        ;
-;                                             ; due to stuck port data_in ; EX_BLOCK:EX_BLOCK|SUBI_pom                                                            ;
-; ID_BLOCK:ID_BLOCK|was_load_1                ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|was_arithm~en, ID_BLOCK:ID_BLOCK|was_load_1~en,                     ;
-;                                             ; due to stuck port data_in ; ID_BLOCK:ID_BLOCK|was_load_2                                                          ;
-; ID_BLOCK:ID_BLOCK|MOVI_pom                  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|MOVI_out~reg0, EX_BLOCK:EX_BLOCK|MOVI_pom                           ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|ADD_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ADD_out~reg0, EX_BLOCK:EX_BLOCK|ADD_pom                             ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|ADDI_pom                  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ADDI_out~reg0, EX_BLOCK:EX_BLOCK|ADDI_pom                           ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|SHL_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|SHL_out~reg0, EX_BLOCK:EX_BLOCK|SHL_pom                             ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|ROL_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ROL_out~reg0, EX_BLOCK:EX_BLOCK|ROL_pom                             ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|ROR_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|ROR_out~reg0, EX_BLOCK:EX_BLOCK|ROR_pom                             ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|JSR_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|JSR_out~reg0, EX_BLOCK:EX_BLOCK|JSR_pom                             ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|PUSH_pom                  ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|PUSH_out~reg0, EX_BLOCK:EX_BLOCK|PUSH_pom                           ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|POP_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|POP_out~reg0, EX_BLOCK:EX_BLOCK|POP_pom                             ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|BGT_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|BLE_pom~en, ID_BLOCK:ID_BLOCK|new_pc[28]                            ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[0]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[0], ID_BLOCK:ID_BLOCK|write_cache_out                ;
-; ID_BLOCK:ID_BLOCK|BGE_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|new_pc[26]                                                          ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|rdReg1_out~reg0           ; Stuck at VCC              ; WB_BLOCK:WB_BLOCK|data_out[28]                                                        ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[1]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[1]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[2]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[2]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[3]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[3]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[4]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[4]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[5]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[5]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[6]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[6]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[7]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[7]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[8]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[8]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[9]~reg0  ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[9]                                                   ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[10]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[10]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[11]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[11]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[12]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[12]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[13]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[13]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[14]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[14]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[15]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[15]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[16]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[16]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[17]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[17]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[18]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[18]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[19]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[19]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[20]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[20]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[21]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[21]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[22]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[22]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[23]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[23]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[24]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[24]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[25]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[25]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[26]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[26]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[27]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[27]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[28]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[28]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[29]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[29]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[30]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[30]                                                  ;
-; IF_BLOCK:IF_BLOCK|predicted_pc_out[31]~reg0 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[31]                                                  ;
-; ID_BLOCK:ID_BLOCK|pc_out[31]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[31]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[30]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[30]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[29]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[29]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[28]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[28]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[27]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[27]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[26]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[26]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[25]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[25]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[24]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[24]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[23]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[23]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[22]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[22]                                                              ;
-; ID_BLOCK:ID_BLOCK|BLT_pom                   ; Stuck at VCC              ; ID_BLOCK:ID_BLOCK|new_pc[27]                                                          ;
-;                                             ; due to stuck port data_in ;                                                                                       ;
-; ID_BLOCK:ID_BLOCK|pc_out[20]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[20]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[19]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[19]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[18]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[18]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[17]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[17]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[16]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[16]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[15]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[15]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[14]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[14]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[13]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[13]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[12]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[12]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[11]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[11]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[21]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[21]                                                              ;
-; ID_BLOCK:ID_BLOCK|pc_out[9]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[9]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[8]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[8]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[7]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[7]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[6]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[6]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[5]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[5]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[4]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[4]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[3]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[3]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[2]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[2]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[1]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[1]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[0]                 ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[0]                                                               ;
-; ID_BLOCK:ID_BLOCK|pc_out[10]                ; Lost Fanouts              ; ID_BLOCK:ID_BLOCK|pc[10]                                                              ;
-+---------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                        ;
++--------------------------------------------+--------------------------------+--------------------------------------------------------------------------------------+
+; Register name                              ; Reason for Removal             ; Registers Removed due to This Register                                               ;
++--------------------------------------------+--------------------------------+--------------------------------------------------------------------------------------+
+; EX_BLOCK:EX_BLOCK|store_out~reg0           ; Stuck at VCC                   ; EX_BLOCK:EX_BLOCK|store_out~en, EX_BLOCK:EX_BLOCK|load_out~en,                       ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|B_out[0]~en, EX_BLOCK:EX_BLOCK|B_out[1]~en,                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[2]~en, EX_BLOCK:EX_BLOCK|B_out[3]~en,                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[4]~en, EX_BLOCK:EX_BLOCK|B_out[5]~en,                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[6]~en, EX_BLOCK:EX_BLOCK|B_out[7]~en,                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[8]~en, EX_BLOCK:EX_BLOCK|B_out[9]~en,                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[10]~en, EX_BLOCK:EX_BLOCK|B_out[11]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[12]~en, EX_BLOCK:EX_BLOCK|B_out[13]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[14]~en, EX_BLOCK:EX_BLOCK|B_out[15]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[16]~en, EX_BLOCK:EX_BLOCK|B_out[17]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[18]~en, EX_BLOCK:EX_BLOCK|B_out[19]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[20]~en, EX_BLOCK:EX_BLOCK|B_out[21]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[22]~en, EX_BLOCK:EX_BLOCK|B_out[23]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[24]~en, EX_BLOCK:EX_BLOCK|B_out[25]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[26]~en, EX_BLOCK:EX_BLOCK|B_out[27]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[28]~en, EX_BLOCK:EX_BLOCK|B_out[29]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|B_out[30]~en, EX_BLOCK:EX_BLOCK|B_out[31]~en,                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[0]~en, EX_BLOCK:EX_BLOCK|ALU_out[1]~en,                    ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[2]~en, EX_BLOCK:EX_BLOCK|ALU_out[3]~en,                    ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[4]~en, EX_BLOCK:EX_BLOCK|ALU_out[5]~en,                    ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[6]~en, EX_BLOCK:EX_BLOCK|ALU_out[7]~en,                    ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[8]~en, EX_BLOCK:EX_BLOCK|ALU_out[9]~en,                    ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[10]~en, EX_BLOCK:EX_BLOCK|ALU_out[11]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[12]~en, EX_BLOCK:EX_BLOCK|ALU_out[13]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[14]~en, EX_BLOCK:EX_BLOCK|ALU_out[15]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[16]~en, EX_BLOCK:EX_BLOCK|ALU_out[17]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[18]~en, EX_BLOCK:EX_BLOCK|ALU_out[19]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[20]~en, EX_BLOCK:EX_BLOCK|ALU_out[21]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[22]~en, EX_BLOCK:EX_BLOCK|ALU_out[23]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[24]~en, EX_BLOCK:EX_BLOCK|ALU_out[25]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[26]~en, EX_BLOCK:EX_BLOCK|ALU_out[27]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[28]~en, EX_BLOCK:EX_BLOCK|ALU_out[29]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|ALU_out[30]~en, EX_BLOCK:EX_BLOCK|ALU_out[31]~en,                  ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|STORE_pom, ID_BLOCK:ID_BLOCK|STORE_out~reg0,                       ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[0], EX_BLOCK:EX_BLOCK|B_out[0]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[1], EX_BLOCK:EX_BLOCK|B_out[1]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[2], EX_BLOCK:EX_BLOCK|B_out[2]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[3], EX_BLOCK:EX_BLOCK|B_out[3]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[4], EX_BLOCK:EX_BLOCK|B_out[4]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[5], EX_BLOCK:EX_BLOCK|B_out[5]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[6], EX_BLOCK:EX_BLOCK|B_out[6]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[7], EX_BLOCK:EX_BLOCK|B_out[7]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[8], EX_BLOCK:EX_BLOCK|B_out[8]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[9], EX_BLOCK:EX_BLOCK|B_out[9]~reg0,                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[10], EX_BLOCK:EX_BLOCK|B_out[10]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[11], EX_BLOCK:EX_BLOCK|B_out[11]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[12], EX_BLOCK:EX_BLOCK|B_out[12]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[13], EX_BLOCK:EX_BLOCK|B_out[13]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[14], EX_BLOCK:EX_BLOCK|B_out[14]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[15], EX_BLOCK:EX_BLOCK|B_out[15]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[16], EX_BLOCK:EX_BLOCK|B_out[16]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[17], EX_BLOCK:EX_BLOCK|B_out[17]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[18], EX_BLOCK:EX_BLOCK|B_out[18]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[19], EX_BLOCK:EX_BLOCK|B_out[19]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[20], EX_BLOCK:EX_BLOCK|B_out[20]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[21], EX_BLOCK:EX_BLOCK|B_out[21]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[22], EX_BLOCK:EX_BLOCK|B_out[22]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[23], EX_BLOCK:EX_BLOCK|B_out[23]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[24], EX_BLOCK:EX_BLOCK|B_out[24]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[25], EX_BLOCK:EX_BLOCK|B_out[25]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[26], EX_BLOCK:EX_BLOCK|B_out[26]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[27], EX_BLOCK:EX_BLOCK|B_out[27]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[28], EX_BLOCK:EX_BLOCK|B_out[28]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[29], EX_BLOCK:EX_BLOCK|B_out[29]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[30], EX_BLOCK:EX_BLOCK|B_out[30]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|data_out[31], EX_BLOCK:EX_BLOCK|B_out[31]~reg0,                  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|wr_out~en, MEM_BLOCK:MEM_BLOCK|store_pom,                        ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[31], MEM_BLOCK:MEM_BLOCK|ALU_pom[30],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[29], MEM_BLOCK:MEM_BLOCK|ALU_pom[28],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[27], MEM_BLOCK:MEM_BLOCK|ALU_pom[26],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[25], MEM_BLOCK:MEM_BLOCK|ALU_pom[24],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[23], MEM_BLOCK:MEM_BLOCK|ALU_pom[22],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[21], MEM_BLOCK:MEM_BLOCK|ALU_pom[20],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[19], MEM_BLOCK:MEM_BLOCK|ALU_pom[18],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[17], MEM_BLOCK:MEM_BLOCK|ALU_pom[16],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[15], MEM_BLOCK:MEM_BLOCK|ALU_pom[14],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[13], MEM_BLOCK:MEM_BLOCK|ALU_pom[12],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[11], MEM_BLOCK:MEM_BLOCK|ALU_pom[10],                    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[9], MEM_BLOCK:MEM_BLOCK|ALU_pom[8],                      ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[7], MEM_BLOCK:MEM_BLOCK|ALU_pom[6],                      ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[5], MEM_BLOCK:MEM_BLOCK|ALU_pom[4],                      ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[3], MEM_BLOCK:MEM_BLOCK|ALU_pom[2],                      ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|ALU_pom[1], MEM_BLOCK:MEM_BLOCK|ALU_pom[0],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[0], EX_BLOCK:EX_BLOCK|operand2[1],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[2], EX_BLOCK:EX_BLOCK|operand2[3],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[4], EX_BLOCK:EX_BLOCK|operand2[5],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[6], EX_BLOCK:EX_BLOCK|operand2[7],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[8], EX_BLOCK:EX_BLOCK|operand2[9],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[10], EX_BLOCK:EX_BLOCK|operand2[11],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[12], EX_BLOCK:EX_BLOCK|operand2[13],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[14], EX_BLOCK:EX_BLOCK|operand2[15],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[16], EX_BLOCK:EX_BLOCK|operand2[17],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[18], EX_BLOCK:EX_BLOCK|operand2[19],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[20], EX_BLOCK:EX_BLOCK|operand2[21],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[22], EX_BLOCK:EX_BLOCK|operand2[23],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[24], EX_BLOCK:EX_BLOCK|operand2[25],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[26], EX_BLOCK:EX_BLOCK|operand2[27],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[28], EX_BLOCK:EX_BLOCK|operand2[29],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand2[30], EX_BLOCK:EX_BLOCK|operand2[31],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[0], EX_BLOCK:EX_BLOCK|operand1[1],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[2], EX_BLOCK:EX_BLOCK|operand1[3],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[4], EX_BLOCK:EX_BLOCK|operand1[5],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[6], EX_BLOCK:EX_BLOCK|operand1[7],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[8], EX_BLOCK:EX_BLOCK|operand1[9],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[10], EX_BLOCK:EX_BLOCK|operand1[11],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[12], EX_BLOCK:EX_BLOCK|operand1[13],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[14], EX_BLOCK:EX_BLOCK|operand1[15],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[16], EX_BLOCK:EX_BLOCK|operand1[17],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[18], EX_BLOCK:EX_BLOCK|operand1[19],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[20], EX_BLOCK:EX_BLOCK|operand1[21],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[22], EX_BLOCK:EX_BLOCK|operand1[23],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[24], EX_BLOCK:EX_BLOCK|operand1[25],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[26], EX_BLOCK:EX_BLOCK|operand1[27],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[28], EX_BLOCK:EX_BLOCK|operand1[29],                      ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|operand1[30], EX_BLOCK:EX_BLOCK|operand1[31]                       ;
+; ID_BLOCK:ID_BLOCK|BNQ_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|reg2data[0]~en, ID_BLOCK:ID_BLOCK|reg2data[1]~en,                  ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|reg2data[2]~en, ID_BLOCK:ID_BLOCK|reg2data[3]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[4]~en, ID_BLOCK:ID_BLOCK|reg2data[5]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[6]~en, ID_BLOCK:ID_BLOCK|reg2data[7]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[8]~en, ID_BLOCK:ID_BLOCK|reg2data[9]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[10]~en, ID_BLOCK:ID_BLOCK|reg2data[11]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[12]~en, ID_BLOCK:ID_BLOCK|reg2data[13]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[14]~en, ID_BLOCK:ID_BLOCK|reg2data[15]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[16]~en, ID_BLOCK:ID_BLOCK|reg2data[17]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[18]~en, ID_BLOCK:ID_BLOCK|reg2data[19]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[20]~en, ID_BLOCK:ID_BLOCK|reg2data[21]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[22]~en, ID_BLOCK:ID_BLOCK|reg2data[23]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[24]~en, ID_BLOCK:ID_BLOCK|reg2data[25]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[26]~en, ID_BLOCK:ID_BLOCK|reg2data[27]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[28]~en, ID_BLOCK:ID_BLOCK|reg2data[29]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[30]~en, ID_BLOCK:ID_BLOCK|reg2data[31]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[0]~en, ID_BLOCK:ID_BLOCK|reg1data[1]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[2]~en, ID_BLOCK:ID_BLOCK|reg1data[3]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[4]~en, ID_BLOCK:ID_BLOCK|reg1data[5]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[6]~en, ID_BLOCK:ID_BLOCK|reg1data[7]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[8]~en, ID_BLOCK:ID_BLOCK|reg1data[9]~en,                  ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[10]~en, ID_BLOCK:ID_BLOCK|reg1data[11]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[12]~en, ID_BLOCK:ID_BLOCK|reg1data[13]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[14]~en, ID_BLOCK:ID_BLOCK|reg1data[15]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[16]~en, ID_BLOCK:ID_BLOCK|reg1data[17]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[18]~en, ID_BLOCK:ID_BLOCK|reg1data[19]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[20]~en, ID_BLOCK:ID_BLOCK|reg1data[21]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[22]~en, ID_BLOCK:ID_BLOCK|reg1data[23]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[24]~en, ID_BLOCK:ID_BLOCK|reg1data[25]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[26]~en, ID_BLOCK:ID_BLOCK|reg1data[27]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg1data[28]~en, ID_BLOCK:ID_BLOCK|reg1data[29]~en,                ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|BGE_pom~en                                                         ;
+; EX_BLOCK:EX_BLOCK|load_out~reg0            ; Stuck at VCC                   ; MEM_BLOCK:MEM_BLOCK|load_pom, MEM_BLOCK:MEM_BLOCK|reg_no_fwd_out[0],                 ;
+;                                            ; due to stuck port data_in      ; WB_BLOCK:WB_BLOCK|Reg_out[0], WB_BLOCK:WB_BLOCK|Reg_out[1],                          ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|Reg_out[2], WB_BLOCK:WB_BLOCK|Reg_out[3],                          ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|Reg_out[4], WB_BLOCK:WB_BLOCK|data_out[18],                        ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[17], WB_BLOCK:WB_BLOCK|data_out[16],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[15], WB_BLOCK:WB_BLOCK|data_out[14],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[13], WB_BLOCK:WB_BLOCK|data_out[12],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[11], WB_BLOCK:WB_BLOCK|data_out[10],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[9], WB_BLOCK:WB_BLOCK|data_out[8],                        ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[7], WB_BLOCK:WB_BLOCK|data_out[6],                        ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[5], WB_BLOCK:WB_BLOCK|data_out[4],                        ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[3], WB_BLOCK:WB_BLOCK|data_out[2],                        ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[1], WB_BLOCK:WB_BLOCK|wr_out~en,                          ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[0], WB_BLOCK:WB_BLOCK|data_out[19],                       ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[20], WB_BLOCK:WB_BLOCK|data_out[21],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[22], WB_BLOCK:WB_BLOCK|data_out[23],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[24], WB_BLOCK:WB_BLOCK|data_out[25],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[26], WB_BLOCK:WB_BLOCK|data_out[27],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[29], WB_BLOCK:WB_BLOCK|data_out[30],                      ;
+;                                            ;                                ; WB_BLOCK:WB_BLOCK|data_out[31]                                                       ;
+; ID_BLOCK:ID_BLOCK|JMP_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|imm[15]~en, ID_BLOCK:ID_BLOCK|JSR_pom~en,                          ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|JMP_pom~en, ID_BLOCK:ID_BLOCK|new_pc[0],                           ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[1], ID_BLOCK:ID_BLOCK|new_pc[2],                            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[3], ID_BLOCK:ID_BLOCK|new_pc[4],                            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[5], ID_BLOCK:ID_BLOCK|new_pc[6],                            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[7], ID_BLOCK:ID_BLOCK|new_pc[8],                            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[9], ID_BLOCK:ID_BLOCK|new_pc[10],                           ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[11], ID_BLOCK:ID_BLOCK|new_pc[12],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[13], ID_BLOCK:ID_BLOCK|new_pc[14],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[15], ID_BLOCK:ID_BLOCK|new_pc[16],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[17], ID_BLOCK:ID_BLOCK|new_pc[18],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[19], ID_BLOCK:ID_BLOCK|new_pc[20],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[21], ID_BLOCK:ID_BLOCK|new_pc[22],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[23], ID_BLOCK:ID_BLOCK|new_pc[24],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[25], ID_BLOCK:ID_BLOCK|new_pc[26],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[27], ID_BLOCK:ID_BLOCK|new_pc[28],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[29], ID_BLOCK:ID_BLOCK|new_pc[30],                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|new_pc[31]                                                         ;
+; ID_BLOCK:ID_BLOCK|XOR_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|BLT_pom~en, ID_BLOCK:ID_BLOCK|SAR_pom~en,                          ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|XOR_out~reg0, EX_BLOCK:EX_BLOCK|XOR_pom,                           ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[29], EX_BLOCK:EX_BLOCK|imm_pom[28],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[27], EX_BLOCK:EX_BLOCK|imm_pom[26],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[25], EX_BLOCK:EX_BLOCK|imm_pom[24],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[23], EX_BLOCK:EX_BLOCK|imm_pom[22],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[21], EX_BLOCK:EX_BLOCK|imm_pom[20],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[19], EX_BLOCK:EX_BLOCK|imm_pom[18],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[17], EX_BLOCK:EX_BLOCK|imm_pom[16],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[15], EX_BLOCK:EX_BLOCK|imm_pom[14],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[13], EX_BLOCK:EX_BLOCK|imm_pom[12],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[11], EX_BLOCK:EX_BLOCK|imm_pom[10],                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[9], EX_BLOCK:EX_BLOCK|imm_pom[8],                          ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[7], EX_BLOCK:EX_BLOCK|imm_pom[6],                          ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[5], EX_BLOCK:EX_BLOCK|imm_pom[4],                          ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[3], EX_BLOCK:EX_BLOCK|imm_pom[2],                          ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|imm_pom[1], EX_BLOCK:EX_BLOCK|imm_pom[0]                           ;
+; ID_BLOCK:ID_BLOCK|JSR_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|JSR_out~reg0, EX_BLOCK:EX_BLOCK|JSR_pom,                           ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[29], ID_BLOCK:ID_BLOCK|jump_to_pc_out[28],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[27], ID_BLOCK:ID_BLOCK|jump_to_pc_out[26],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[25], ID_BLOCK:ID_BLOCK|jump_to_pc_out[24],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[23], ID_BLOCK:ID_BLOCK|jump_to_pc_out[22],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[21], ID_BLOCK:ID_BLOCK|jump_to_pc_out[20],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[19], ID_BLOCK:ID_BLOCK|jump_to_pc_out[18],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[17], ID_BLOCK:ID_BLOCK|jump_to_pc_out[16],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[15], ID_BLOCK:ID_BLOCK|jump_to_pc_out[14],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[13], ID_BLOCK:ID_BLOCK|jump_to_pc_out[12],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[11], ID_BLOCK:ID_BLOCK|jump_to_pc_out[10],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[9], ID_BLOCK:ID_BLOCK|jump_to_pc_out[8],            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[7], ID_BLOCK:ID_BLOCK|jump_to_pc_out[6],            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[31], ID_BLOCK:ID_BLOCK|jump_to_pc_out[30],          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[5], ID_BLOCK:ID_BLOCK|jump_to_pc_out[4],            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[3], ID_BLOCK:ID_BLOCK|jump_to_pc_out[2],            ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|jump_to_pc_out[1], ID_BLOCK:ID_BLOCK|jump_to_pc_out[0]             ;
+; ID_BLOCK:ID_BLOCK|BEQ_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|reg2data[31], ID_BLOCK:ID_BLOCK|reg2data[30],                      ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|reg2data[29], ID_BLOCK:ID_BLOCK|reg2data[28],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[27], ID_BLOCK:ID_BLOCK|reg2data[26],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[25], ID_BLOCK:ID_BLOCK|reg2data[24],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[23], ID_BLOCK:ID_BLOCK|reg2data[22],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[21], ID_BLOCK:ID_BLOCK|reg2data[20],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[19], ID_BLOCK:ID_BLOCK|reg2data[18],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[17], ID_BLOCK:ID_BLOCK|reg2data[16],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[15], ID_BLOCK:ID_BLOCK|reg2data[14],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[13], ID_BLOCK:ID_BLOCK|reg2data[12],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[11], ID_BLOCK:ID_BLOCK|reg2data[10],                      ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[9], ID_BLOCK:ID_BLOCK|reg2data[8],                        ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[7], ID_BLOCK:ID_BLOCK|reg2data[6],                        ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[5], ID_BLOCK:ID_BLOCK|reg2data[4],                        ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[3], ID_BLOCK:ID_BLOCK|reg2data[2],                        ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|reg2data[1], ID_BLOCK:ID_BLOCK|reg2data[0]                         ;
+; ID_BLOCK:ID_BLOCK|reg2no[4]                ; Stuck at GND                   ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[31], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[30],  ;
+;                                            ; due to stuck port clock_enable ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[29], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[28],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[27], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[26],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[25], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[24],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[23], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[22],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[21], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[20],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[19], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[18],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[17], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[16],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[15], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[14],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[13], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[12],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[11], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[10],  ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[9], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[8],    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[7], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[6],    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[5], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[4],    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[3], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[2],    ;
+;                                            ;                                ; MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[1], MEM_BLOCK:MEM_BLOCK|reg_data_fwd_out[0]     ;
+; ID_BLOCK:ID_BLOCK|LOAD_pom                 ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|POP_pom~en, ID_BLOCK:ID_BLOCK|ADDI_pom~en,                         ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|SUB_pom~en, ID_BLOCK:ID_BLOCK|ADD_pom~en,                          ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|MOVI_pom~en, ID_BLOCK:ID_BLOCK|MOV_pom~en,                         ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|STORE_pom~en, ID_BLOCK:ID_BLOCK|LOAD_pom~en,                       ;
+;                                            ;                                ; ID_BLOCK:ID_BLOCK|LOAD_out~reg0, EX_BLOCK:EX_BLOCK|LOAD_pom                          ;
+; ID_BLOCK:ID_BLOCK|AND_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|BNQ_pom~en, ID_BLOCK:ID_BLOCK|PUSH_pom~en,                         ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|SHR_pom~en, ID_BLOCK:ID_BLOCK|AND_out~reg0,                        ;
+;                                            ;                                ; EX_BLOCK:EX_BLOCK|AND_pom                                                            ;
+; ID_BLOCK:ID_BLOCK|SHR_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|ROR_pom~en, ID_BLOCK:ID_BLOCK|SHR_out~reg0,                        ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|SHR_pom, EX_BLOCK:EX_BLOCK|imm_pom[31]                             ;
+; ID_BLOCK:ID_BLOCK|OR_pom                   ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|BGT_pom~en, ID_BLOCK:ID_BLOCK|SHL_pom~en,                          ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|OR_out~reg0, EX_BLOCK:EX_BLOCK|OR_pom                              ;
+; ID_BLOCK:ID_BLOCK|NOT_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|ROL_pom~en, ID_BLOCK:ID_BLOCK|NOT_out~reg0,                        ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|NOT_pom, EX_BLOCK:EX_BLOCK|imm_pom[30]                             ;
+; ID_BLOCK:ID_BLOCK|reg1no[0]                ; Stuck at GND                   ; ID_BLOCK:ID_BLOCK|Rd_out[4]~reg0, EX_BLOCK:EX_BLOCK|Rd_pom[0],                       ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|reg_no_ex_fwd_out[0]~reg0, MEM_BLOCK:MEM_BLOCK|Reg_pom[0]          ;
+; ID_BLOCK:ID_BLOCK|STORE_pom                ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|XOR_pom~en, ID_BLOCK:ID_BLOCK|OR_pom~en,                           ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|AND_pom~en                                                         ;
+; ID_BLOCK:ID_BLOCK|MOV_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|SUBI_pom~en, ID_BLOCK:ID_BLOCK|MOV_out~reg0,                       ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|MOV_pom                                                            ;
+; ID_BLOCK:ID_BLOCK|SUBI_pom                 ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|NOT_pom~en, ID_BLOCK:ID_BLOCK|SUBI_out~reg0,                       ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|SUBI_pom                                                           ;
+; ID_BLOCK:ID_BLOCK|SUB_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|BEQ_pom~en, ID_BLOCK:ID_BLOCK|SUB_out~reg0,                        ;
+;                                            ; due to stuck port data_in      ; EX_BLOCK:EX_BLOCK|SUB_pom                                                            ;
+; ID_BLOCK:ID_BLOCK|SAR_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|idle~en, ID_BLOCK:ID_BLOCK|SAR_out~reg0, EX_BLOCK:EX_BLOCK|SAR_pom ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|was_load_1               ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|was_arithm~en, ID_BLOCK:ID_BLOCK|was_load_1~en,                    ;
+;                                            ; due to stuck port data_in      ; ID_BLOCK:ID_BLOCK|was_load_2                                                         ;
+; ID_BLOCK:ID_BLOCK|MOVI_pom                 ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|MOVI_out~reg0, EX_BLOCK:EX_BLOCK|MOVI_pom                          ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|ADD_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|ADD_out~reg0, EX_BLOCK:EX_BLOCK|ADD_pom                            ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|ADDI_pom                 ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|ADDI_out~reg0, EX_BLOCK:EX_BLOCK|ADDI_pom                          ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|SHL_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|SHL_out~reg0, EX_BLOCK:EX_BLOCK|SHL_pom                            ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|ROL_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|ROL_out~reg0, EX_BLOCK:EX_BLOCK|ROL_pom                            ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|ROR_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|ROR_out~reg0, EX_BLOCK:EX_BLOCK|ROR_pom                            ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|PUSH_pom                 ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|PUSH_out~reg0, EX_BLOCK:EX_BLOCK|PUSH_pom                          ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|POP_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|POP_out~reg0, EX_BLOCK:EX_BLOCK|POP_pom                            ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; IF_BLOCK:IF_BLOCK|predicted_pc_out[0]~reg0 ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|write_cache_out                                                    ;
+; ID_BLOCK:ID_BLOCK|pc_out[31]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[31]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[30]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[30]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[29]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[29]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[28]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[28]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[27]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[27]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[26]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[26]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[25]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[25]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[24]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[24]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[23]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[23]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[22]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[22]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[21]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[21]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[20]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[20]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[19]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[19]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[18]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[18]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[17]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[17]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[16]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[16]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[15]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[15]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[14]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[14]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[13]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[13]                                                             ;
+; ID_BLOCK:ID_BLOCK|BGT_pom                  ; Stuck at VCC                   ; ID_BLOCK:ID_BLOCK|BLE_pom~en                                                         ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|pc_out[11]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[11]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[10]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[10]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[9]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[9]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[8]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[8]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[7]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[7]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[6]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[6]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[12]               ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[12]                                                             ;
+; ID_BLOCK:ID_BLOCK|pc_out[4]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[4]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[3]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[3]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[2]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[2]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[1]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[1]                                                              ;
+; ID_BLOCK:ID_BLOCK|pc_out[0]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[0]                                                              ;
+; ID_BLOCK:ID_BLOCK|rdReg1_out~reg0          ; Stuck at VCC                   ; WB_BLOCK:WB_BLOCK|data_out[28]                                                       ;
+;                                            ; due to stuck port data_in      ;                                                                                      ;
+; ID_BLOCK:ID_BLOCK|pc_out[5]                ; Lost Fanouts                   ; ID_BLOCK:ID_BLOCK|pc[5]                                                              ;
++--------------------------------------------+--------------------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1476,7 +1478,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1486,7 +1488,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Aug 19 01:57:53 2016
+    Info: Processing started: Sat Aug 20 16:26:08 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VLSI_Projekat -c CPU
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file mem_block.vhd
@@ -1979,6 +1981,10 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "EX_BLOCK:EX_BLOCK|Reg_out[2]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "EX_BLOCK:EX_BLOCK|Reg_out[3]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "EX_BLOCK:EX_BLOCK|Reg_out[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[7]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[6]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[5]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[4]" feeding internal logic into a wire
@@ -1986,10 +1992,6 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[2]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[1]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[0]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[7]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[8]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[9]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[10]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[11]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[12]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|new_pc_out[13]" feeding internal logic into a wire
@@ -2203,6 +2205,11 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg1data[29]~29" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg1data[30]~30" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg1data[31]~31" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg2no[0]~0" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg2no[1]~1" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg2no[2]~2" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg2no[3]~3" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|reg2no[4]~4" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BLE_pom~0" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BGE_pom~0" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "ID_BLOCK:ID_BLOCK|BLT_pom~0" feeding internal logic into a wire
@@ -2347,7 +2354,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "data_wb_reg[29]" is stuck at GND
     Warning (13410): Pin "data_wb_reg[30]" is stuck at GND
     Warning (13410): Pin "data_wb_reg[31]" is stuck at GND
-Info (17049): 891 registers lost all their fanouts during netlist optimizations.
+Info (17049): 896 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 97 input pin(s) that do not drive logic
@@ -2452,10 +2459,10 @@ Info (21057): Implemented 676 device resources after synthesis - the final resou
     Info (21058): Implemented 130 input pins
     Info (21059): Implemented 148 output pins
     Info (21061): Implemented 398 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 596 warnings
-    Info: Peak virtual memory: 510 megabytes
-    Info: Processing ended: Fri Aug 19 01:57:57 2016
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 601 warnings
+    Info: Peak virtual memory: 531 megabytes
+    Info: Processing ended: Sat Aug 20 16:26:22 2016
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:05
 
 
