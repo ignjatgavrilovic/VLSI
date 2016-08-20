@@ -108,6 +108,8 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 2 ms
+# Cannot change directory while a simulation is in progress.
+# Use the "quit -sim" command to unload the design first.
 quit -sim
 # reading E:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini
 # Loading project Ignjat_test

@@ -9,6 +9,7 @@ entity CPU is
 		reset : in std_logic;
 		ir_in : in std_logic_vector(31 downto 0); -- dobijeno od instr_cache
 		adr_out : out std_logic_vector(31 downto 0);
+		first_pc_instrcache_if : in std_logic_vector(31 downto 0);
 		
 		rdReg1_id_reg : out std_logic;
 		rdReg2_id_reg : out std_logic;
@@ -137,7 +138,9 @@ begin
 		jump_from_pc_in => jump_from_pc_id_if,
 		jump_to_pc_in	 => jump_to_pc_id_if,
 		predictor_in	 => predictor_id_if,
-		write_cache_in	 => write_cache_id_if  
+		write_cache_in	 => write_cache_id_if,
+		
+		first_pc_in => first_pc_instrcache_if
 	);
 	
 	ID_BLOCK: entity work.ID_BLOCK

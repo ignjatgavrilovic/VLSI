@@ -7,6 +7,7 @@ entity IF_BLOCK is
 	port (
 		clk : in std_logic;
 		adr_out : out std_logic_vector(31 downto 0); -- ka INSTR_CACHE
+		first_pc_in : in std_logic_vector(31 downto 0);
 		ir_in : in std_logic_vector(31 downto 0);
 		
 		-- saljemo ID_BLOCK-u
@@ -59,6 +60,9 @@ begin
 			if (stall_ex /= '1' AND stall_id /= '1') then
 				if (new_pc_in(0) /= 'Z' AND new_pc_in(0) /= 'U') then
 					pc_next := new_pc_in;
+				end if;
+				if (first_pc_in(0) /= 'Z' AND first_pc_in(0) /= 'U') then
+					pc_next := first_pc_in;
 				end if;
 				pc := pc_next;
 				adr_out <= pc_next;
