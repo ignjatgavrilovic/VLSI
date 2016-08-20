@@ -31,12 +31,15 @@ signal wr_wb_reg	 : std_logic;
 signal Reg_wb_reg	 : std_logic_vector(4 downto 0);
 signal data_wb_reg : std_logic_vector(31 downto 0);
 
+signal first_pc	 : std_logic_vector(31 downto 0);
+
 COMPONENT CPU
 	PORT (
 		adr_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		clk : IN STD_LOGIC;
 		ir_in : in std_logic_vector(31 downto 0);
 		reset : IN STD_LOGIC;
+		first_pc_instrcache_if : in  std_logic_vector(31 downto 0);
 		
 		rdReg1_id_reg : out std_logic;
 		rdReg2_id_reg : out std_logic;
@@ -62,7 +65,8 @@ component INSTR_CACHE
 	port (
 		reset : in std_logic;
 		adr_in : in std_logic_vector(31 downto 0);
-		ir_out : out std_logic_vector(31 downto 0)
+		ir_out : out std_logic_vector(31 downto 0);
+		first_pc_out : out std_logic_vector(31 downto 0)
 	);
 end component;
 
@@ -106,6 +110,7 @@ BEGIN
 		clk => clk,
 		reset => reset,
 		ir_in => ir_instrcache_if,
+		first_pc_instrcache_if => first_pc,
 		
 		rdReg1_id_reg => rdReg1_id_reg,
 		rdReg2_id_reg => rdReg2_id_reg,
@@ -130,7 +135,8 @@ BEGIN
 	PORT MAP (
 		reset => reset,
 		ir_out => ir_instrcache_if,
-		adr_in => adr_if_instrcache
+		adr_in => adr_if_instrcache,
+		first_pc_out => first_pc
 	);
 
 	i_reg_file : REG_FILE

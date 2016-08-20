@@ -9,7 +9,8 @@ entity INSTR_CACHE is
 	port (
 		reset : in std_logic;
 		adr_in : in std_logic_vector(31 downto 0);
-		ir_out : out std_logic_vector(31 downto 0)
+		ir_out : out std_logic_vector(31 downto 0);
+		first_pc_out : out std_logic_vector(31 downto 0)
 	);
 	
 end INSTR_CACHE;
@@ -28,8 +29,11 @@ begin
 	begin
 		if (reset = '1' AND  stop ='0') then
 			file_open(read_file, "testovi/test_ins_01.txt", read_mode);
-			--readline (read_file, read_line); -- pocetna pc
-		
+			
+			readline(read_file, read_line);
+			hread(read_line, adr);
+			first_pc_out <= adr;
+			
 			while not (endfile(read_file)) loop
 				readline (read_file, read_line);
 				hread(read_line, adr);
@@ -39,6 +43,9 @@ begin
 			end loop;-- for_loop;
 			file_close(read_file);
 			stop:='1';
+		end if;
+		if (reset = 'Z') then
+			first_pc_out <= (others => 'Z');
 		end if;
 	end process;
 	
