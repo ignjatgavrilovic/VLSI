@@ -51,6 +51,7 @@ entity EX_BLOCK is
 		B_out    : out std_logic_vector(31 downto 0); --operand za store
 		load_out : out std_logic;
 		store_out: out std_logic;
+		rts_out	: out std_logic;
 		Reg_out  : out std_logic_vector(4 downto 0); -- 5 bitova iz IR-a sluze za adresiranje registara u WB stepenu
 		
 		pc_in		: in std_logic_vector(31 downto 0);
@@ -395,6 +396,9 @@ begin
 				
 				if (RTS_pom = '1') then
 					-- uraditi sa hazardima zbog stall-a
+					sp <= std_logic_vector(unsigned(sp) - 1);
+					ALU_out <= sp;
+					rts_out <= '1';
 				end if;
 				
 				if (PUSH_pom = '1') then

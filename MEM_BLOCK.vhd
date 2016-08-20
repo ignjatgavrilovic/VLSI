@@ -11,6 +11,7 @@ entity MEM_BLOCK is
 		B_in    	: in std_logic_vector(31 downto 0); --operand za store
 		load_in	: in std_logic;
 		store_in	: in std_logic;
+		rts_in	: in std_logic;
 		Reg_in	: in std_logic_vector(4 downto 0);
 		
 		-- salje se WB
@@ -26,7 +27,10 @@ entity MEM_BLOCK is
 		
 		-- HAZARDI mem -> ex
 		reg_no_fwd_out   : out std_logic_vector(4 downto 0);
-		reg_data_fwd_out : out std_logic_vector(31 downto 0)
+		reg_data_fwd_out : out std_logic_vector(31 downto 0);
+		
+		-- komunikacija sa ID zbog RTS_in
+		new_pc_out : out std_logic_vector(31 downto 0)
 	);
 	
 end MEM_BLOCK;
@@ -39,6 +43,7 @@ begin
 		variable B_pom   	: std_logic_vector(31 downto 0); 
 		variable load_pom	: std_logic;
 		variable store_pom: std_logic;
+		variable rts_pom  : std_logic;
 		variable Reg_pom	: std_logic_vector(4 downto 0);
 	begin
 	
@@ -48,9 +53,10 @@ begin
 			B_pom   	 := B_in     ;	
 			load_pom	 := load_in	 ;
 			store_pom := store_in ;	
+			rts_pom   := rts_in	 ;
 			Reg_pom	 := Reg_in	 ;
 			
-			if (load_pom = '1') then
+			if (load_pom = '1' OR rts_pom = '1') then
 				adr_out <= ALU_pom; -- adresa koju saljemo DATA_CACHE
 				rd_out <= '1';
 				wr_out <= 'Z';
@@ -77,6 +83,8 @@ begin
 				reg_data_fwd_out <= data_in;
 			elsif (store_pom = '1') then
 				Reg_out <= Reg_pom; -- 'Z'
+			elsif (rts_pom = '1') then
+				new_pc_out <= data_in;
 			else 
 				ALU_out <= ALU_pom;
 				Reg_out <= Reg_pom;

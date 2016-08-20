@@ -21,6 +21,9 @@ entity IF_BLOCK is
 		jump_predicted_in	 : in  std_logic; 
 		jump_predicted_out : out std_logic;
 		
+		-- od MEM zbog RTS
+		new_pc_mem_in		 : in  std_logic_vector(31 downto 0);
+		
 		-- predikcija cache
 		predictor_out   : out std_logic_vector(1 downto 0); -- izlaz ka ID-u
 		jump_from_pc_in : in std_logic_vector(31 downto 0);
@@ -58,7 +61,9 @@ begin
 		if (rising_edge(clk)) then 
 			
 			if (stall_ex /= '1' AND stall_id /= '1') then
-				if (new_pc_in(0) /= 'Z' AND new_pc_in(0) /= 'U') then
+				if (new_pc_mem_in(0) /= 'Z' AND new_pc_mem_in(0) /= 'U') then
+					pc_next := new_pc_mem_in;
+				elsif (new_pc_in(0) /= 'Z' AND new_pc_in(0) /= 'U') then
 					pc_next := new_pc_in;
 				end if;
 				if (first_pc_in(0) /= 'Z' AND first_pc_in(0) /= 'U') then

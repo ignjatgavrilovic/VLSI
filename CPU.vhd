@@ -116,6 +116,11 @@ architecture rtl of CPU is
 		signal jump_from_pc_id_if : std_logic_vector(31 downto 0);
 		signal jump_to_pc_id_if   : std_logic_vector(31 downto 0);
 		signal write_cache_id_if  : std_logic;
+		
+		-- komunikacija IF/EX i MEM zbog RTS
+		signal new_pc_mem_if   : std_logic_vector(31 downto 0);
+		signal rts_ex_mem 	  : std_logic;
+		
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -140,7 +145,9 @@ begin
 		predictor_in	 => predictor_id_if,
 		write_cache_in	 => write_cache_id_if,
 		
-		first_pc_in => first_pc_instrcache_if
+		first_pc_in => first_pc_instrcache_if,
+		
+		new_pc_mem_in => new_pc_mem_if
 	);
 	
 	ID_BLOCK: entity work.ID_BLOCK
@@ -290,7 +297,9 @@ begin
 		stall_out => stall_ex,
 		
 		was_load_in  => was_load,
-		was_load_out => was_load
+		was_load_out => was_load,
+		
+		rts_out => rts_ex_mem
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK
@@ -310,7 +319,10 @@ begin
 		data_in  => data_datacache_mem,
 		
 		reg_no_fwd_out   => reg_no_mem_ex_fwd,
-		reg_data_fwd_out => reg_data_mem_ex_fwd
+		reg_data_fwd_out => reg_data_mem_ex_fwd,
+		
+		new_pc_out => new_pc_mem_if,
+		rts_in => rts_ex_mem
 	);
 	
 	WB_BLOCK: entity work.WB_BLOCK

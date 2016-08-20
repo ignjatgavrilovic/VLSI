@@ -114,6 +114,7 @@ architecture rtl of ID_BLOCK is
 	shared variable stall_branch_1 : integer := 0;
 	shared variable stall_branch_2 : integer := 0;
 	shared variable stall_branch	 : integer := 0;
+	shared variable idle_cnt		 : integer := 0;
 begin
 
 	process(clk,ir_in) is	
@@ -773,7 +774,8 @@ begin
 					end if;
 					
 					if (RTS_pom = '1') then
-					
+						idle_cnt := 2;
+						idle := '1';
 					end if;
 					
 					if (PUSH_pom = '1') then
@@ -929,7 +931,11 @@ begin
 						new_pc_out <= (others => 'Z');
 					end if;
 				else -- ako je idle_self_in = 1
-					idle := 'Z';
+					if (idle_cnt = 0) then
+						idle := 'Z';
+					else
+						idle_cnt := idle_cnt - 1;
+					end if;
 					new_pc_out <= (others => 'Z');
 					reg1_no_fwd_out <= (others => 'Z');
 					reg2_no_fwd_out <= (others => 'Z');
