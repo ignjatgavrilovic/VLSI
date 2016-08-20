@@ -92,7 +92,7 @@ architecture rtl of CPU is
 		signal predicted_pc_ex_if   : std_logic_vector(31 downto 0);
 		signal jump_predicted_ex_if : std_logic;
 		
-		signal predictor_high_bit_id_if : std_logic;
+
 		signal idle_id_id : std_logic;
 		
 		-- hazardi
@@ -105,8 +105,16 @@ architecture rtl of CPU is
 		signal reg1_no_id_ex_fwd   : std_logic_vector(4 downto 0);
 		signal reg2_no_id_ex_fwd   : std_logic_vector(4 downto 0);
 		
-		signal stall : std_logic;
+		signal stall_ex : std_logic;
+		signal stall_id : std_logic;
 		signal was_load : std_logic;
+		
+		-- predikcijski cache IF-ID
+		signal predictor_if_id 	  : std_logic_vector(1 downto 0);
+		signal predictor_id_if    : std_logic_vector(1 downto 0);
+		signal jump_from_pc_id_if : std_logic_vector(31 downto 0);
+		signal jump_to_pc_id_if   : std_logic_vector(31 downto 0);
+		signal write_cache_id_if  : std_logic;
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -122,8 +130,14 @@ begin
 		jump_predicted_in	 => jump_predicted_ex_if,
 		jump_predicted_out => jump_predicted_if_id,
 		
-		predictor_high_bit_in => predictor_high_bit_id_if,
-		stall_in => stall
+		stall_ex_in => stall_ex,
+		stall_id_in => stall_id,
+		
+		predictor_out   => predictor_if_id,   
+		jump_from_pc_in => jump_from_pc_id_if,
+		jump_to_pc_in	 => jump_to_pc_id_if,
+		predictor_in	 => predictor_id_if,
+		write_cache_in	 => write_cache_id_if  
 	);
 	
 	ID_BLOCK: entity work.ID_BLOCK
@@ -183,8 +197,6 @@ begin
 		jump_predicted_in	 => jump_predicted_if_id,
 		jump_predicted_out => jump_predicted_id_ex,
 		
-		predictor_high_bit_out => predictor_high_bit_id_if,
-		
 		new_pc_out => new_pc_id_if,
 		
 		idle_self_out => idle_id_id,
@@ -193,8 +205,21 @@ begin
 		reg1_no_fwd_out => reg1_no_id_ex_fwd,
 		reg2_no_fwd_out => reg2_no_id_ex_fwd,
 		
-		stall_in => stall
+		stall_ex_in  => stall_ex,
+		stall_id_in  => stall_id,
+		stall_id_out => stall_id,
 		
+		predictor_in 	  => predictor_if_id, 	  
+		predictor_out    => predictor_id_if,    
+		jump_from_pc_out => jump_from_pc_id_if, 
+		jump_to_pc_out   => jump_to_pc_id_if,  
+		write_cache_out  => write_cache_id_if,
+
+		-- ruzni nazivi s desne strane jer su se koristili za stall u ex-u
+		reg_no_ex_fwd_in    => reg_no_ex_ex_fwd,
+      reg_data_ex_fwd_in  => reg_data_ex_ex_fwd,
+      reg_no_mem_fwd_in   => reg_no_mem_ex_fwd,
+		reg_data_mem_fwd_in => reg_data_mem_ex_fwd
 	);
 	
 	
@@ -258,8 +283,8 @@ begin
 		reg1_no_fwd_in => reg1_no_id_ex_fwd,
 		reg2_no_fwd_in => reg2_no_id_ex_fwd,
 		
-		stall_in  => stall,
-		stall_out => stall,
+		stall_in  => stall_ex,
+		stall_out => stall_ex,
 		
 		was_load_in  => was_load,
 		was_load_out => was_load

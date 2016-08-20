@@ -44,7 +44,6 @@ begin
 	
 	process (adr_in) is begin 
 		ir_out <= cache(to_integer(unsigned(adr_in)));
-		
 	end process;
 	
 end architecture;
