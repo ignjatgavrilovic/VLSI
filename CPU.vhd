@@ -27,7 +27,9 @@ entity CPU is
 	
 		wr_wb_reg	: out std_logic;
 		Reg_wb_reg	: out std_logic_vector(4 downto 0);
-		data_wb_reg	: out std_logic_vector(31 downto 0)
+		data_wb_reg	: out std_logic_vector(31 downto 0);
+		
+		halt_out    : out std_logic
 	);
 
 end CPU;
@@ -89,9 +91,6 @@ architecture rtl of CPU is
 		signal predicted_pc_if_id   : std_logic_vector(31 downto 0);
 		signal jump_predicted_if_id : std_logic;
 		signal predicted_pc_id_ex   : std_logic_vector(31 downto 0);
-		signal jump_predicted_id_ex : std_logic;
-		signal predicted_pc_ex_if   : std_logic_vector(31 downto 0);
-		signal jump_predicted_ex_if : std_logic;
 		
 
 		signal idle_id_id : std_logic;
@@ -121,6 +120,10 @@ architecture rtl of CPU is
 		signal new_pc_mem_if   : std_logic_vector(31 downto 0);
 		signal rts_ex_mem 	  : std_logic;
 		
+		-- halt
+		signal halt_ex_mem : std_logic;
+		signal halt_mem_wb : std_logic;
+		
 begin
 	IF_BLOCK: entity work.IF_BLOCK
 	port map (
@@ -131,9 +134,7 @@ begin
 		new_pc_in => new_pc_id_if,
 		pc_out => pc_if_id,
 
-		predicted_pc_in	 => predicted_pc_ex_if,
 		predicted_pc_out 	 => predicted_pc_if_id,
-		jump_predicted_in	 => jump_predicted_ex_if,
 		jump_predicted_out => jump_predicted_if_id,
 		
 		stall_ex_in => stall_ex,
@@ -203,14 +204,9 @@ begin
 		pc_out => pc_id_ex,
 		
 		predicted_pc_in	 => predicted_pc_if_id,
-		predicted_pc_out 	 => predicted_pc_id_ex,
 		jump_predicted_in	 => jump_predicted_if_id,
-		jump_predicted_out => jump_predicted_id_ex,
 		
 		new_pc_out => new_pc_id_if,
-		
-		idle_self_out => idle_id_id,
-		idle_self_in  => idle_id_id,
 		
 		reg1_no_fwd_out => reg1_no_id_ex_fwd,
 		reg2_no_fwd_out => reg2_no_id_ex_fwd,
@@ -299,7 +295,9 @@ begin
 		was_load_in  => was_load,
 		was_load_out => was_load,
 		
-		rts_out => rts_ex_mem
+		rts_out => rts_ex_mem,
+
+		halt_out => halt_ex_mem
 	);
 	
 	MEM_BLOCK: entity work.MEM_BLOCK
@@ -322,7 +320,10 @@ begin
 		reg_data_fwd_out => reg_data_mem_ex_fwd,
 		
 		new_pc_out => new_pc_mem_if,
-		rts_in => rts_ex_mem
+		rts_in => rts_ex_mem,
+		
+		halt_in  => halt_ex_mem,
+		halt_out => halt_mem_wb
 	);
 	
 	WB_BLOCK: entity work.WB_BLOCK
@@ -332,7 +333,10 @@ begin
 		Reg_in => Reg_mem_wb,
 		wr_out   => wr_wb_reg,	
 		reg_out  => Reg_wb_reg,	
-		data_out => data_wb_reg	
+		data_out => data_wb_reg,
+	
+		halt_in => halt_mem_wb,
+		halt_out => halt_out
 	);
 end architecture;
 

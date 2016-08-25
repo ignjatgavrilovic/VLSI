@@ -15,13 +15,15 @@ entity DATA_CACHE is
 		
 		adr_in	: in  std_logic_vector(31 downto 0); -- adresa na koju se upisuje/sa koje se cita
 		data_in  : in  std_logic_vector(31 downto 0);
-		data_out : out std_logic_vector(31 downto 0)
+		data_out : out std_logic_vector(31 downto 0);
+		
+		halt_in  : in std_logic
 	);
 	
 end DATA_CACHE;
 
 architecture rtl of DATA_CACHE is
-	type cache_type is array(550 downto 0) of std_logic_vector(31 downto 0);
+	type cache_type is array(1023 downto 0) of std_logic_vector(31 downto 0);
 	shared variable cache : cache_type;
 begin
 	-- process koji ce da cita iz fajla
@@ -69,6 +71,39 @@ begin
 	begin
 		if (wr_in = '1') then
 			cache(to_integer(unsigned(adr_in))) := data_in;
+		end if;
+	end process;
+	
+	process (halt_in) is
+		file read_file : text; 
+		variable read_line : line; 
+		variable adr : std_logic_vector (31 downto 0);
+		variable data : std_logic_vector (31 downto 0);
+		variable uspeh : std_logic;
+	begin
+		if (halt_in = '1') then
+			file_open(read_file, "testovi/test_data_ocekivan_01.txt", read_mode);
+			uspeh := '1';
+			while not (endfile(read_file)) loop
+				readline (read_file, read_line);
+				hread(read_line, adr);
+				read(read_line, data);
+
+				if (cache(to_integer(unsigned(adr))) /= data) then
+					uspeh := '0';
+				end if;
+				
+				
+			end loop;-- for_loop;
+			
+			if (uspeh = '0') then
+				report "Data memory is not as expected.";
+			else
+				report "USPESAN KRAJ!";
+			end if;
+				
+			file_close(read_file);
+
 		end if;
 	end process;
 	

@@ -1,5 +1,5 @@
 Flow report for CPU
-Sat Aug 20 17:38:06 2016
+Thu Aug 25 21:21:08 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Sat Aug 20 17:38:06 2016           ;
+; Flow Status                        ; Successful - Thu Aug 25 21:21:08 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; CPU                                             ;
 ; Top-level Entity Name              ; CPU                                             ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C70F896I8                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 226                                             ;
-;     Total combinational functions  ; 114                                             ;
-;     Dedicated logic registers      ; 194                                             ;
-; Total registers                    ; 194                                             ;
-; Total pins                         ; 310                                             ;
+; Total logic elements               ; 115                                             ;
+;     Total combinational functions  ; 51                                              ;
+;     Dedicated logic registers      ; 99                                              ;
+; Total registers                    ; 99                                              ;
+; Total pins                         ; 311                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/20/2016 17:38:01 ;
+; Start date & time ; 08/25/2016 21:21:03 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CPU                 ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 128575983216852.147170748103484       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 25277263973046.147215286305384        ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; cpu_vhd_tst    ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; cpu_vhd_tst                           ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation ;
@@ -101,8 +101,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 526 MB              ; 00:00:05                           ;
-; Total                ; 00:00:06     ; --                      ; --                  ; 00:00:05                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 521 MB              ; 00:00:06                           ;
+; Total                ; 00:00:06     ; --                      ; --                  ; 00:00:06                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,7 +111,7 @@ applicable agreement for further details.
 +----------------------+------------------+-----------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; MIXA             ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis ; Ignjat           ; Windows 7 ; 6.2        ; x86_64         ;
 +----------------------+------------------+-----------+------------+----------------+
 
 

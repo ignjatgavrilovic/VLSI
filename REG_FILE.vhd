@@ -55,7 +55,7 @@ begin
 	end process;
 	
 	-- upis iz WB_BLOCK-a
-	process (wr_in, data_in) is
+	process (wr_in, data_in, reg_in) is
 	begin
 		if (wr_in = '1') then
 			regs(to_integer(unsigned(reg_in))) := data_in;

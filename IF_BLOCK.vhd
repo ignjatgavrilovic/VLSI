@@ -16,9 +16,7 @@ entity IF_BLOCK is
 		
 		-- predikcija skoka
 		new_pc_in 			 : in  std_logic_vector(31 downto 0); -- dobijamo od ID_BLOCK-a 
-		predicted_pc_in	 : in  std_logic_vector(31 downto 0); -- dobijamo od ID_BLOCK-a 
 		predicted_pc_out 	 : out std_logic_vector(31 downto 0); -- saljemo do EX_BLOCK-a preko ID-a
-		jump_predicted_in	 : in  std_logic; 
 		jump_predicted_out : out std_logic;
 		
 		-- od MEM zbog RTS

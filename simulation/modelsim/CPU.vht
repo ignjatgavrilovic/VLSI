@@ -33,6 +33,8 @@ signal data_wb_reg : std_logic_vector(31 downto 0);
 
 signal first_pc	 : std_logic_vector(31 downto 0);
 
+signal halt_wb_datacahce : std_logic;
+
 COMPONENT CPU
 	PORT (
 		adr_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -57,7 +59,8 @@ COMPONENT CPU
 		
 		wr_wb_reg	: out std_logic;
 		Reg_wb_reg	: out std_logic_vector(4 downto 0);
-		data_wb_reg	: out std_logic_vector(31 downto 0)
+		data_wb_reg	: out std_logic_vector(31 downto 0);
+		halt_out		: out std_logic
 	);
 END COMPONENT;
 
@@ -98,7 +101,9 @@ component DATA_CACHE
 		
 		adr_in	: in  std_logic_vector(31 downto 0);
 		data_in  : in  std_logic_vector(31 downto 0);
-		data_out : out std_logic_vector(31 downto 0)
+		data_out : out std_logic_vector(31 downto 0);
+		
+		halt_in  : in std_logic
 	);
 end component;
 
@@ -128,7 +133,8 @@ BEGIN
 		
 		wr_wb_reg	=> wr_wb_reg,
 		Reg_wb_reg	=> Reg_wb_reg,
-		data_wb_reg	=> data_wb_reg
+		data_wb_reg	=> data_wb_reg,
+		halt_out => halt_wb_datacahce
 	);
 	
 	i_instr_cache : INSTR_CACHE
@@ -164,7 +170,9 @@ BEGIN
 		wr_in		=> wr_mem_datacache,
 		adr_in	=> adr_mem_datacache,
 		data_in  => data_mem_datacache,
-		data_out => data_datacache_mem
+		data_out => data_datacache_mem,
+		
+		halt_in => halt_wb_datacahce
 	);
 	
 	clock: process is

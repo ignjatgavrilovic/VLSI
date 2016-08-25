@@ -74,13 +74,15 @@ entity EX_BLOCK is
 		
 		-- id -> ex
 		reg1_no_fwd_in		  : in std_logic_vector(4 downto 0);
-		reg2_no_fwd_in		  : in std_logic_vector(4 downto 0)
+		reg2_no_fwd_in		  : in std_logic_vector(4 downto 0);
+		
+		halt_out : out std_logic
 	);
 	
 end EX_BLOCK;
 
 architecture rtl of EX_BLOCK is
-	signal sp : std_logic_vector(31 downto 0) := X"0000FFFF";
+	shared variable sp : std_logic_vector(31 downto 0) := X"00000300"; -- ili da bude signal pa da se doda sp_next?
 	signal idle_out : std_logic;
 	signal idle_in  : std_logic;
 begin
@@ -124,6 +126,7 @@ begin
 		variable stall_pom : std_logic;
 		variable operand1 : std_logic_vector(31 downto 0);
 		variable operand2 : std_logic_vector(31 downto 0);
+		variable shift_pom: std_logic_vector(31 downto 0);
 	begin
 		
 		if (rising_edge(clk)) then
@@ -162,6 +165,8 @@ begin
 				
 				Rd_pom     := Rd_in   ;
 				imm_pom    := imm_in  ;
+				
+				
 				
 				-- HAZARDI logika za stall
 				if (reg1_no_fwd_in(0) /= 'Z' AND reg1_no_fwd_in(0) /= 'U') then
@@ -222,8 +227,12 @@ begin
 				B_out     <= (others => 'Z');
 				load_out  <= 'Z';
 				store_out <= 'Z';
+				rts_out <= 'Z';
 				was_load_out <= 'Z';
 				reg_no_ex_fwd_out <= (others => 'Z');
+				shift_pom := (others => '0');
+				
+				halt_out <= HALT_pom;
 				
 				if (LOAD_pom = '1') then
 					ALU_out <= std_logic_vector(signed(operand1) + signed(imm_pom)); -- adresa sa koje se cita
@@ -232,12 +241,14 @@ begin
 					reg_data_ex_fwd_out <= (others => 'Z');
 					reg_no_ex_fwd_out <= Rd_pom;
 					was_load_out <= '1';
+					load_out <= '1';
 				end if;
 				
 				if (STORE_pom = '1') then
 					ALU_out <= std_logic_vector(signed(operand1) + signed(imm_pom));
 					B_out <= operand2;
-					--store_out <= '1';
+					Reg_out <= (others => 'Z');
+					store_out <= '1';
 				end if;
 				
 				if (MOV_pom = '1') then
@@ -312,72 +323,82 @@ begin
 				
 				if (SHR_pom = '1') then
 					for i in 0 to 31 loop
-						if (i < 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
+						if (i < to_integer(unsigned(imm_pom))) then
+							shift_pom(i + 32 - to_integer(unsigned(imm_pom))) := '0';
+							--reg_data_ex_fwd_out(i + 32 - to_integer(unsigned(imm_pom))) <= '0';
 						else
-							ALU_out(i) <= '0';
-							reg_data_ex_fwd_out(i) <= '0';
+							shift_pom(i - to_integer(unsigned(imm_pom))) := operand1(i);
+							--reg_data_ex_fwd_out(i + 32 - to_integer(unsigned(imm_pom))) <= operand1(i);
 						end if;
 					end loop;
 					Reg_out <= Rd_pom;
 					reg_no_ex_fwd_out <= Rd_pom;
+					ALU_out <= shift_pom;
+					reg_data_ex_fwd_out <= shift_pom;
 				end if;
 				
 				if (SHL_pom = '1') then
 					for i in 31 downto 0 loop
-						if (i > 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
+						if (i > 31 - to_integer(unsigned(imm_pom))) then
+							shift_pom(i + to_integer(unsigned(imm_pom)) - 32) := '0';
+							--reg_data_ex_fwd_out(i + to_integer(unsigned(imm_pom)) - 32) <= '0';
 						else
-							ALU_out(i) <= '0';
-							reg_data_ex_fwd_out(i) <= '0';
+							shift_pom(i + to_integer(unsigned(imm_pom))) := operand1(i);
+							--reg_data_ex_fwd_out(i + to_integer(unsigned(imm_pom))) <= operand1(i);
 						end if;
 					end loop;
 					Reg_out <= Rd_pom;
 					reg_no_ex_fwd_out <= Rd_pom;
+					ALU_out <= shift_pom;
+					reg_data_ex_fwd_out <= shift_pom;
 				end if;
 				
 				if (SAR_pom = '1') then
 					for i in 0 to 31 loop
-						if (i < 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
+						if (i < to_integer(unsigned(imm_pom))) then
+							shift_pom(i + 32 - to_integer(unsigned(imm_pom))) := operand1(31);
+							--reg_data_ex_fwd_out(i + 32 - to_integer(unsigned(imm_pom))) <= operand1(31);
 						else
-							ALU_out(i) <= operand1(31);
-							reg_data_ex_fwd_out(i) <= operand1(31);
+							shift_pom(i - to_integer(unsigned(imm_pom))) := operand1(i);
+							--reg_data_ex_fwd_out(i + 32 - to_integer(unsigned(imm_pom))) <= operand1(i);
 						end if;
 					end loop;
 					Reg_out <= Rd_pom;
 					reg_no_ex_fwd_out <= Rd_pom;
+					ALU_out <= shift_pom;
+					reg_data_ex_fwd_out <= shift_pom;
 				end if;
 				
 				if (ROL_pom = '1') then
 					for i in 31 downto 0 loop
-						if (i >= 31 - to_integer(unsigned(imm_in))) then
-							ALU_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
-							reg_data_ex_fwd_out(i) <= operand1(i - to_integer(unsigned(imm_in)));
+						if (i > 31 - to_integer(unsigned(imm_pom))) then
+							shift_pom(i + to_integer(unsigned(imm_pom)) - 32) := operand1(i);
+							--reg_data_ex_fwd_out(i + to_integer(unsigned(imm_pom)) - 32) <= operand1(i);
 						else
-							ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
-							reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
+							shift_pom(i + to_integer(unsigned(imm_pom))) := operand1(i);
+							--reg_data_ex_fwd_out(i + to_integer(unsigned(imm_pom))) <= operand1(i);
 						end if;
 					end loop;
 					Reg_out <= Rd_pom;
 					reg_no_ex_fwd_out <= Rd_pom;
+					ALU_out <= shift_pom;
+					reg_data_ex_fwd_out <= shift_pom;
 				end if;
 				
 				if (ROR_pom = '1') then
 					for i in 0 to 31 loop
-						if (i <= 31 - to_integer(unsigned(imm_in))) then
-								ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
-								reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)));
-							else
-								ALU_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
-								reg_data_ex_fwd_out(i) <= operand1(i + to_integer(unsigned(imm_in)) - 32);
-							end if;
+						if (i < to_integer(unsigned(imm_pom))) then
+							shift_pom(i + 32 - to_integer(unsigned(imm_pom))) := operand1(i);
+							--reg_data_ex_fwd_out(i + 32 - to_integer(unsigned(imm_pom))) <= operand1(i);
+						else
+							shift_pom(i - to_integer(unsigned(imm_pom))) := operand1(i);
+							--reg_data_ex_fwd_out(i + 32 - to_integer(unsigned(imm_pom))) <= operand1(i);
+						end if;
 					end loop;
 					Reg_out <= Rd_pom;
 					reg_no_ex_fwd_out <= Rd_pom;
+					ALU_out <= shift_pom;
+					reg_data_ex_fwd_out <= shift_pom;
 				end if;
 				
 				if (JMP_pom = '1') then
@@ -387,7 +408,7 @@ begin
 				if (JSR_pom = '1') then
 					-- sp na stack
 					ALU_out <= sp;
-					sp <= std_logic_vector(unsigned(sp) + 1);
+					sp := std_logic_vector(unsigned(sp) + 1);
 					B_out <= std_logic_vector(unsigned(pc_in) + 1);
 					store_out <= '1';
 					-- prva adresa potprograma
@@ -396,25 +417,26 @@ begin
 				
 				if (RTS_pom = '1') then
 					-- uraditi sa hazardima zbog stall-a
-					sp <= std_logic_vector(unsigned(sp) - 1);
+					sp := std_logic_vector(unsigned(sp) - 1);
 					ALU_out <= sp;
 					rts_out <= '1';
 				end if;
 				
 				if (PUSH_pom = '1') then
 					ALU_out <= sp;
-					sp <= std_logic_vector(unsigned(sp) + 1);
+					sp := std_logic_vector(unsigned(sp) + 1);
 					B_out <= operand1;
 					store_out <= '1';
 				end if;
 				
 				if (POP_pom = '1') then
-					sp <= std_logic_vector(unsigned(sp) - 1);
+					sp := std_logic_vector(unsigned(sp) - 1);
 					ALU_out <= sp;
 					Reg_out <= Rd_pom;
 					reg_no_ex_fwd_out <= Rd_pom;
-					reg_data_ex_fwd_out <= sp;
+					reg_data_ex_fwd_out <= (others => 'Z');
 					load_out <= '1';
+					was_load_out <= '1';
 				end if;
 				
 				if (BEQ_pom = '1') then
@@ -445,17 +467,20 @@ begin
 					
 				end if;
 				
-				if (LOAD_pom = '1') then
-					load_out <= '1';
-				else
-					load_out <= 'Z';
-				end if;
+				-- izbaceno iznad if-ova
 				
-				if (STORE_pom = '1') then
-					store_out <= '1';
-				else
-					store_out <= 'Z';
-				end if;
+--				if (LOAD_pom = '1') then
+--					load_out <= '1';
+--				else
+--					load_out <= 'Z';
+--				end if;
+				
+--				if (STORE_pom = '1' ) then
+--					store_out <= '1';
+--				else
+--					store_out <= 'Z';
+--				end if;
+				
 			else -- ako je bio stall
 				was_load_out <= '0';
 			end if;

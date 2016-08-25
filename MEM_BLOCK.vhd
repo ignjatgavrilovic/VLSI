@@ -30,7 +30,11 @@ entity MEM_BLOCK is
 		reg_data_fwd_out : out std_logic_vector(31 downto 0);
 		
 		-- komunikacija sa ID zbog RTS_in
-		new_pc_out : out std_logic_vector(31 downto 0)
+		new_pc_out : out std_logic_vector(31 downto 0);
+		
+		-- halt
+		halt_in  : in  std_logic;
+		halt_out : out std_logic
 	);
 	
 end MEM_BLOCK;
@@ -45,6 +49,7 @@ begin
 		variable store_pom: std_logic;
 		variable rts_pom  : std_logic;
 		variable Reg_pom	: std_logic_vector(4 downto 0);
+		variable halt_pom : std_logic;
 	begin
 	
 		if (rising_edge(clk)) then
@@ -55,6 +60,7 @@ begin
 			store_pom := store_in ;	
 			rts_pom   := rts_in	 ;
 			Reg_pom	 := Reg_in	 ;
+			halt_pom  := halt_in  ;
 			
 			if (load_pom = '1' OR rts_pom = '1') then
 				adr_out <= ALU_pom; -- adresa koju saljemo DATA_CACHE
@@ -73,9 +79,9 @@ begin
 		end if;
 		
 		if (falling_edge(clk)) then
-			--rd_out <= '0';
-			--wr_out <= '0';
-		
+			halt_out <= halt_pom;
+			new_pc_out <= (others => 'Z');
+			
 			if (load_pom = '1') then
 				ALU_out <= data_in; -- dobijen podatak od DATA_CACHE
 				Reg_out <= Reg_pom;
@@ -83,11 +89,15 @@ begin
 				reg_data_fwd_out <= data_in;
 			elsif (store_pom = '1') then
 				Reg_out <= Reg_pom; -- 'Z'
+				reg_no_fwd_out   <= (others => 'Z');  
+				reg_data_fwd_out <= (others => 'Z');
 			elsif (rts_pom = '1') then
 				new_pc_out <= data_in;
 			else 
 				ALU_out <= ALU_pom;
 				Reg_out <= Reg_pom;
+				reg_no_fwd_out   <= Reg_pom;
+				reg_data_fwd_out <= ALU_pom;
 			end if; 
 		end if;
 		

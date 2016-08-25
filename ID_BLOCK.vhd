@@ -59,14 +59,9 @@ entity ID_BLOCK is
 		
 		-- prosledjivanje od IF do EX
 		predicted_pc_in	 : in  std_logic_vector(31 downto 0); 
-		predicted_pc_out 	 : out std_logic_vector(31 downto 0); 
 		jump_predicted_in	 : in  std_logic; 
-		jump_predicted_out : out std_logic;
 		
 		new_pc_out				  : out std_logic_vector(31 downto 0);
-		
-		idle_self_in  : in  std_logic;
-		idle_self_out : out std_logic;
 		
 		-- dobijeno od IF vezano za prediktorski cache
 		predictor_in 	  : in std_logic_vector(1 downto 0);
@@ -115,6 +110,8 @@ architecture rtl of ID_BLOCK is
 	shared variable stall_branch_2 : integer := 0;
 	shared variable stall_branch	 : integer := 0;
 	shared variable idle_cnt		 : integer := 0;
+	
+	shared variable stop_cpu : std_logic := 'Z';
 begin
 
 	process(clk,ir_in) is	
@@ -160,8 +157,7 @@ begin
 		variable predictor_latch : std_logic_vector(1 downto 0);
 		variable predictor : std_logic_vector(1 downto 0);
 	begin
-		if (rising_edge(clk)) then
-			
+		if (rising_edge(clk) AND stop_cpu /= '1') then
 			if (stall_ex /= '1' AND stall_id /= '1') then
 				ir := ir_in;
 				pc := pc_in;
@@ -201,7 +197,7 @@ begin
 				rdReg1_out <= 'Z';
 				rdReg2_out <= 'Z';
 				
-				imm <= (others => 'Z');
+				imm <= (others => '0');
 				
 				--idle_self_in <= idle_self_out;
 				if (idle /= '1') then
@@ -309,35 +305,45 @@ begin
 					if (B"011000" = ir(31 downto 26)) then
 						SHL_pom  := '1';
 						Rd_pom   := ir(25 downto 21);
-						imm(15 downto 5)<= (others=>'0');
+						reg1_no_out <= Rd_pom;
+						rdReg1_out <= '1';
+						--imm(15 downto 5)<= (others=>'0');
 						imm(4 downto 0)  <= ir(15 downto 11);
 					end if;
 						
 					if (B"011001" = ir(31 downto 26)) then
 						SHR_pom  := '1';
 						Rd_pom   := ir(25 downto 21);
-						imm(15 downto 5)<= (others=>'0');
+						reg1_no_out <= Rd_pom;
+						rdReg1_out <= '1';
+						--imm(15 downto 5)<= (others=>'0');
 						imm(4 downto 0)  <= ir(15 downto 11);
 					end if;
 						
 					if (B"011010" = ir(31 downto 26)) then
 						SAR_pom  := '1';
 						Rd_pom   := ir(25 downto 21);
-						imm(15 downto 5)<= (others=>'0');
+						reg1_no_out <= Rd_pom;
+						rdReg1_out <= '1';
+						--imm(15 downto 5)<= (others=>'0');
 						imm(4 downto 0)  <= ir(15 downto 11);
 					end if;
 						
 					if (B"011011" = ir(31 downto 26)) then
 						ROL_pom  := '1';
 						Rd_pom   := ir(25 downto 21);
-						imm(15 downto 5)<= (others=>'0');
+						reg1_no_out <= Rd_pom;
+						rdReg1_out <= '1';
+						--imm(15 downto 5)<= (others=>'0');
 						imm(4 downto 0)  <= ir(15 downto 11);
 					end if;
 						
 					if (B"011100" = ir(31 downto 26)) then
 						ROR_pom  := '1';
 						Rd_pom   := ir(25 downto 21);
-						imm(15 downto 5)<= (others=>'0');
+						reg1_no_out <= Rd_pom;
+						rdReg1_out <= '1';
+						--imm(15 downto 5)<= (others=>'0');
 						imm(4 downto 0)  <= ir(15 downto 11);
 					end if;
 						
@@ -444,18 +450,12 @@ begin
 						stall_branch_1 := 0;
 						stall_branch_2 := 0;
 						
-						if (was_load_1 = '1') then
-							if (reg1no = was_load_1_reg_no) then
-								stall_branch_1 := 2;
-							end if;
-						elsif (was_load_2 = '1') then
-							if (reg1no = was_load_2_reg_no) then
-								stall_branch_1 := 1;
-							end if;
-						elsif (was_arithm = '1') then
-							if (reg1no = was_arithm_reg_no) then
-								stall_branch_1 := 1;
-							end if;
+						if (was_load_1 = '1' AND reg1no = was_load_1_reg_no) then						
+							stall_branch_1 := 2;
+						elsif (was_load_2 = '1' AND reg1no = was_load_2_reg_no) then			
+							stall_branch_1 := 1;
+						elsif (was_arithm = '1' AND reg1no = was_arithm_reg_no) then			
+							stall_branch_1 := 1;
 						elsif (reg1no = reg_no_ex_fwd_in) then
 							reg1data := reg_data_ex_fwd_in;
 						elsif (reg1no = reg_no_mem_fwd_in) then
@@ -464,18 +464,12 @@ begin
 							reg1data := (others => 'Z');
 						end if;
 						
-						if (was_load_1 = '1') then
-							if (reg2no = was_load_1_reg_no) then
-								stall_branch_2 := 2;
-							end if;
-						elsif (was_load_2 = '1') then
-							if (reg2no = was_load_2_reg_no) then
-								stall_branch_2 := 1;
-							end if;
-						elsif (was_arithm = '1') then
-							if (reg2no = was_arithm_reg_no) then
-								stall_branch_2 := 1;
-							end if;
+						if (was_load_1 = '1' AND reg2no = was_load_1_reg_no) then
+							stall_branch_2 := 2;
+						elsif (was_load_2 = '1' AND reg2no = was_load_2_reg_no) then
+							stall_branch_2 := 1;
+						elsif (was_arithm = '1' AND reg2no = was_arithm_reg_no) then
+							stall_branch_2 := 1;
 						elsif (reg2no = reg_no_ex_fwd_in) then
 							reg2data := reg_data_ex_fwd_in;
 						elsif (reg2no = reg_no_mem_fwd_in) then
@@ -504,18 +498,12 @@ begin
 						stall_branch_1 := 0;
 						stall_branch_2 := 0;
 						
-						if (was_load_1 = '1') then
-							if (reg1no = was_load_1_reg_no) then
-								stall_branch_1 := 2;
-							end if;
-						elsif (was_load_2 = '1') then
-							if (reg1no = was_load_2_reg_no) then
-								stall_branch_1 := 1;
-							end if;
-						elsif (was_arithm = '1') then
-							if (reg1no = was_arithm_reg_no) then
-								stall_branch_1 := 1;
-							end if;
+						if (was_load_1 = '1' AND reg1no = was_load_1_reg_no) then
+							stall_branch_1 := 2;
+						elsif (was_load_2 = '1' AND reg1no = was_load_2_reg_no) then
+							stall_branch_1 := 1;
+						elsif (was_arithm = '1' AND reg1no = was_arithm_reg_no) then
+							stall_branch_1 := 1;
 						elsif (reg1no = reg_no_ex_fwd_in) then
 							reg1data := reg_data_ex_fwd_in;
 						elsif (reg1no = reg_no_mem_fwd_in) then
@@ -567,7 +555,7 @@ begin
 			end if; 
 		end if;
 		
-		if (falling_edge(clk)) then
+		if (falling_edge(clk) AND stop_cpu /= '1') then
 		
 			stall_ex := stall_ex_in;
 			stall_id := stall_id_in;
@@ -737,30 +725,40 @@ begin
 					
 					if (SHR_pom = '1') then
 						Rd_out <= Rd_pom;
+						reg1_data_out <= reg1_data_in;
+						reg1_no_fwd_out <= Rd_pom;
 						was_arithm := '1';
 						was_arithm_reg_no := Rd_pom;
 					end if;
 					
 					if (SHL_pom = '1') then
 						Rd_out <= Rd_pom;
+						reg1_data_out <= reg1_data_in;
+						reg1_no_fwd_out <= Rd_pom;
 						was_arithm := '1';
 						was_arithm_reg_no := Rd_pom;
 					end if;
 					
 					if (SAR_pom = '1') then
 						Rd_out <= Rd_pom;
+						reg1_data_out <= reg1_data_in;
+						reg1_no_fwd_out <= Rd_pom;
 						was_arithm := '1';
 						was_arithm_reg_no := Rd_pom;
 					end if;
 						
 					if (ROL_pom = '1') then
 						Rd_out <= Rd_pom;
+						reg1_data_out <= reg1_data_in;
+						reg1_no_fwd_out <= Rd_pom;
 						was_arithm := '1';
 						was_arithm_reg_no := Rd_pom;
 					end if;
 					
 					if (ROR_pom = '1') then
 						Rd_out <= Rd_pom;
+						reg1_data_out <= reg1_data_in;
+						reg1_no_fwd_out <= Rd_pom;
 						was_arithm := '1';
 						was_arithm_reg_no := Rd_pom;
 					end if;
@@ -798,7 +796,7 @@ begin
 						reg2_no_fwd_out <= ir(15 downto 11);
 						
 						if (reg1data = reg2data) then
-							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long));
+							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long) + 1);
 						else
 							new_pc := std_logic_vector(signed(pc_in) + 1);
 						end if;
@@ -811,7 +809,7 @@ begin
 						reg2_no_fwd_out <= ir(15 downto 11);
 						
 						if (reg1data /= reg2data) then
-							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long));
+							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long) + 1);
 						else
 							new_pc := std_logic_vector(signed(pc_in) + 1);
 						end if;
@@ -824,7 +822,7 @@ begin
 						reg2_no_fwd_out <= ir(15 downto 11);
 
 						if (reg1data > reg2data) then
-							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long));
+							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long) + 1);
 						else
 							new_pc := std_logic_vector(signed(pc_in) + 1);
 						end if;
@@ -837,7 +835,7 @@ begin
 						reg2_no_fwd_out <= ir(15 downto 11);
 
 						if (reg1data < reg2data) then
-							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long));
+							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long) + 1);
 						else
 							new_pc := std_logic_vector(signed(pc_in) + 1);
 						end if;
@@ -850,7 +848,7 @@ begin
 						reg2_no_fwd_out <= ir(15 downto 11);
 
 						if (reg1data >= reg2data) then
-							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long));
+							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long) + 1);
 						else
 							new_pc := std_logic_vector(signed(pc_in) + 1);
 						end if;
@@ -863,14 +861,14 @@ begin
 						reg2_no_fwd_out <= ir(15 downto 11);
 
 						if (reg1data <= reg2data) then
-							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long));
+							new_pc := std_logic_vector(signed(pc_in) + signed(imm_long) + 1);
 						else
 							new_pc := std_logic_vector(signed(pc_in) + 1);
 						end if;
 					end if;
 					
 					if (HALT_pom = '1') then
-						
+						stop_cpu := '1';
 					end if;
 					
 					if (ir_in(31 downto 29) = B"101") then
@@ -926,9 +924,11 @@ begin
 					elsif (ir_in(31 downto 27) = B"10000") then
 						-- desio se JMP ili JSR, sledeca ins idle, postavi novu ins
 						new_pc_out <= new_pc;
+						write_cache_out <= 'Z';
 						idle := '1';
 					else -- ako nije instrukcija skoka
 						new_pc_out <= (others => 'Z');
+						write_cache_out <= 'Z';
 					end if;
 				else -- ako je idle_self_in = 1
 					if (idle_cnt = 0) then

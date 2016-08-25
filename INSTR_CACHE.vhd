@@ -16,7 +16,7 @@ entity INSTR_CACHE is
 end INSTR_CACHE;
 
 architecture RTL of INSTR_CACHE is
-	type cache_type is array(4095 downto 0) of std_logic_vector(31 downto 0);
+	type cache_type is array(8191 downto 0) of std_logic_vector(31 downto 0);
 	signal cache : cache_type;
 begin
 	-- napuni cache podacima iz fajla
